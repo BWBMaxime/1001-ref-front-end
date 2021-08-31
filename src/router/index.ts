@@ -3,6 +3,8 @@ import Home from '../views/Home.vue'
 import Who from '@/components/Who.vue'
 import What from '@/components/What.vue'
 import TestTailwind from '@/components/TestTailwind.vue'
+import Login from '@/components/Login.vue'
+import Test from '../views/Test.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -25,6 +27,12 @@ const routes: Array<RouteRecordRaw> = [
     name: "Test",
     component: TestTailwind
   },
+  {
+    path: '/login',
+    name: "page test",
+    component: Login
+  },
+  
   {
     path: '/about',
     name: 'About',
