@@ -1,13 +1,21 @@
 <template>
-  <test-tailwind></test-tailwind>
-  <router-view></router-view>
+  <SignIn></SignIn>
+  <What></What>
+  <Who></Who>
+  
+  
 </template>
 <script>
-import TestTailwind from '@/components/TestTailwind.vue'
+
+import What from '@/components/What.vue'
+import Who from '@/components/Who.vue'
+import SignIn from './components/SignIn.vue'
 
 export default {
-  components: { TestTailwind },
-  TestTailwind
+  components: {  What,Who,SignIn  },
+ 
+  What,Who,SignIn
+  
 }
 </script>
 
