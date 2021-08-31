@@ -3,6 +3,7 @@ import Home from '../views/Home.vue'
 import Who from '@/components/Who.vue'
 import What from '@/components/What.vue'
 import TestTailwind from '@/components/TestTailwind.vue'
+import Test from '../views/Test.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
