@@ -1,29 +1,11 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import Home from '../views/Home.vue'
-import Who from '@/components/Who.vue'
-import What from '@/components/What.vue'
-import TestTailwind from '@/components/TestTailwind.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: 'Home',
     component: Home
-  },
-  {
-    path: '/qui',
-    name: "Who",
-    component: Who
-  },
-  {
-    path: '/quoi',
-    name: "What",
-    component: What
-  },
-  {
-    path: '/test',
-    name: "Test",
-    component: TestTailwind
   },
   {
     path: '/about',
