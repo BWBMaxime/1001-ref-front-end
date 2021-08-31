@@ -1,13 +1,13 @@
 <template>
-  <test-tailwind></test-tailwind>
-  <router-view></router-view>
+  <form-contact-producer></form-contact-producer>
 </template>
+
 <script>
-import TestTailwind from '@/components/TestTailwind.vue'
+import FormContactProducer from '@/components/FormContactProducer.vue'
 
 export default {
-  components: { TestTailwind },
-  TestTailwind
+  components: { FormContactProducer },
+  FormContactProducer
 }
 </script>
 
