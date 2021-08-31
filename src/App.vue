@@ -1,13 +1,11 @@
 <template>
-  <test-tailwind></test-tailwind>
+  <Navbar></Navbar>
   <router-view></router-view>
 </template>
 <script>
-import TestTailwind from '@/components/TestTailwind.vue'
-
+import Navbar from '@/components/Navbar.vue'
 export default {
-  components: { TestTailwind },
-  TestTailwind
+  components: { Navbar }
 }
 </script>
 
