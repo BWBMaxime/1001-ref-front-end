@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full flex border-smoke">
+  <div class="w-full mb-20 flex border-smoke">
     <div class="carousel mr-28 ml-28 w-1/2">
       <div class="carousel-inner relative overflow-hidden">
         <!--Slide 1-->
@@ -120,7 +120,27 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      section : [
+        {
+          "title": "C'est Quoi ?",
+          "description" :" I will be the leader of a company that ends up being worth billions of ....."
+        
+        },
+
+      ],
+      imgcarousel : [
+        {
+          "first": "",
+          "second":"",
+          "third":""
+        },
+      ]
+    }
+  },
+};
 </script>
 <style scoped>
 .border-smoke {
