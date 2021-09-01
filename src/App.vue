@@ -1,13 +1,16 @@
 <template>
-  <test-tailwind></test-tailwind>
-  <router-view></router-view>
+  <!-- <card-message-detail></card-message-detail> -->
+  <card-message-overview></card-message-overview>
 </template>
 <script>
-import TestTailwind from '@/components/TestTailwind.vue'
+import CardMessageOverview from './components/CardMessageOverview.vue'
+// import CardMessageDetail from './components/CardMessageDetail.vue'
 
 export default {
-  components: { TestTailwind },
-  TestTailwind
+  components: { CardMessageOverview },
+  CardMessageOverview
+  // components: { CardMessageDetail },
+  // CardMessageDetail
 }
 </script>
 
