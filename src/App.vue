@@ -1,13 +1,12 @@
 <template>
-  <test-tailwind></test-tailwind>
-  <router-view></router-view>
+  <registration></registration>
 </template>
 <script>
-import TestTailwind from '@/components/TestTailwind.vue'
+import Registration from '@/components/Registration.vue'
 
 export default {
-  components: { TestTailwind },
-  TestTailwind
+  components: { Registration },
+  Registration
 }
 </script>
 
