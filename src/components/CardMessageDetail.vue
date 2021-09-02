@@ -8,7 +8,7 @@
                 <div class="col-start-1 col-end-8 p-3 rounded-lg">
                   <div class="flex flex-row items-center">
                     <div class="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0">
-                      JM
+                        <div v-html="message.icon"></div>
                     </div>
                     <div class="relative ml-3 text-sm bg-white py-2 px-4 shadow rounded-xl">
                         <div>Bonjour, je suis {{ message.sender }}, je travaille pour l'enseigne Liddle? Je souhaiterais quelques 
@@ -23,7 +23,7 @@
                     <div
                       class="flex items-center justify-center h-10 w-10 rounded-full bg-yellow-500 flex-shrink-0"
                     >
-                      C
+                      <div v-html="message.icon"></div>
                     </div>
                     <div
                       class="relative mr-3 text-sm bg-yellow-100 py-2 px-4 shadow rounded-xl"
@@ -38,7 +38,7 @@
                     <div
                       class="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0"
                     >
-                      JM
+                      <div v-html="message.icon"></div>
                     </div>
                     <div
                       class="relative ml-3 text-sm bg-white py-2 px-4 shadow rounded-xl"
@@ -53,18 +53,13 @@
                     <div
                       class="flex items-center justify-center h-10 w-10 rounded-full bg-yellow-500 flex-shrink-0"
                     >
-                      C
+                      <div v-html="message.icon"></div>
                     </div>
                     <div
                       class="relative mr-3 text-sm bg-yellow-100 py-2 px-4 shadow rounded-xl"
                     >
                       <div>
                         Lorem ipsum dolor sit, amet consectetur adipisicing. ?
-                      </div>
-                      <div
-                        class="absolute text-xs bottom-0 right-0 -mb-5 mr-2 text-gray-500"
-                      >
-                        Seen
                       </div>
                     </div>
                   </div>
@@ -75,7 +70,7 @@
                     <div
                       class="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0"
                     >
-                      JM
+                      <div v-html="message.icon"></div>
                     </div>
                     <div
                       class="relative ml-3 text-sm bg-white py-2 px-4 shadow rounded-xl"
@@ -151,8 +146,9 @@ export default {
     return {
       message: 
         {
-          "sender": "Jean-Michel Primeur ",
-          "receiver": "Christophe",
+          "sender": "Jean-Michel Primeur",
+          "icon": '<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" /></svg>',
+          "receiver": "",
           "body": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec."
         }
     }
