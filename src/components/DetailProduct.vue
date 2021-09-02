@@ -18,18 +18,34 @@
           <h2 class="text-xl title-font text-gray-700 tracking-widest">
             Producteur : {{product.producteur}}
           </h2>
+             <button
+              class="
+                w-60
+                p-2
+                mt-4
+                rounded-md
+                bg-yellow-500
+                text-white
+                font-bold
+                hover:bg-yellow-400
+                text-center
+              "
+            >
+              Voir le producteur
+            </button>
           <div
-            class="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5"
+            class="flex mt-4 items-center pb-5 border-b-2 border-gray-200 mb-5"
           ></div>
           <p class="leading-relaxed">
            {{product.description}}
           </p>
           <div
-            class="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5"
+            class="flex flex-wrap mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5"
           >
             <div v-for="catégorie in product.catégories" v-bind:key="catégorie"
               class="
                 ml-4
+                mb-2
                 text-1xl
                 inline-flex
                 items-center
@@ -48,35 +64,23 @@
             </div>
             
           </div>
-          <div class="flex">
-            <div v-if="product.promotion !== '' ">
-                <span  class="mx-auto title-font font-medium text-center text-1xl text-yellow-600">PROMOTION : {{product.promotion}}</span>
+          <div class="flex mr-10 text-center items-center">
+            <div class="items-center w-full mx-auto border border-gray-200" v-if="product.promotion !== '' ">
+               <h2 class="mb-5 text-xl title-font text-gray-700 tracking-widest">Promotion :</h2>
+                <span  class="mx-auto title-font font-medium text-center text-1xl text-yellow-600">{{product.promotion}}</span>
             </div>
             <div v-else>  
 
             </div>
-            <button
-              class="
-                flew
-                mx-auto
-                p-2
-                rounded-md
-                bg-yellow-500
-                text-white
-                font-semibold
-                hover:bg-yellow-400
-                text-center
-              "
-            >
-              Voir le producteur
-            </button>
+         
           </div>
         </div>
       </div>
     </div>
 
-    <div class="container mx-auto">
-      <table class="text-left w-full">
+    <div class="container -mt-10 mb-20 mx-auto">
+      <table class=" w-full">
+         <h2 class="mb-5 text-2xl title-font text-gray-700 tracking-widest">Déclinaisons Disponible Sur Ce Produit :</h2>
         <thead class="opacity-80 bg-yellow-500 flex text-white w-full">
           <tr class="flex w-full text-center">
             <th class="p-4 w-1/4">Contenant</th>
@@ -119,7 +123,7 @@ export default {
           "name": "Bière Blonde",
           "img": "https://www.maisonlauze.com/539-pdt_771/brasserie-de-lozere-la-48-biere-blonde-5-.jpg",
           "producteur":"Jeam-Marc Leduc",
-          "promotion" : "PROMO DU JOUR : 15 achetés 2 offerts !!!!!!!!!!!!!!!!!!",
+          "promotion" : "15 Achetés, 2 Offerts !",
           "description":
             "La Pale Ale, plus communément appelé bière Blonde en France, est un style de bière qui fermente entre 18° et 25° à partir de levure à Ale (levure à fermentation haute). ... Moyennement houblonnée, la Pale Ale est dotée d'une amertume légère et son degré d'alcooloscille entre 4% et 6%..",
           "catégories": [
@@ -129,31 +133,38 @@ export default {
             "fraiche",
             "#soleil",
             "#vacances",
+             "Bière",
+            "Blonde",
+            "Bonne",
+            "fraiche",
+            "#soleil",
+            "#vacances",
+           
           ],
           "declinaisons": [
             {
-              "contenant": "carton",
+              "contenant": "carton x6",
               "conditionnement": "bouteille en verre",
-              "contenance":"50",
-              "prix": "40"
+              "contenance":"50 cl",
+              "prix": "3.19 €"
             },
             {
-              "contenant": "fut",
-              "conditionnement": "fut métal",
-              "contenance":"25",
-              "prix": "20"
+              "contenant": "carton x12",
+              "conditionnement": "bouteille en verre",
+              "contenance":"50 cl",
+              "prix": "5.90 €"
             },
             {
-              "contenant": "fut",
-              "conditionnement": "fut métal",
-              "contenance":"25",
-              "prix": "20"
+              "contenant": "carton x24",
+              "conditionnement": "bouteille en verre",
+              "contenance":"50 cl",
+              "prix": "9.30 €"
             },
             {
-              "contenant": "fut",
-              "conditionnement": "fut métal",
-              "contenance":"25",
-              "prix": "20"
+              "contenant": "carton x50",
+              "conditionnement": "bouteille en verre",
+              "contenance":"50 cl",
+              "prix": "17.62 €"
             },
           ],
         },
