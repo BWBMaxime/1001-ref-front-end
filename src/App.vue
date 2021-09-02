@@ -1,13 +1,15 @@
 <template>
   <test-tailwind></test-tailwind>
-  <router-view></router-view>
+  <CreateProduct></CreateProduct>
 </template>
 <script>
 import TestTailwind from '@/components/TestTailwind.vue'
+import CreateProduct from '@/components/CreateProduct.vue'
 
 export default {
-  components: { TestTailwind },
-  TestTailwind
+  components: { TestTailwind, CreateProduct },
+  TestTailwind,
+  CreateProduct
 }
 </script>
 
