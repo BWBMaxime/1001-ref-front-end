@@ -13,7 +13,7 @@
           "
           v-bind:src="product.img"
         />
-        <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
+        <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-4 lg:mt-0">
           <h1 class="h1-style">{{product.name}}</h1>
           <h2 class="text-xl title-font text-gray-700 tracking-widest">
             Producteur : {{product.producteur}}
@@ -34,7 +34,7 @@
               Voir le producteur
             </button>
           <div
-            class="flex mt-4 items-center pb-5 border-b-2 border-gray-200 mb-5"
+            class="flex mt-3 items-center pb-5 border-b-2 border-gray-200 mb-5"
           ></div>
           <p class="leading-relaxed">
            {{product.description}}
@@ -46,12 +46,11 @@
               class="
                 ml-4
                 mb-2
-                text-1xl
+                text-xs
                 inline-flex
                 items-center
                 font-bold
                 leading-sm
-                uppercase
                 px-3
                 py-1
                 rounded-full
@@ -64,10 +63,10 @@
             </div>
             
           </div>
-          <div class="flex mr-10 text-center items-center">
-            <div class="items-center w-full mx-auto border border-gray-200" v-if="product.promotion !== '' ">
-               <h2 class="mb-5 text-xl title-font text-gray-700 tracking-widest">Promotion :</h2>
-                <span  class="mx-auto title-font font-medium text-center text-1xl text-yellow-600">{{product.promotion}}</span>
+          <div class="flex mx-auto text-center items-center">
+            <div class="items-center w-full mx-auto border border-yellow-500" v-if="product.promotion !== '' ">
+               <h2 class="mb-2 text-xl title-font text-gray-700 tracking-widest">Promotion :</h2>
+                <span  class="mx-auto title-font font-bold text-center text-1xl text-yellow-500">{{product.promotion}}</span>
             </div>
             <div v-else>  
 
@@ -80,13 +79,13 @@
 
     <div class="container -mt-10 mb-20 mx-auto">
       <table class=" w-full">
-         <h2 class="mb-5 text-2xl title-font text-gray-700 tracking-widest">Déclinaisons Disponible Sur Ce Produit :</h2>
+         <h2 class="mb-5 text-2xl title-font text-gray-700 tracking-widest">Déclinaisons disponibles sur ce produit :</h2>
         <thead class="opacity-80 bg-yellow-500 flex text-white w-full">
           <tr class="flex w-full text-center">
-            <th class="p-4 w-1/4">Contenant</th>
-            <th class="p-4 w-1/4">Conditionnement</th>
-            <th class="p-4 w-1/4">Contenance</th>
-            <th class="p-4 w-1/4">Prix</th>
+            <th class="p-4 text-xl w-1/4">Contenant</th>
+            <th class="p-4 text-xl w-1/4">Conditionnement</th>
+            <th class="p-4 text-xl w-1/4">Contenance</th>
+            <th class="p-4 text-xl w-1/4">Prix</th>
           </tr>
         </thead>
         <!-- Remove the nasty inline CSS fixed height on production and replace it with a CSS class — this is just for demonstration purposes! -->
