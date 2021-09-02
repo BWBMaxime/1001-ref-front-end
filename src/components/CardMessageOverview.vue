@@ -4,7 +4,7 @@
     <ul class="w-84 justify-start flex flex-col divide divide-y">
         <div class="text-xl flex flex-1 items-center p-4">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
             </svg>
             <h1 class="ml-2">Boîte de réception</h1>
         </div>
@@ -14,11 +14,8 @@
                     <div class="font-medium dark:text-white">
                         De : {{ message.sender }}
                     </div>
-                    <div class="text-gray-600 dark:text-gray-200">
-                        Ets : {{ message.company }}
-                    </div>
                     <div class="text-light text-gray-400">
-                        <p>Objet : {{ message.object}} </p>
+                        Ets : {{ message.company }}
                     </div>
                 </div>
                 <div class="text-gray-600 dark:text-gray-200 text-xs">
