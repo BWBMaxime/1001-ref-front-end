@@ -1,6 +1,6 @@
 <template>
     <section class="text-gray-600">
-        <div class="container px-24 py-20">
+        <div class="container px-24 py-16">
             <div class="mx-auto flex flex-wrap justify-center">
                 <!-- Image -->
                 <img alt="ecommerce" class="lg:w-80 w-full lg:h-80 h-64 object-cover object-center rounded"
