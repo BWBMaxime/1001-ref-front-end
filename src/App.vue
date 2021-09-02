@@ -1,14 +1,15 @@
 <template>
-  <login></login>
+<first-co-producer></first-co-producer>
 
 </template>
 <script>
 //import TestTailwind from '@/components/TestTailwind.vue'
-import Login from '@/components/Login.vue'
+//import Login from '@/components/Login.vue'
+import FirstCoProducer from '@/components/FirstCoProducer.vue'
 
 export default {
-  components: { Login },
-  Login
+  components: { FirstCoProducer },
+  FirstCoProducer
 }
 </script>
 

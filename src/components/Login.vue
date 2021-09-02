@@ -54,7 +54,7 @@
                         </div>
 
                         <div class="mb-4 text-center">
-                            <button class="transition duration-500 bg-yellow-600 hover:bg-yellow-600 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                            <button class="transition duration-500 bg-yellow-600 hover: 0 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
                                 Login
                             </button>
                         </div>
