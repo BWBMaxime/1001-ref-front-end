@@ -1,0 +1,7 @@
+:root {
+    --slider-connect-bg: #f2ba52;
+    --slider-tooltip-bg: #f2ba52;
+    --slider-tooltip-font-weight: bold;
+    --slider-handle-shadow: none;
+    --slider-handle-bg: #f2ba52;
+  }
