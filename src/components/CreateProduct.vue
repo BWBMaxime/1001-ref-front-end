@@ -86,7 +86,8 @@
                                     <input v-model="product.declinaisons[index].contenant" type="text" placeholder="Contenant" class="w-1/4 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-indigo-500 focus:outline-none">
                                     <input v-model="product.declinaisons[index].conditionnement"  type="text" placeholder="Conditionnement" class="w-1/4 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-indigo-500 focus:outline-none">
                                     <input v-model="product.declinaisons[index].contenance"  type="text" placeholder="Contenance" class="w-1/4 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-indigo-500 focus:outline-none">
-                                    <button @click="deleteDeclinaison(index)" class=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg></button>
+                                    <button v-if="product.declinaisons.length > 1" @click="deleteDeclinaison(index)" class=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg></button>
+                                    <div v-else></div>
                                 </div>
                                 <span class="flex w-full justify-around mb-8">
                                     <button @click="createDeclinaison" class="transition duration-500 bg-yellow-500 hover: 0 text-white font-bold py-2 px-8 rounded focus:outline-none focus:shadow-outline">Ajouter une déclinaison au produit</button>
@@ -120,7 +121,8 @@
                                     <p  class="w-40">{{product.declinaisons[index].conditionnement}} - {{product.declinaisons[index].contenance}}</p> 
                                     <input v-model="product.declinaisons[index].prixRevendeur"  type="text" placeholder="Prix revendeur" class="w-1/4 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-indigo-500 focus:outline-none">
                                     <input v-model="product.declinaisons[index].prixRestaurateur"  type="text" placeholder="Prix restaurateur" class="w-1/4 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-indigo-500 focus:outline-none">
-                                    <button @click="deleteDeclinaison(index)" class=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg></button>
+                                    <button v-if="product.declinaisons.length > 1" @click="deleteDeclinaison(index)" class=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg></button>
+                                    <div v-else></div>
                                 </div>
                             </div>
                         </div>
@@ -141,22 +143,16 @@
                                 </div>
                             </header>
                             <div class="tab-content">
-                                <div class="pl-8 pr-8 pb-5 text-grey-darkest">
-                                    <form class="space-y-3 text-gray-700">
-                                        <div class="flex flex-col mt-2">
-                                            <label for="name" class="hidden"></label>
-                                                <input type="name" name="name" id="name" placeholder="Nom du produit" class="w-100 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-indigo-500 focus:outline-none">
-                                        </div>
-                                            <textarea class="w-full px-3 py-3 text-gray-700 border rounded-lg focus:outline-none" rows="4" placeholder="Paragraphe de description"></textarea>
-
-                                                <!--Boutton enregistrer-->  
-                                                <div class="py-4 mb-1 text-center">
-                                                <button class="transition duration-500 bg-yellow-500 hover: 0 text-white font-bold py-2 px-8 rounded focus:outline-none focus:shadow-outline" type="submit">
-                                                Enregistrer
-                                                </button>
-                                                </div>
-                                    </form>
-
+                                <span class="flex w-full justify-around mb-8">
+                                    <p>Déclinaison</p>
+                                    <p>Choisir une promotion</p>
+                                </span>
+                                <div class="flex w-full justify-around items-center mb-6" v-for="(declinaison,index) in product.declinaisons" :key="index">
+                                    <p  class="w-40">{{product.declinaisons[index].conditionnement}} - {{product.declinaisons[index].contenance}}</p>
+                                    <select v-model="product.declinaisons[index].promotion" name="category" id="category-select" class="w-100 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-indigo-500 focus:outline-none">
+                                    <option value="" selected>Aucune</option>
+                                    <option v-for="(promotion, index) in promotions" :key="index" :value="promotion.id">{{promotion.name}}</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -204,6 +200,19 @@ export default{
 
         let declinaisons = [];
 
+         let promotions = 
+        [
+            {
+                id:44,
+                name:"Promotion nouveaux clients",
+            },
+
+            {
+                if:57,
+                name:"Promotion nouveaux produits"
+            }
+        ];
+
         let product =  
         {
             name:'',
@@ -222,11 +231,14 @@ export default{
             idUser:0
         }
 
+       
+
         return {
             subcategories,
             tags,
             declinaisons,
-            product
+            product,
+            promotions
         }
     },
 
