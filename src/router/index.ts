@@ -2,8 +2,16 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import Home from '../views/Home.vue'
 import Who from '@/components/Who.vue'
 import What from '@/components/What.vue'
+import FormContactAdmin from '@/components/FormContactAdmin.vue'
+import FormContactProducer from '@/components/FormContactProducer.vue'
+import Login from '@/components/Login.vue'
+import Navbar from '@/components/Navbar.vue'
+import SearchBar from '@/components/SearchBar.vue'
+import SignIn from '@/components/SignIn.vue'
 import TestTailwind from '@/components/TestTailwind.vue'
-import Test from '../views/Test.vue'
+import ProductsList from '@/components/ProductsList.vue'
+import FilterProducts from '@/components/FilterProducts.vue'
+import Test from '@/components/Test.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -20,6 +28,56 @@ const routes: Array<RouteRecordRaw> = [
     path: '/quoi',
     name: "What",
     component: What
+  },
+  {
+    path: '/fca',
+    name: "fca",
+    component: FormContactAdmin
+  },
+  {
+    path: '/fcp',
+    name: "fcp",
+    component: FormContactProducer
+  },
+  {
+    path: '/log',
+    name: 'log',
+    component: Login
+  },
+  {
+    path: '/nav',
+    name: "nav",
+    component: Navbar
+  },
+  {
+    path: '/sb',
+    name: "sb",
+    component: SearchBar
+  },
+  {
+    path: '/si',
+    name: "si",
+    component: SignIn
+  },
+  {
+    path: '/tt',
+    name: "tt",
+    component: TestTailwind
+  },
+  {
+    path: '/pl',
+    name: "pl",
+    component: ProductsList
+  },
+  {
+    path: '/fp',
+    name: "fp",
+    component: FilterProducts
+  },
+  {
+    path: '/test',
+    name: "test",
+    component: Test
   },
   {
     path: '/about',

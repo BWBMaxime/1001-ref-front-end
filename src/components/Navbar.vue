@@ -4,7 +4,7 @@
       <div class="w-full relative flex justify-between lg:w-1/2  px-4 lg:static lg:block lg:justify-start">
     
           <img src="@/assets/logo.jpg" class="w-1/3" alt="logo 1001ref">
-        <button class="text-white cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none" type="button" v-on:click="toggleNavbar()">
+        <button class="text-yellow-500 cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none" type="button" v-on:click="toggleNavbar()">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
 </svg>
@@ -12,38 +12,36 @@
       </div>
       <div v-bind:class="{'hidden': !showMenu, 'flex': showMenu}" class="lg:flex lg:flex-grow items-center">
         <ul class="flex flex-col lg:flex-row list-none ml-auto">
-          <li class="nav-item">
-            <a class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75" href="#pablo">
-            <span class="ml-2 text-yellow-500">Accueil</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75" href="#pablo">
-        <span class="ml-2 text-yellow-500">C'est qui? </span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75" href="#pablo">
-              <span class="ml-2 text-yellow-500">C'est pour quoi? </span>
-            </a>
-          </li>
-                  <li class="nav-item">
-            <a class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75" href="#pablo">
-           <span class="ml-2 text-yellow-500">Tweet</span>
-            </a>
-          </li>
+          <li v-for="link in links" :key="link" class="nav-item">
+            <router-link v-bind:to="link.path" class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-yellow-500 hover:opacity-75" >
+              {{link.name}}
+            </router-link>
+          </li>         
         </ul>
       </div>
     </div>
   </nav>
 </template>
-
 <script>
+
 export default {
   name: "navbar",
   data() {
     return {
-      showMenu: false
+      showMenu: false,
+      links: [
+        { path: "/", name: "Acceuil" },
+        { path: "/qui", name: "c'est pour qui?" },
+        { path: "/quoi", name: "c'est quoi?"},
+        { path: "/fca", name: "form contact"},
+        { path: "/fcp", name: "form prod"},
+        { path: "/log", name: "login"},
+        { path: "/sb", name: "search bar"},
+        { path: "/si", name: "sign in"},       
+        { path: "/pl", name: "liste produits"},       
+        { path: "/fp", name: "filtre prods"},       
+        ]
+
     }
   },
   methods: {
