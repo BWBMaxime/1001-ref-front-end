@@ -1,38 +1,88 @@
 <template>
-<div class="grid grid-cols-2 margin-card  ">
+  <div class="py-5 mt-36 flex items-center mb-20 bg-gray-100 h-5/6">
     <!-- Card -->
-    <div class="shadow-md rounded-md overflow-hidden col-start-1 col-end-1 mx-auto" style="width: 800px;">
-      <img src="../assets/producteur.png" class="mx-auto" alt="">
-      <div class="p-4">
-          <h5 class="text-xl font-semibold mb-2 text-center" style="font-size:40px;">Inscription Producteur</h5>
-            <button class="mx-auto text-yellow-500 bg-transparent border border-solid border-yellow-500 hover:bg-yellow-500 hover:text-white active:bg-yellow-600 font-bold uppercase px-8 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
-                <i class="fas fa-gem"></i> S'inscrire
-            </button>
+    <div v-for="card in cards" :key="card.role"
+      class="
+       bg-white
+        shadow-md
+        rounded-md
+        overflow-hidden
+        mx-auto
+        flex-col
+        items-center
+        
+      "
+      style="width: 800px"
+    >
+      <h5
+        class="text-xl font-semibold text-center mt-10 mb-10 h1-style"
+        style="font-size: 40px"
+      >
+        Inscription {{card.role}}
+      </h5>
+      <hr class="w-2/3 mx-auto mb-5">
+      <img v-bind:src="card.img" class="mx-auto w-max" alt="" />
+      <div class="w-full flex justify-center mb-10">
+        <button v-bind:href="card.url"
+          class="
+            text-yellow-500
+            border border-solid border-yellow-500
+            hover:bg-yellow-500
+            hover:text-white
+            active:bg-yellow-600
+            font-bold
+            uppercase
+            px-8
+            py-3
+            rounded
+            outline-none
+            focus:outline-none
+            mr-1
+            mb-1
+            ease-linear
+            transition-all
+            duration-150
+          "
+          type="button"
+        >
+          <i class="fas fa-gem"></i> S'inscrire
+        </button>
       </div>
+    </div>
+    <!-- Card End -->
   </div>
-  <!-- Card -->
-  <!-- Card -->
-    <div class="shadow-md rounded-md overflow-hidden col-start-2 col-end-2 mx-auto" style="width: 800px;">
-      <img src="../assets/distributeur.png" class="mx-auto" alt="">
-      <div class="p-4">
-         <h5 class="text-xl font-semibold mb-2 text-center" style="font-size:40px;">Inscription Distributeur</h5>
-            <button  class="mx-auto text-yellow-500 bg-transparent border border-solid border-yellow-500 hover:bg-yellow-500 hover:text-white active:bg-yellow-600 font-bold uppercase px-8 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
-                <i class="fas fa-gem"></i> S'inscrire
-            </button>
-      </div>
-  </div>
-  <!-- Card -->
-</div>
 </template>
-<script lang="ts">
-    
 
+<script lang="ts">
 export default {
-    
-}
+    data() {
+        return { 
+            cards: [
+            {
+                "role" : "Distributeur",
+                "img":"assets/distributeur.png",
+               "url":"/Form-Distr"
+            },
+            {
+                "role":"Producteur",
+                "img":"assets/producteur.png",
+               " url":"/Form-Prod"
+            }
+            ]
+        }
+    },
+
+};
 </script>
+
 <style>
-    .margin-card{
-        margin-bottom:3%;
-    }
+.h1-style{
+     color: #f2ba52;
+  font-size: 50px;
+  font-weight: bold;
+}
+.shadow-md {
+  border-top: solid 1px whitesmoke
+}
+
 </style>
