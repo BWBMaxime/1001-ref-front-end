@@ -5,6 +5,7 @@
            <p class="text-left md:text-center py-4 text-2xl extrabold ">Veuillez valider les 3 sections avant d'accéder à votre tableau de bord </p>
              <section class="shadow row">
                 <div class="tabs">
+
                     <div class="border-b tab">
                         <div class="border-l-2 border-transparent relative">
                             <input class="w-full absolute z-10 cursor-pointer opacity-0 h-5 top-6" type="checkbox" id="chck1">
