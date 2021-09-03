@@ -25,14 +25,14 @@
               <!--Type de commerce-->
               <div class="w-full flex flex-col mb-3">
               <label for="commerce" class="hidden">Type de commerce</label>
-              <input type="commerce" name="commerce" id="commerce" placeholder="Type de commerce" class="w-100 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-indigo-500 focus:outline-none">
+              <input v-model="plop.commerce" type="commerce" name="commerce" id="commerce" placeholder="Type de commerce" class="w-100 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-indigo-500 focus:outline-none">
               </div>
 
 
               <!--Telephone-->
               <div class="flex flex-col mt-2">
               <label for="phone" class="hidden">Telephone</label>
-              <input type="phone" name="phone" id="phone" placeholder="Numéro de télèphone" class="w-100 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-indigo-500 focus:outline-none">
+              <input v-model="plop.phone" type="phone" name="phone" id="phone" placeholder="Numéro de télèphone" class="w-100 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-indigo-500 focus:outline-none">
               </div>
 
 
@@ -48,17 +48,17 @@
                     </select>
                     <div class="w-full flex-1 mx-2">
                         <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
-                        <input placeholder="Département" class="p-1 px-2 appearance-none outline-none w-full text-gray-800 "> </div>
+                        <input v-model="plop.departement" placeholder="Département" class="p-1 px-2 appearance-none outline-none w-full text-gray-800 "> </div>
                     </div>
                     <div class="w-full flex-1 mx-2">
                         <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
-                            <input placeholder="Code postale" class="p-1 px-2 appearance-none outline-none w-full text-gray-800 "> </div>
+                            <input v-model="plop.cp" placeholder="Code postale" class="p-1 px-2 appearance-none outline-none w-full text-gray-800 "> </div>
                     </div>
                 </div>
                 <div class="m-2">
                     <div class="w-full flex-1">
                         <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
-                        <input placeholder="Adresse" class="p-1 px-2 appearance-none outline-none w-full text-gray-800 "> </div>
+                        <input v-model="plop.adresse" placeholder="Adresse" class="p-1 px-2 appearance-none outline-none w-full text-gray-800 "> </div>
                     </div>
                 </div>
             </div>
@@ -76,7 +76,7 @@
                                             </svg>
                                             </span>
                         </div>
-                        <input type="text" class="flex-shrink flex-grow flex-auto leading-normal w-px flex-1 border border-l-0 h-10 border-grey-light rounded-lg rounded-l-none px-3 relative focus:border-blue focus:shadow" placeholder="https://">
+                        <input v-model="plop.site" id="site" type="text" class="flex-shrink flex-grow flex-auto leading-normal w-px flex-1 border border-l-0 h-10 border-grey-light rounded-lg rounded-l-none px-3 relative focus:border-blue focus:shadow" placeholder="https://">
                           </div>
               </div>
 
@@ -91,7 +91,7 @@
                            </svg>
                         </span>
                          </div>
-                        <input type="text" class="flex-shrink flex-grow flex-auto leading-normal w-px flex-1 border border-l-0 h-10 border-grey-light rounded-lg rounded-l-none px-3 relative focus:border-blue focus:shadow" placeholder="https://">
+                        <input v-model="plop.facebook" id="facebook" type="text" class="flex-shrink flex-grow flex-auto leading-normal w-px flex-1 border border-l-0 h-10 border-grey-light rounded-lg rounded-l-none px-3 relative focus:border-blue focus:shadow" placeholder="https://">
                           </div>
               </div>
 
@@ -106,11 +106,11 @@
                               </svg>
                           </span>
                         </div>
-                        <input type="text" class="flex-shrink flex-grow flex-auto leading-normal w-px flex-1 border border-l-0 h-10 border-grey-light rounded-lg rounded-l-none px-3 relative focus:border-blue focus:shadow" placeholder="https://">
+                        <input v-model="plop.instagram" id="instagram" type="text" class="flex-shrink flex-grow flex-auto leading-normal w-px flex-1 border border-l-0 h-10 border-grey-light rounded-lg rounded-l-none px-3 relative focus:border-blue focus:shadow" placeholder="https://">
                      </div>
               </div>
           
-              <!--Section Instagram-->
+              <!--Section Linkedin-->
               <div class="mb-3 space-y-2 w-full text-xs">
                       <label class=" font-semibold text-gray-600 py-2">Linkedin</label>
                       <div class="flex flex-wrap items-stretch w-full mb-4 relative">
@@ -121,14 +121,14 @@
                                             </svg>
                           </span>
                         </div>
-                        <input type="text" class="flex-shrink flex-grow flex-auto leading-normal w-px flex-1 border border-l-0 h-10 border-grey-light rounded-lg rounded-l-none px-3 relative focus:border-blue focus:shadow" placeholder="https://">
+                        <input v-model="plop.linkedin" id="linkedin" type="text" class="flex-shrink flex-grow flex-auto leading-normal w-px flex-1 border border-l-0 h-10 border-grey-light rounded-lg rounded-l-none px-3 relative focus:border-blue focus:shadow" placeholder="https://">
                       </div>
               </div>
 
 
               <!--Boutton enregistrer-->  
               <div class="py-4 mb-1 text-center">
-                <button class="transition duration-500 bg-yellow-500 hover: 0 text-white font-bold py-2 px-8 rounded focus:outline-none focus:shadow-outline" type="submit">
+                <button @click="getDatas" type="button" class="transition duration-500 bg-yellow-500 hover: 0 text-white font-bold py-2 px-8 rounded focus:outline-none focus:shadow-outline">
                 Enregistrer
                 </button>
               </div>
@@ -162,7 +162,7 @@
                                     <form class="space-y-3 text-gray-700">
 
                                          <label class=" font-semibold text-gray-600 py-2">Biographie</label>
-                                            <textarea class="w-full px-3 py-3 text-gray-700 border rounded-lg focus:outline-none" rows="4" placeholder="Description"></textarea>
+                                            <textarea v-model="plop.bio" id="bio" class="w-full px-3 py-3 text-gray-700 border rounded-lg focus:outline-none" rows="4" placeholder="Description"></textarea>
 
                                             <label class=" font-semibold text-gray-600 py-2">Logo de l'entreprise</label>
                                                 <input type="file" class="w-full text-gray-700 px-3 py-2 border rounded">
@@ -171,7 +171,7 @@
 
                                                 <!--Boutton enregistrer-->  
                                                 <div class="py-4 mb-1 text-center">
-                                                <button class="transition duration-500 bg-yellow-500 hover: 0 text-white font-bold py-2 px-8 rounded focus:outline-none focus:shadow-outline" type="submit">
+                                                <button type="button" class="transition duration-500 bg-yellow-500 hover: 0 text-white font-bold py-2 px-8 rounded focus:outline-none focus:shadow-outline">
                                                 Enregistrer
                                                 </button>
                                                 </div>
@@ -203,7 +203,57 @@
 </template>
 
 <script >
+export default {
+    
+    data() {
+        
+        let plop = {"commerce": "","phone": "","departement": "","cp": "","adresse": "","site": "","facebook": "","instagram": "","linkedin": "","bio": "",}
+        this.getUser(plop)
+        //return 
+       return {  
+           plop,
+          
+    }
+    },
+    
 
+methods: {
+    getDatas(){
+        console.log(this.plop);
+    },
+    getUser(plop){
+       plop.commerce = 'Domaine de Roucas';
+       plop.phone = '06.66.80.63.55';
+       plop.departement = 'Herault';
+       plop.cp = '34070';
+       plop.adresse = '500 avenue des aiguilles';
+       plop.site = 'https://wwww.mon-site.com';
+       plop.facebook = 'https://www.facebook.com/51';
+       plop.instagram = '@LemonBlanc';
+       plop.linkedin = 'Jean-Luc';
+       plop.bio = 'Domaine de Roucas : est une entreprise magnifique producteur de vin depuis 10 ans specialisé dans le vin AOP.';
+
+    },
+
+
+    
+    /**getUser(user){
+        user.commerce = 'Domaine de Roucas';
+        user.phone = '06.66.80.63.55';
+        user.departement = 'Herault';
+        user.cp = '34070';
+        user.adresse = '500 avenue des aiguilles';
+        user.site = 'https://wwww.mon-site.com';
+        user.facebook = 'https://www.facebook.com/51';
+        user.instagram = '@LemonBlanc';
+        user.linkedin = 'Jean-Luc';
+        user.bio = 'Domaine de Roucas : est une entreprise magnifique producteur de vin depuis 10 ans specialisé dans le vin AOP.';
+
+    },*/
+ 
+
+}
+}
 
 </script>
 
