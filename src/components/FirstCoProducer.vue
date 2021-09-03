@@ -201,7 +201,7 @@
                                             <label class=" text-gray-700 text-sm font-bold mb-2" for="grid-password">
                                                 Client 1
                                             </label>
-                                            <input class="appearance-none block w-full bg-white-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-yellow-500" id="email" type="email" placeholder="E-mail">
+                                            <input v-model="mail.un" class="appearance-none block w-full bg-white-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-yellow-500" id="email" type="email" placeholder="E-mail">
                                             </div>
 
 
@@ -209,7 +209,7 @@
                                             <label class="text-gray-700 text-sm font-bold mb-2" for="grid-password">
                                                 Client 2
                                             </label>
-                                            <input class="appearance-none block w-full bg-white-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-yellow-500" id="email" type="email" placeholder="E-mail">
+                                            <input  v-model="mail.deux" class="appearance-none block w-full bg-white-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-yellow-500" id="email" type="email" placeholder="E-mail">
                                             </div>
 
 
@@ -217,7 +217,7 @@
                                             <label class="text-gray-700 text-sm font-bold mb-2" for="grid-password">
                                                 Client 3
                                             </label>
-                                            <input class="appearance-none block w-full bg-white-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-yellow-500" id="email" type="email" placeholder="E-mail">
+                                            <input  v-model="mail.trois" class="appearance-none block w-full bg-white-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-yellow-500" id="email" type="email" placeholder="E-mail">
                                             </div>
 
 
@@ -225,7 +225,7 @@
                                             <label class=" text-gray-700 text-sm font-bold mb-2" for="grid-password">
                                                 Client 4
                                             </label>
-                                            <input class="appearance-none block w-full bg-white-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-yellow-500" id="email" type="email" placeholder="E-mail">
+                                            <input  v-model="mail.quatre" class="appearance-none block w-full bg-white-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-yellow-500" id="email" type="email" placeholder="E-mail">
                                             </div>
 
                                             
@@ -233,14 +233,14 @@
                                             <label class="text-gray-700 text-sm font-bold mb-2" for="grid-password">
                                                 Client 5
                                             </label>
-                                            <input class="appearance-none block w-full bg-white-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-yellow-500" id="email" type="email" placeholder="E-mail">
+                                            <input  v-model="mail.cinq" class="appearance-none block w-full bg-white-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-yellow-500" id="email" type="email" placeholder="E-mail">
                                             </div>
 
 
 
                                                 <!--Boutton enregistrer-->  
                                                 <div class="py-4 mb-1 text-center">
-                                                <button class="transition duration-500 bg-yellow-500 hover: 0 text-white font-bold py-2 px-8 rounded focus:outline-none focus:shadow-outline" type="submit">
+                                                <button @click="getTacos" class="transition duration-500 bg-yellow-500 hover: 0 text-white font-bold py-2 px-8 rounded focus:outline-none focus:shadow-outline" type="button">
                                                 Enregistrer
                                                 </button>
                                                 </div>
@@ -276,21 +276,36 @@ export default {
 data() {    
     let tac = {"commerce": "","phone": "","departement": "","cp": "","adresse": "","site": "","facebook": "","instagram": "","linkedin": "","bio": "",}
     let test = {"bio": "",}
+    let mail = {"email": "",}
 
-        this.getUser(tac),this.getTiti(test)
+        this.getUser(tac),this.getTiti(test),this.getMail(mail)
         return {  
-            tac,test
+            tac,test,mail
         };
 
 },
     
 methods: {
+    getTacos(){
+        console.log(this.mail)
+    },
+    getMail(mail){
+        mail.un = 'dupont@free.fr';
+        mail.deux = 'jean@free.fr';
+        mail.trois = 'greg@orange.fr';
+        mail.quatre = 'azerty@sfr.fr';
+        mail.cinq = 'michmich@free.fr';
+    },
+
+
     getToto(){
         console.log(this.test)
     },
     getTiti(test){
         test.bio = 'Domaine de Roucas : est une entreprise magnifique producteur de vin depuis 10 ans specialisé dans le vin AOP.';
     },
+
+
     getDatas(){
         console.log(this.tac);
     },
