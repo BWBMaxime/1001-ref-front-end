@@ -168,7 +168,7 @@
 
                                                 <!--Boutton enregistrer-->  
                                                 <div class="py-4 mb-1 text-center">
-                                                <button @click="getDatas" class="transition duration-500 bg-yellow-500 hover: 0 text-white font-bold py-2 px-8 rounded focus:outline-none focus:shadow-outline" type="submit">
+                                                <button @click="getToto" type="button" class="transition duration-500 bg-yellow-500 hover: 0 text-white font-bold py-2 px-8 rounded focus:outline-none focus:shadow-outline">
                                                 Enregistrer
                                                 </button>
                                                 </div>
@@ -273,19 +273,24 @@
 <script >
 export default {
     
-    data() {
-        
-        let tac = {"commerce": "","phone": "","departement": "","cp": "","adresse": "","site": "","facebook": "","instagram": "","linkedin": "","bio": "",}
-        this.getUser(tac)
-        //return 
-       return {  
-           tac,
-          
-    }
-    },
-    
+data() {    
+    let tac = {"commerce": "","phone": "","departement": "","cp": "","adresse": "","site": "","facebook": "","instagram": "","linkedin": "","bio": "",}
+    let test = {"bio": "",}
 
+        this.getUser(tac),this.getTiti(test)
+        return {  
+            tac,test
+        };
+
+},
+    
 methods: {
+    getToto(){
+        console.log(this.test)
+    },
+    getTiti(test){
+        test.bio = 'Domaine de Roucas : est une entreprise magnifique producteur de vin depuis 10 ans specialisé dans le vin AOP.';
+    },
     getDatas(){
         console.log(this.tac);
     },
@@ -302,8 +307,6 @@ methods: {
        tac.bio = 'Domaine de Roucas : est une entreprise magnifique producteur de vin depuis 10 ans specialisé dans le vin AOP.';
 
     }
-
-
 }
 }
 
@@ -311,7 +314,6 @@ methods: {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-            
               .tab {
             overflow: hidden;
             }
