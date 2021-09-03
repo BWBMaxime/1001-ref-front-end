@@ -162,7 +162,7 @@
                                     <form class="space-y-3 text-gray-700">
 
                                          <label class=" font-semibold text-gray-600 py-2">Biographie</label>
-                                            <textarea v-model="plop.bio" id="bio" type= "text" class="w-full px-3 py-3 text-gray-700 border rounded-lg focus:outline-none" rows="4" placeholder="Description"></textarea>
+                                            <textarea v-model="test.bio" id="bio" type= "text" class="w-full px-3 py-3 text-gray-700 border rounded-lg focus:outline-none" rows="4" placeholder="Description"></textarea>
 
                                             <label class=" font-semibold text-gray-600 py-2">Logo de l'entreprise</label>
                                                 <input type="file" class="w-full text-gray-700 px-3 py-2 border rounded">
@@ -171,7 +171,7 @@
 
                                                 <!--Boutton enregistrer-->  
                                                 <div class="py-4 mb-1 text-center">
-                                                <button @click="getDatas" type="button" class="transition duration-500 bg-yellow-500 hover: 0 text-white font-bold py-2 px-8 rounded focus:outline-none focus:shadow-outline">
+                                                <button @click="getToto" type="button" class="transition duration-500 bg-yellow-500 hover: 0 text-white font-bold py-2 px-8 rounded focus:outline-none focus:shadow-outline">
                                                 Enregistrer
                                                 </button>
                                                 </div>
@@ -206,11 +206,11 @@
 export default {
      data() {
         
-        let plop = {"commerce": "","phone": "","departement": "","cp": "","adresse": "","site": "","facebook": "","instagram": "","linkedin": "","bio": "",}
-        this.getUser(plop)
-        //return 
+        let plop = {"commerce": "","phone": "","departement": "","cp": "","adresse": "","site": "","facebook": "","instagram": "","linkedin": "",}
+        let test = {"bio": "",}
+        this.getUser(plop),this.getTiti(test)
        return {  
-           plop,
+           plop,test,
           
     }
     },
@@ -219,6 +219,12 @@ export default {
 methods: {
     getDatas(){
         console.log(this.plop);
+    },
+        getToto(){
+        console.log(this.test)
+    },
+    getTiti(test){
+        test.bio = 'Domaine de Roucas : est une entreprise magnifique producteur de vin depuis 10 ans specialisé dans le vin AOP.';
     },
     getUser(plop){
        plop.commerce = 'Domaine de Roucas';
@@ -234,21 +240,6 @@ methods: {
 
     }
 
-    
-    /**getUser(user){
-        user.commerce = 'Domaine de Roucas';
-        user.phone = '06.66.80.63.55';
-        user.departement = 'Herault';
-        user.cp = '34070';
-        user.adresse = '500 avenue des aiguilles';
-        user.site = 'https://wwww.mon-site.com';
-        user.facebook = 'https://www.facebook.com/51';
-        user.instagram = '@LemonBlanc';
-        user.linkedin = 'Jean-Luc';
-        user.bio = 'Domaine de Roucas : est une entreprise magnifique producteur de vin depuis 10 ans specialisé dans le vin AOP.';
-
-    },*/
- 
 
 }
 }
