@@ -1,15 +1,16 @@
 <template>
-  <div class="py-5 mt-36 flex items-center mb-20">
+  <div class="py-5 mt-36 flex items-center mb-20 bg-gray-100 h-5/6">
     <!-- Card -->
     <div v-for="card in cards" :key="card.role"
       class="
-       
+       bg-white
         shadow-md
         rounded-md
         overflow-hidden
         mx-auto
         flex-col
         items-center
+        
       "
       style="width: 800px"
     >
@@ -19,6 +20,7 @@
       >
         Inscription {{card.role}}
       </h5>
+      <hr class="w-2/3 mx-auto mb-5">
       <img v-bind:src="card.img" class="mx-auto w-max" alt="" />
       <div class="w-full flex justify-center mb-10">
         <button v-bind:href="card.url"

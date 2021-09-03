@@ -98,8 +98,9 @@
         </ol>
       </div>
     </div>
-    <div class="w-1/2 mr-28 ml-28 text-center">
-      <div class="text-center"><h1 class="shadow-md">C'est Quoi ?</h1></div>
+    <div class="w-1/2 mr-28 ml-28 text-center self-center">
+      <h1 class="h1-style">C'est Quoi ?</h1>
+      <hr class="w-2/3 mx-auto">
       <p class="text-lg leading-relaxed mt-6 mb-4 text-900">
         I will be the leader of a company that ends up being worth billions of
         dollars, because I got the answers. I understand culture. I am the
@@ -156,7 +157,7 @@ export default {
   width: 65%;
 }
 
-.shadow-md {
+.h1-style{
   color: #f2ba52;
   font-size: 50px;
   font-weight: bold;

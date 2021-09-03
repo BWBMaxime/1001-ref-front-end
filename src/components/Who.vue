@@ -1,10 +1,10 @@
 <template>
-  <div class="w-full flex mt-22 border-smoke">
-    <div class="w-1/2 mr-28 ml-28 text-center">
-      <div class="text-center">
-        <h1 class="shadow-md">Pour Qui ?</h1>
-      </div>
-      <p class="text-lg leading-relaxed mt-6 mb-4 text-900">
+  <div class="w-full flex mt-22 border-smoke bg-gray-100">
+    <div class="w-1/2 mr-28 ml-28 text-center bg-white h-3/4 self-center rounded-lg px-6">
+      
+        <h1 class="h1-style">Pour Qui ?</h1>
+      <hr class="w-2/3 mx-auto">
+      <p class=" text-lg leading-relaxed mt-6 mb-4 text-900 ">
         I will be the leader of a company that ends up being worth billions of
         dollars, because I got the answers. I understand culture. I am the
         nucleus. I think that’s a responsibility that I have, to push
@@ -139,7 +139,7 @@ export default {};
   width: 65%;
 }
 
-.shadow-md {
+.h1-style {
   color: #f2ba52;
   font-size: 50px;
   font-weight: bold;
