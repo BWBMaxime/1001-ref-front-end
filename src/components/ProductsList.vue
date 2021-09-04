@@ -20,8 +20,8 @@
         <div class="flex justify-between items-center">
               <p class="text-xs flex flex-nowrap d-ruby">Mot clés: </p>
         <ul class="flex flex-wrap justify-end">
-          <li v-for="categorie in product.catégories" :key="categorie">
-             <span class="text-1xl inline-flex items-center font-bold leading-sm px-3 py-1 rounded-full bg-white text-yellow-600 border-yellow-600 border text-xs">{{ categorie }}</span>
+          <li v-for="tag in product.tags" :key="tag">
+             <span class="text-1xl inline-flex items-center font-bold leading-sm px-3 py-1 rounded-full bg-white text-yellow-600 border-yellow-600 border text-xs">{{ tag }}</span>
           </li>
         </ul>    
         </div>
