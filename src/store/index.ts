@@ -1,5 +1,7 @@
 import { createStore } from 'vuex';
 import TagsModel from '@/models/TagsModel'
+import ProductsModel from '@/models/ProductsModel'
+import DeclinaisonsModel from '@/models/DeclinaisonsModel'
 
 export default createStore({
   state: {
@@ -71,8 +73,10 @@ export default createStore({
     }
     ],
     //tags array initialiser
-  tags: Array<TagsModel>()
+  tags: Array<TagsModel>(),
+  filteredProducts: Array<ProductsModel>()
   },
+ 
   mutations: {
     /**
      * get products.tags in state and feed state.tags array following tagsModel
@@ -98,17 +102,31 @@ export default createStore({
      */
     getAsked(state){
       const askedTags: Array<TagsModel> = state.tags.filter(tag => tag.selected == true)
+      const temp: Array<ProductsModel> = []
       askedTags.forEach(askedTag => {
-        console.log(askedTag.name)
        state.products.forEach(product => {
-         if(!product.tags.includes(askedTag.name)){
-           console.log(product.name)
-           const i = state.products.indexOf(product)
-           console.log(i)
-           state.products.splice(i)
+         if(product.tags.includes(askedTag.name)){
+           const fprod = new ProductsModel()
+           fprod.name = product.name
+           fprod.img = product.img
+           fprod.description = product.description
+           product.declinaisons.forEach(declinaison => {
+             const pdecli = new DeclinaisonsModel()
+             pdecli.quantity = declinaison.quantity
+             pdecli.prix = declinaison.prix
+             fprod.declinaisons.push(pdecli)
+           })
+           fprod.tags = product.tags
+           temp.push(fprod)
          }
        })
       })
+      
+      const key = 'name'
+      state.filteredProducts = [...new Map(temp.map(item => 
+        [item[key],item])).values()]
+
+      console.log(state.filteredProducts)
     }
   },
   getters: {

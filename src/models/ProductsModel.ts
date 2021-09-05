@@ -1,16 +1,16 @@
+import DeclinaisonsModel from "./DeclinaisonsModel";
+
 /**
  * Model for products
  * for filter products by tags
  */
 
-import TagsModel from "./TagsModel";
-
  export default class ProductsModel {
     name: string;
     img: string;
     description: string;
-    tags: Array<TagsModel>;
-    declinaisons: string[]
+    tags: string[];
+    declinaisons: DeclinaisonsModel[];
 
     constructor() {
         this.name = "";
