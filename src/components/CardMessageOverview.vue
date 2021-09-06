@@ -9,7 +9,8 @@
             <h1 class="ml-2">Boîte de réception</h1>
         </div>
         <li class="h-20 flex flex-row transition hover:bg-gray-100" v-for="message in messages" :key="message">
-            <div class="select-none cursor-pointer flex flex-1 items-center p-4">
+            <button @click="openMessage()"
+                class="text-left select-none cursor-pointer flex flex-1 items-center p-4">
                 <div class="flex-1 pl-1 mr-16">
                     <div class="font-medium dark:text-white">
                         De : {{ message.sender }}
@@ -19,9 +20,9 @@
                     </div>
                 </div>
                 <div class="text-gray-600 dark:text-gray-200 text-xs">
-                    {{ message.time }}
+                    {{ message.date }}
                 </div>
-            </div>
+            </button>
         </li>
     </ul>
 </div>
@@ -35,22 +36,22 @@ export default {
     return {
       messages: [
         {
+            "senderId": 3,
             "sender": "Jean-Michel Primeur",
             "company": "Liddle",
-            "object": "En quête de nouvelles bières",
-            "time": "09:18"
+            "date": "09:18"
         },
         {
+            "senderId": 17,
             "sender": "Mathilde Groseille",
             "company": "Le comptoir de Mathilde",
-            "object": "Cherche de l'huile de truffe.",
-            "time": "11:15"
+            "date": "11:15"
         },
         {
+            "senderId": 22,
             "sender": "Sylvie Reblochon",
             "company": "Les délices de Sylvie",
-            "object": "Saison des tartiflettes",
-            "time": "12:27"
+            "date": "12:27"
         }
       ]
     }
