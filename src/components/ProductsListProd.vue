@@ -5,7 +5,7 @@
             <div class="w-full 2xl:overflow-hidden overflow-x-auto">
                 <div class="flex mt-6 mr-6 items-center pb-5 border-gray-100">
                     <!-- Button -->
-                    <button class="flex ml-auto border-0 py-2 px-6 border rounded-md bg-yellow-500 text-white text-sm font-semibold hover:bg-yellow-400">
+                    <button class="flex ml-auto border-0 py-2 px-6 rounded-md bg-yellow-500 text-white text-sm font-semibold hover:bg-yellow-400">
                         Ajouter un produit
                     </button>
                 </div>
@@ -54,7 +54,7 @@
                             </td>
                             <td v-else class="mx-4 my-3 w-48 text-sm border text-center"></td>
                             <!-- Display -->
-                            <td class="mx-4 w-48 text-sm border border-2 text-center">
+                            <td class="mx-4 w-48 text-sm border-2 text-center">
                                 <input v-if="product.display == true" class="h-4 w-4" type="radio" checked>
                                 <input v-else class="h-4 w-4" type="radio">
                             </td>
