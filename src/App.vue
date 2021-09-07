@@ -1,13 +1,13 @@
 <template>
   <Navbar></Navbar>
-  <products-list></products-list>
+  <products-list-prod></products-list-prod>
   <router-view></router-view>
 </template>
 
 
 <script>
 import Navbar from '@/components/Navbar.vue'
-import ProductsList from '@/components/ProductsList.vue'
+import ProductsListProd from '@/components/ProductsListProd.vue'
 export default {
 
   components: { Navbar }
