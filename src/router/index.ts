@@ -12,7 +12,7 @@ import TestTailwind from '@/components/TestTailwind.vue'
 import ProductsList from '@/components/ProductsList.vue'
 import FilterProducts from '@/components/FilterProducts.vue'
 import Test from '@/components/Test.vue'
-
+import Registration from '@/components/Registration.vue'
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
@@ -78,6 +78,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/test',
     name: "test",
     component: Test
+  },
+    {
+    path: '/sign-in',
+    name: "sign-in",
+    component: Registration
   },
   {
     path: '/about',

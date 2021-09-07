@@ -39,7 +39,8 @@ export default {
         { path: "/sb", name: "search bar"},
         { path: "/si", name: "sign in"},       
         { path: "/pl", name: "liste produits"},       
-        { path: "/fp", name: "filtre prods"},       
+        { path: "/fp", name: "filtre prods"},
+             
         ]
 
     }
