@@ -2,10 +2,9 @@
 
 <main class="w-3/5 p-8 mx-auto">
         <p class="text-left md:text-center py4 text-4xl ">Bienvenue! C'est votre première connexion ! </p>
-           <p class="text-left md:text-center py-4 text-2xl extrabold ">Veuillez valider les 3 sections avant d'accéder à votre tableau de bord </p>
+           <p class="text-left md:text-center py-4 text-2xl extrabold ">Veuillez valider les 2 sections avant d'accéder à votre tableau de bord </p>
              <section class="shadow row">
                 <div class="tabs">
-
                     <div class="border-b tab">
                         <div class="border-l-2 border-transparent relative">
                             <input class="w-full absolute z-10 cursor-pointer opacity-0 h-5 top-6" type="checkbox" id="chck1">
@@ -25,14 +24,14 @@
               <!--Type de commerce-->
               <div class="w-full flex flex-col mb-3">
               <label for="commerce" class="hidden">Type de commerce</label>
-              <input v-model="tac.commerce" type="commerce" name="commerce" id="commerce" placeholder="Type de commerce" class="w-100 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-indigo-500 focus:outline-none">
+              <input type="commerce" name="commerce" id="commerce" placeholder="Type de commerce" class="w-100 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-indigo-500 focus:outline-none">
               </div>
 
 
               <!--Telephone-->
               <div class="flex flex-col mt-2">
               <label for="phone" class="hidden">Telephone</label>
-              <input v-model="tac.phone" type="phone" name="phone" id="phone" placeholder="Numéro de télèphone" class="w-100 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-indigo-500 focus:outline-none">
+              <input type="phone" name="phone" id="phone" placeholder="Numéro de télèphone" class="w-100 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-indigo-500 focus:outline-none">
               </div>
 
             <div class="flex flex-col md:flex-row pb-4 mb-4">
@@ -46,17 +45,17 @@
                     </select>
                     <div class="w-full flex-1 mx-2">
                         <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
-                            <input v-model="tac.departement" placeholder="Département" class="p-1 px-2 appearance-none outline-none w-full text-gray-800 "> </div>
+                            <input placeholder="Département" class="p-1 px-2 appearance-none outline-none w-full text-gray-800 "> </div>
                     </div>
                     <div class="w-full flex-1 mx-2">
                         <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
-                            <input v-model="tac.cp" id="cp" placeholder="Code postale" class="p-1 px-2 appearance-none outline-none w-full text-gray-800 "> </div>
+                            <input placeholder="Code postale" class="p-1 px-2 appearance-none outline-none w-full text-gray-800 "> </div>
                     </div>
                 </div>
                 <div class="m-2">
                     <div class="w-full flex-1">
                         <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
-                        <input v-model="tac.adresse"  class="p-1 px-2 appearance-none outline-none w-full text-gray-800 " placeholder="Adresse"> </div>
+                        <input placeholder="Adresse" class="p-1 px-2 appearance-none outline-none w-full text-gray-800 "> </div>
                     </div>
                 </div>
             </div>
@@ -74,7 +73,7 @@
                                             </svg>
                                             </span>
                         </div>
-                        <input v-model="tac.site" id="site" type="text" class="flex-shrink flex-grow flex-auto leading-normal w-px flex-1 border border-l-0 h-10 border-grey-light rounded-lg rounded-l-none px-3 relative focus:border-blue focus:shadow" placeholder="https://">
+                        <input type="text" class="flex-shrink flex-grow flex-auto leading-normal w-px flex-1 border border-l-0 h-10 border-grey-light rounded-lg rounded-l-none px-3 relative focus:border-blue focus:shadow" placeholder="https://">
                           </div>
               </div>
 
@@ -89,7 +88,7 @@
                                             </svg>
                          </span>
                         </div>
-                        <input v-model="tac.facebook" id="facebook" type="text" class="flex-shrink flex-grow flex-auto leading-normal w-px flex-1 border border-l-0 h-10 border-grey-light rounded-lg rounded-l-none px-3 relative focus:border-blue focus:shadow" placeholder="https://">
+                        <input type="text" class="flex-shrink flex-grow flex-auto leading-normal w-px flex-1 border border-l-0 h-10 border-grey-light rounded-lg rounded-l-none px-3 relative focus:border-blue focus:shadow" placeholder="https://">
                           </div>
               </div>
 
@@ -104,11 +103,11 @@
                                             </svg>
                                           </span>
                         </div>
-                        <input v-model="tac.instagram" id="instagram" type="text" class="flex-shrink flex-grow flex-auto leading-normal w-px flex-1 border border-l-0 h-10 border-grey-light rounded-lg rounded-l-none px-3 relative focus:border-blue focus:shadow" placeholder="https://">
+                        <input type="text" class="flex-shrink flex-grow flex-auto leading-normal w-px flex-1 border border-l-0 h-10 border-grey-light rounded-lg rounded-l-none px-3 relative focus:border-blue focus:shadow" placeholder="https://">
                           </div>
               </div>
           
-              <!--Section Linkedin-->
+              <!--Section Instagram-->
               <div class="mb-3 space-y-2 w-full text-xs">
                       <label class=" font-semibold text-gray-600 py-2">Linkedin</label>
                       <div class="flex flex-wrap items-stretch w-full mb-4 relative">
@@ -119,13 +118,13 @@
                                             </svg>
                                           </span>
                         </div>
-                        <input v-model="tac.linkedin" type="text" class="flex-shrink flex-grow flex-auto leading-normal w-px flex-1 border border-l-0 h-10 border-grey-light rounded-lg rounded-l-none px-3 relative focus:border-blue focus:shadow" placeholder="https://">
+                        <input type="text" class="flex-shrink flex-grow flex-auto leading-normal w-px flex-1 border border-l-0 h-10 border-grey-light rounded-lg rounded-l-none px-3 relative focus:border-blue focus:shadow" placeholder="https://">
                           </div>
               </div>
 
               <!--Boutton enregistrer-->  
               <div class="py-4 mb-1 text-center">
-            <button @click="getDatas" type="button" class="transition duration-500 bg-yellow-500 hover: 0 text-white font-bold py-2 px-8 rounded focus:outline-none focus:shadow-outline">
+            <button class="transition duration-500 bg-yellow-500 hover: 0 text-white font-bold py-2 px-8 rounded focus:outline-none focus:shadow-outline" type="submit">
               Enregistrer
               </button>
               </div>
@@ -144,7 +143,7 @@
                             <input class="w-full absolute z-10 cursor-pointer opacity-0 h-5 top-6" type="checkbox" id="chck2">
                             <header class="flex justify-between items-center p-5 pl-8 pr-8 cursor-pointer select-none tab-label" for="chck2">
                                 <span class="text-grey-darkest font-thin text-xl">
-                                  2 - Information sur ma production
+                                  2 - Information sur mon entreprise
                                 </span>
                                 <div class="rounded-full border border-grey w-7 h-7 flex items-center justify-center test">
                                     <!-- icon by feathericons.com -->
@@ -159,7 +158,7 @@
                                     <form class="space-y-3 text-gray-700">
 
                                          <label class=" font-semibold text-gray-600 py-2">Biographie</label>
-                                            <textarea v-model="tac.bio" class="w-full px-3 py-3 text-gray-700 border rounded-lg focus:outline-none" rows="4" placeholder="Description"></textarea>
+                                            <textarea class="w-full px-3 py-3 text-gray-700 border rounded-lg focus:outline-none" rows="4" placeholder="Description"></textarea>
 
                                             <label class=" font-semibold text-gray-600 py-2">Logo de l'entreprise</label>
                                                 <input type="file" class="w-full text-gray-700 px-3 py-2 border rounded">
@@ -168,7 +167,7 @@
 
                                                 <!--Boutton enregistrer-->  
                                                 <div class="py-4 mb-1 text-center">
-                                                <button @click="getToto" type="button" class="transition duration-500 bg-yellow-500 hover: 0 text-white font-bold py-2 px-8 rounded focus:outline-none focus:shadow-outline">
+                                                <button class="transition duration-500 bg-yellow-500 hover: 0 text-white font-bold py-2 px-8 rounded focus:outline-none focus:shadow-outline" type="submit">
                                                 Enregistrer
                                                 </button>
                                                 </div>
@@ -179,77 +178,6 @@
                         </div>
                     </div>
                 
-                                        <div class="border-b tab">
-                        <div class="border-l-2 border-transparent relative">
-                            <input class="w-full absolute z-10 cursor-pointer opacity-0 h-5 top-6" type="checkbox" id="chck3">
-                            <header class="flex justify-between items-center p-5 pl-8 pr-8 cursor-pointer select-none tab-label" for="chck3">
-                                <span class="text-grey-darkest font-thin text-xl">
-                                    3 - Inviter mes 5 premiers clients
-                                </span>
-                                <div class="rounded-full border border-grey w-7 h-7 flex items-center justify-center test">
-                                    <!-- icon by feathericons.com -->
-                                    <svg aria-hidden="true" class="" data-reactid="266" fill="none" height="24" stroke="#606F7B" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                                        <polyline points="6 9 12 15 18 9">
-                                        </polyline>
-                                    </svg>
-                                </div>
-                            </header>
-                            <div class="tab-content">
-                                <div class="pl-8 pr-8 pb-5 text-grey-darkest">
-                                    <form class="space-y-3 text-gray-700">
-                                         <div class="w-full px-3">
-                                            <label class=" text-gray-700 text-sm font-bold mb-2" for="grid-password">
-                                                Client 1
-                                            </label>
-                                            <input v-model="mail.un" class="appearance-none block w-full bg-white-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-yellow-500" id="email" type="email" placeholder="E-mail">
-                                            </div>
-
-
-                                                <div class="w-full px-3">
-                                            <label class="text-gray-700 text-sm font-bold mb-2" for="grid-password">
-                                                Client 2
-                                            </label>
-                                            <input  v-model="mail.deux" class="appearance-none block w-full bg-white-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-yellow-500" id="email" type="email" placeholder="E-mail">
-                                            </div>
-
-
-                                                <div class="w-full px-3">
-                                            <label class="text-gray-700 text-sm font-bold mb-2" for="grid-password">
-                                                Client 3
-                                            </label>
-                                            <input  v-model="mail.trois" class="appearance-none block w-full bg-white-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-yellow-500" id="email" type="email" placeholder="E-mail">
-                                            </div>
-
-
-                                                <div class="w-full px-3">
-                                            <label class=" text-gray-700 text-sm font-bold mb-2" for="grid-password">
-                                                Client 4
-                                            </label>
-                                            <input  v-model="mail.quatre" class="appearance-none block w-full bg-white-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-yellow-500" id="email" type="email" placeholder="E-mail">
-                                            </div>
-
-                                            
-                                                <div class="w-full px-3">
-                                            <label class="text-gray-700 text-sm font-bold mb-2" for="grid-password">
-                                                Client 5
-                                            </label>
-                                            <input  v-model="mail.cinq" class="appearance-none block w-full bg-white-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-yellow-500" id="email" type="email" placeholder="E-mail">
-                                            </div>
-
-
-
-                                                <!--Boutton enregistrer-->  
-                                                <div class="py-4 mb-1 text-center">
-                                                <button @click="getTacos" class="transition duration-500 bg-yellow-500 hover: 0 text-white font-bold py-2 px-8 rounded focus:outline-none focus:shadow-outline" type="button">
-                                                Enregistrer
-                                                </button>
-                                                </div>
-                                    </form>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </section>
         </main>
@@ -271,64 +199,13 @@
 </template>
 
 <script >
-export default {
-    
-data() {    
-    let tac = {"commerce": "","phone": "","departement": "","cp": "","adresse": "","site": "","facebook": "","instagram": "","linkedin": "","bio": "",}
-    let test = {"bio": "",}
-    let mail = {"email": "",}
 
-        this.getUser(tac),this.getTiti(test),this.getMail(mail)
-        return {  
-            tac,test,mail
-        };
-
-},
-    
-methods: {
-    getTacos(){
-        console.log(this.mail)
-    },
-    getMail(mail){
-        mail.un = 'dupont@free.fr';
-        mail.deux = 'jean@free.fr';
-        mail.trois = 'greg@orange.fr';
-        mail.quatre = 'azerty@sfr.fr';
-        mail.cinq = 'michmich@free.fr';
-    },
-
-
-    getToto(){
-        console.log(this.test)
-    },
-    getTiti(test){
-        test.bio = 'Domaine de Roucas : est une entreprise magnifique producteur de vin depuis 10 ans specialisé dans le vin AOP.';
-    },
-
-
-    getDatas(){
-        console.log(this.tac);
-    },
-    getUser(tac){
-       tac.commerce = 'Domaine de Roucas';
-       tac.phone = '06.66.80.63.55';
-       tac.departement = 'Herault';
-       tac.cp = '34070';
-       tac.adresse = '500 avenue des aiguilles';
-       tac.site = 'https://wwww.mon-site.com';
-       tac.facebook = 'https://www.facebook.com/51';
-       tac.instagram = '@LemonBlanc';
-       tac.linkedin = 'Jean-Luc';
-       tac.bio = 'Domaine de Roucas : est une entreprise magnifique producteur de vin depuis 10 ans specialisé dans le vin AOP.';
-
-    }
-}
-}
 
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+            
               .tab {
             overflow: hidden;
             }
@@ -340,7 +217,7 @@ methods: {
                 background-color: #000;
             }
             input:checked + .tab-label .test svg {
-                transform: rotate(90deg);
+                transform: rotate(180deg);
                 stroke: #fff;
             }
             input:checked + .tab-label::after {
