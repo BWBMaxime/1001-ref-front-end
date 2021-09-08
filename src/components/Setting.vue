@@ -2,7 +2,7 @@
 <div class="flex shadow-md">
       <div class=" mx-auto  h-4/6 mt-8  rounded-md ml-14 mr-14 p-5 w-2/6 text-grey-darkest">
         <hr class="mb-5 mt-5">
-            <h1 class="font-semibold text-center font-thin text-xl mt-5">Complément d'informations sur mon commerce</h1>
+            <h1 class="text-center font-thin text-xl mt-5">Complément d'informations sur mon commerce</h1>
         <hr class="mb-14 mt-5">
     
             <!--Type de commerce-->
@@ -46,20 +46,20 @@
         <!--form-->
             <div class=" mx-auto  h-4/6 mt-8 rounded-md p-5 w-2/6 text-grey-darkest">
             <hr class="mb-5 mt-5">
-            <h1 class="font-semibold  text-center font-thin text-xl mt-5">Présence sur le web</h1>
+            <h1 class="text-center font-thin text-xl mt-5">Présence sur le web</h1>
         <hr class="mb-5 mt-5">
               <!--Section Site web-->
               <div class="mb-3 space-y-2 w-full text-xs">
                 <label class=" font-semibold text-gray-600 py-2">Site Web</label>
                 <div class="flex flex-wrap items-stretch w-full mb-4 relative">
                     <div class="flex">
-                        <span class="flex items-center leading-normal bg-grey-lighter border-1 rounded-r-none border border-r-0 border-yellow-500 px-3 whitespace-no-wrap text-grey-dark text-sm w-12 h-10 bg-yellow-500 justify-center items-center  text-xl rounded-lg text-white">
+                        <span class="flex leading-normal bg-grey-lighter border-1 rounded-r-none border border-r-0 border-yellow-500 px-3 whitespace-no-wrap text-grey-dark w-12 h-10 bg-yellow-500 justify-center items-center  text-xl rounded-lg text-white">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg>
                         </span>
                     </div>
-                    <input v-model="plop.site" id="site" type="text" class="flex-shrink flex-grow flex-auto leading-normal w-px flex-1 border border-gray-400 dark:border-gray-700 h-10  rounded-lg rounded-l-none px-3 relative focus:border-blue focus:shadow" placeholder="https://">
+                    <input v-model="plop.site" id="site" type="text" class="flex-shrink flex-grow leading-normal w-px flex-1 border border-gray-400 dark:border-gray-700 h-10  rounded-lg rounded-l-none px-3 relative focus:border-blue focus:shadow" placeholder="https://">
                 </div>
               </div>
 
@@ -68,13 +68,13 @@
                 <label class=" font-semibold text-gray-600 py-2">Facebook</label>
                 <div class="flex flex-wrap items-stretch w-full mb-4 relative">
                     <div class="flex">
-                        <span class="flex items-center leading-normal bg-grey-lighter border-1 rounded-r-none border border-r-0 border-yellow-500 px-3 whitespace-no-wrap text-grey-dark text-sm w-12 h-10 bg-yellow-500 justify-center items-center  text-xl rounded-lg text-white">
+                        <span class="flex leading-normal bg-grey-lighter border-1 rounded-r-none border border-r-0 border-yellow-500 px-3 whitespace-no-wrap text-grey-dark w-12 h-10 bg-yellow-500 justify-center items-center  text-xl rounded-lg text-white">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg>
                         </span>
                     </div>
-                    <input v-model="plop.facebook" id="facebook" type="text" class="flex-shrink flex-grow flex-auto leading-normal w-px flex-1 border border-gray-400 dark:border-gray-700 h-10  rounded-lg rounded-l-none px-3 relative focus:border-blue focus:shadow" placeholder="https://">
+                    <input v-model="plop.facebook" id="facebook" type="text" class="flex-shrink flex-grow leading-normal w-px flex-1 border border-gray-400 dark:border-gray-700 h-10  rounded-lg rounded-l-none px-3 relative focus:border-blue focus:shadow" placeholder="https://">
                 </div>
               </div>
 
@@ -83,13 +83,13 @@
                 <label class=" font-semibold text-gray-600 py-2">Instagram</label>
                 <div class="flex flex-wrap items-stretch w-full mb-4 relative">
                     <div class="flex">
-                        <span class="flex items-center leading-normal bg-grey-lighter border-1 rounded-r-none border border-r-0 border-yellow-500 px-3 whitespace-no-wrap text-grey-dark text-sm w-12 h-10 bg-yellow-500 justify-center items-center  text-xl rounded-lg text-white">
+                        <span class="flex leading-normal bg-grey-lighter border-1 rounded-r-none border border-r-0 border-yellow-500 px-3 whitespace-no-wrap text-grey-dark w-12 h-10 bg-yellow-500 justify-center items-center  text-xl rounded-lg text-white">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg>
                         </span>
                     </div>
-                    <input v-model="plop.instagram" id="instagram" type="text" class="flex-shrink flex-grow flex-auto leading-normal w-px flex-1 border border-gray-400 dark:border-gray-700 h-10  rounded-lg rounded-l-none px-3 relative focus:border-blue focus:shadow" placeholder="https://">
+                    <input v-model="plop.instagram" id="instagram" type="text" class="flex-shrink flex-grow leading-normal w-px flex-1 border border-gray-400 dark:border-gray-700 h-10  rounded-lg rounded-l-none px-3 relative focus:border-blue focus:shadow" placeholder="https://">
                 </div>
               </div>
           
@@ -98,13 +98,13 @@
                 <label class=" font-semibold text-gray-600 py-2">Linkedin</label>
                     <div class="flex flex-wrap items-stretch w-full mb-4 relative">
                         <div class="flex">
-                            <span class="flex items-center leading-normal bg-grey-lighter border-1 rounded-r-none border border-r-0 border-yellow-500 px-3 whitespace-no-wrap text-grey-dark text-sm w-12 h-10 bg-yellow-500 justify-center items-center  text-xl rounded-lg text-white">
+                            <span class="flex leading-normal bg-grey-lighter border-1 rounded-r-none border border-r-0 border-yellow-500 px-3 whitespace-no-wrap text-grey-dark w-12 h-10 bg-yellow-500 justify-center items-center  text-xl rounded-lg text-white">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                 </svg>
                             </span>
                         </div>
-                        <input v-model="plop.linkedin" id="linkedin" type="text" class="flex-shrink flex-grow flex-auto leading-normal w-px flex-1 border border-gray-400 dark:border-gray-700 h-10  rounded-lg rounded-l-none px-3 relative focus:border-blue focus:shadow" placeholder="https://">
+                        <input v-model="plop.linkedin" id="linkedin" type="text" class="flex-shrink flex-grow leading-normal w-px flex-1 border border-gray-400 dark:border-gray-700 h-10  rounded-lg rounded-l-none px-3 relative focus:border-blue focus:shadow" placeholder="https://">
                     </div>
               </div>
               <!--Boutton enregistrer-->
@@ -118,7 +118,7 @@
         <!--form-->
         <div class="mx-auto h-4/6 rounded-md  p-5 ml-14 mt-8 mr-14 w-2/6 text-grey-darkest">
         <hr class="mb-5 mt-5 ">
-         <h1 class="font-semibold  text-center font-thin text-xl mt-5">Information sur mon entreprise</h1>
+         <h1 class="text-center font-thin text-xl mt-5">Information sur mon entreprise</h1>
          <hr class="mb-5 mt-5">
             <div class="pl-8 pr-8 pb-5 text-grey-darkest">
                     <label class=" font-semibold text-gray-600 py-2">Biographie</label>

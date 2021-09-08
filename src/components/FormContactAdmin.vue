@@ -1,6 +1,6 @@
 <template>
   <h2 class="py-6 text-2xl font-semibold flex justify-center">Contacter l'administrateur</h2>
-    <div class="m-auto p-5 flex flex-col lg:w-2/5 justify-center block shadow w-full">
+    <div class="m-auto p-5 flex flex-col lg:w-2/5 justify-center shadow w-full">
       <form
         class="col-4"
         id="app"
