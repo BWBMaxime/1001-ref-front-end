@@ -24,7 +24,7 @@
                     </div>
                     <div class="flex mt-6 items-center pb-5 border-t-2 border-gray-100 mb-5">
                         <!-- Buttons -->
-                        <button class="mt-8 mr-1 flex ml-auto border-0 py-2 px-6 border rounded-md bg-yellow-500 text-white font-semibold hover:bg-yellow-400">
+                        <button class="mt-8 mr-1 flex ml-auto py-2 px-6 border rounded-md bg-yellow-500 text-white font-semibold hover:bg-yellow-400">
                             Contacter
                         </button>
                         <!-- Favorite -->

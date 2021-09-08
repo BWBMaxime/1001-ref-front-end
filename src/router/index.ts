@@ -14,6 +14,8 @@ import FilterProducts from '@/components/FilterProducts.vue'
 import Test from '@/components/Test.vue'
 import Registration from '@/components/Registration.vue'
 import CreateProduct from '@/components/CreateProduct.vue'
+import FirstCoDistributor from '@/components/FirstCoDistributor.vue'
+import Profil from '@/components/Profil.vue'
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
@@ -84,6 +86,16 @@ const routes: Array<RouteRecordRaw> = [
     path: '/sign-in',
     name: "sign-in",
     component: Registration
+  },
+     {
+    path: '/fcd',
+    name: "fcd",
+    component: FirstCoDistributor
+  },
+  {
+    path: '/prof',
+    name: "prof",
+    component: Profil
   },
   {
     path: '/cp',
