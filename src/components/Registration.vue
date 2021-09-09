@@ -18,12 +18,13 @@
           </select>
         </div>
       </h1>
+
         <!-- Infos Perso -->
       <div class="mb-6">
         <label class="mr-2 text-gray-700 font-bold inline-block mb-2" for="name">Informations personnelles</label>
         <input v-model="user.firstname" type="text" class="border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-yellow-400 rounded mb-2" placeholder="Prénom du responsable"/>
-        <input v-model="user.lastname" type="text" class="border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-yellow-400 rounded mb-2" placeholder="Nom du responsable"/>
-        <input v-model="user.mail" type="text" class="border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-yellow-400 rounded mb-2" placeholder="Adresse email"/>
+        <input v-model="user.name" type="text" class="border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-yellow-400 rounded mb-2" placeholder="Nom du responsable"/>
+        <input v-model="user.mail" type="email" class="border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-yellow-400 rounded mb-2" placeholder="Adresse email"/>
       </div>
 
         <!-- Infos Pro -->
@@ -38,7 +39,7 @@
       <div class="">
         <label class="mr-2 text-gray-700 font-bold inline-block mb-2" for="name">Informations de connexion</label>
         <input v-model="user.password" type="password" class="border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-yellow-400 rounded mb-2" placeholder="Mot de passe"/>
-        <input v-model="user.confirm" type="password" class="border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-yellow-400 rounded mb-2" placeholder="Confirmer le mot de passe"/>
+        <input type="password" class="border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-yellow-400 rounded mb-2" placeholder="Confirmer le mot de passe"/>
       </div>  
 
       <button @click="sendUser" class="w-full mt-6 text-white font-semibold bg-yellow-500 py-3 border rounded-md hover:bg-yellow-400 transition duration-300">Créer un compte</button>
@@ -52,34 +53,30 @@
 import UserController from  "../controllers/UserController";
 
 export default {
-  data() {
+    data() {
 
-    let user = {
-      role: "",
-      firstname:"",
-      lastname:"",
-      mail:"",
-      company:"",
-      siret:"",
-      phone:"",
-      password:""
-    }
+        let user = {
+            role: "",
+            firstname:"",
+            name:"",
+            mail:"",
+            company:"",
+            siret:"",
+            phone:"",
+            password:""
+        }
 
     return {
-      user,
-      logo:
-      {
-        img:""
-      }
+        user
     }
-  },
+    },
 
-  methods:{
+    methods:{
 
-    sendUser(){
-     UserController.saveUser(this.user);
+        sendUser(){
+            UserController.saveUser(this.user);
+        }
     }
-  }
 }
 
 </script>
