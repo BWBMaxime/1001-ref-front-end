@@ -1,0 +1,350 @@
+<template>
+
+<main class="w-3/5 p-8 mx-auto">
+        <p class="text-left md:text-center py4 text-4xl ">Bienvenue! C'est votre première connexion ! </p>
+           <p class="text-left md:text-center py-4 text-2xl extrabold ">Veuillez valider les 3 sections avant d'accéder à votre tableau de bord </p>
+             <section class="shadow row">
+                <div class="tabs">
+
+                    <div class="border-b tab">
+                        <div class="border-l-2 border-transparent relative">
+                            <input class="w-full absolute z-10 cursor-pointer opacity-0 h-5 top-6" type="checkbox" id="chck1">
+                                 <header class="flex justify-between items-center p-5 pl-8 pr-8 cursor-pointer select-none tab-label" for="chck1">
+                                    <span class="text-grey-darkest font-thin text-xl">1 - Complément d'informations sur mon commerce</span>
+                                        <div class="rounded-full border border-grey w-7 h-7 flex items-center justify-center test">
+                                    <!-- icon by feathericons.com -->
+                                            <svg aria-hidden="true" class="" data-reactid="266" fill="none" height="24" stroke="#606F7B" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                                 <polyline points="6 9 12 15 18 9"></polyline>
+                                        </svg>
+                                     </div>
+                                 </header>
+                            <div class="tab-content">
+                            <div class="pl-8 pr-8 pb-5 text-grey-darkest">
+                                   <form class="space-y-4 text-gray-700">
+
+              <!--Type de commerce-->
+              <div class="w-full flex flex-col mb-3">
+              <label for="commerce" class="hidden">Type de commerce</label>
+              <input v-model="plop.commerce" type="commerce" name="commerce" id="commerce" placeholder="Type de commerce" class="w-100 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-indigo-500 focus:outline-none">
+              </div>
+
+
+              <!--Telephone-->
+              <div class="flex flex-col mt-2">
+              <label for="phone" class="hidden">Telephone</label>
+              <input v-model="plop.phone" type="phone" name="phone" id="phone" placeholder="Numéro de télèphone" class="w-100 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-indigo-500 focus:outline-none">
+              </div>
+
+            <div class="flex flex-col md:flex-row pb-4 mb-4">
+            <div class="w-64 font-bold h-6 mx-2 mt-3 text-gray-500">Adresse
+            </div>
+            <div class="flex-1">
+                <div class="flex flex-col md:flex-row">
+                    <select class="mx-2 flex-1 h-10 mt-2 form-select w-full">
+                        <option value="FR">France</option>
+                        <option value="Spain">Espagne</option>
+                    </select>
+                    <div class="w-full flex-1 mx-2">
+                        <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
+                            <input v-model="plop.departement" type="departement" placeholder="Département" class="p-1 px-2 appearance-none outline-none w-full text-gray-800 "> </div>
+                    </div>
+                    <div class="w-full flex-1 mx-2">
+                        <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
+                            <input v-model="plop.cp" type="cp" placeholder="Code postale" class="p-1 px-2 appearance-none outline-none w-full text-gray-800 "> </div>
+                    </div>
+                </div>
+                <div class="m-2">
+                    <div class="w-full flex-1">
+                        <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
+                        <input v-model="plop.adresse" placeholder="Adresse" class="p-1 px-2 appearance-none outline-none w-full text-gray-800 "> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+              <!--Section Site web-->
+              <div class="mb-3 space-y-2 w-full text-xs">
+                      <label class=" font-semibold text-gray-600 py-2">Site Web</label>
+                      <div class="flex flex-wrap items-stretch w-full mb-4 relative">
+                        <div class="flex">
+                          <span class="flex leading-normal bg-grey-lighter border-1 rounded-r-none border border-r-0 border-blue-300 px-3 whitespace-no-wrap text-grey-dark w-12 h-10 bg-blue-300 justify-center items-center  text-xl rounded-lg text-white">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                            </svg>
+                                            </span>
+                        </div>
+                        <input v-model="plop.site" id="site" type="text" class="flex-shrink flex-grow flex-auto leading-normal w-px border border-l-0 h-10 border-grey-light rounded-lg rounded-l-none px-3 relative focus:border-blue focus:shadow" placeholder="https://">
+                          </div>
+              </div>
+
+              <!--Section Facebook-->
+              <div class="mb-3 space-y-2 w-full text-xs">
+                      <label class=" font-semibold text-gray-600 py-2">Facebook</label>
+                      <div class="flex flex-wrap items-stretch w-full mb-4 relative">
+                        <div class="flex">
+                        <span class="flex leading-normal bg-grey-lighter border-1 rounded-r-none border border-r-0 border-blue-300 px-3 whitespace-no-wrap text-grey-dark w-12 h-10 bg-blue-300 justify-center items-center  text-xl rounded-lg text-white">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                            </svg>
+                         </span>
+                        </div>
+                          </div>
+              <div class="mb-3 space-y-2 w-full text-xs">
+                      <label class=" font-semibold text-gray-600 py-2">Instagram</label>
+                      <div class="flex flex-wrap items-stretch w-full mb-4 relative">
+                        <div class="flex">
+                          <span class="flex leading-normal bg-grey-lighter border-1 rounded-r-none border border-r-0 border-blue-300 px-3 whitespace-no-wrap text-grey-dark w-12 h-10 bg-blue-300 justify-center items-center  text-xl rounded-lg text-white">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                            </svg>
+                                          </span>
+                        </div>
+                        <input v-model="tac.instagram" id="instagram" type="text" class="flex-shrink flex-grow leading-normal w-px flex-1 border border-l-0 h-10 border-grey-light rounded-lg rounded-l-none px-3 relative focus:border-blue focus:shadow" placeholder="https://">
+                          </div>
+              </div>
+          
+              <!--Section Linkedin-->
+              <div class="mb-3 space-y-2 w-full text-xs">
+                      <label class=" font-semibold text-gray-600 py-2">Linkedin</label>
+                      <div class="flex flex-wrap items-stretch w-full mb-4 relative">
+                        <div class="flex">
+                        <span class="flex leading-normal bg-grey-lighter border-1 rounded-r-none border border-r-0 border-blue-300 px-3 whitespace-no-wrap text-grey-dark w-12 h-10 bg-blue-300 justify-center items-center  text-xl rounded-lg text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                         </span>
+                        </div>
+                        <input v-model="plop.linkedin" id="linkedin" type="text" class="flex-shrink flex-grow flex-auto leading-normal w-px border border-l-0 h-10 border-grey-light rounded-lg rounded-l-none px-3 relative focus:border-blue focus:shadow" placeholder="https://">
+                          </div>
+              </div>
+
+              <!--Boutton enregistrer-->  
+              <div class="py-4 mb-1 text-center">
+            <button @click="getDatas" type="button" class="transition duration-500 bg-yellow-500 hover: 0 text-white font-bold py-2 px-8 rounded focus:outline-none focus:shadow-outline">
+              Enregistrer
+              </button>
+              </div>
+                                   </form>
+                                </div>
+                            </div>
+              
+                        </div>
+                    </div>
+
+
+                    <div class="border-b tab">
+                        <div class="border-l-2 border-transparent relative">
+                            <input class="w-full absolute z-10 cursor-pointer opacity-0 h-5 top-6" type="checkbox" id="chck2">
+                            <header class="flex justify-between items-center p-5 pl-8 pr-8 cursor-pointer select-none tab-label" for="chck2">
+                                <span class="text-grey-darkest font-thin text-xl">
+                                  2 - Information sur ma production
+                                </span>
+                                <div class="rounded-full border border-grey w-7 h-7 flex items-center justify-center test">
+                                    <!-- icon by feathericons.com -->
+                                    <svg aria-hidden="true" class="" data-reactid="266" fill="none" height="24" stroke="#606F7B" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                        <polyline points="6 9 12 15 18 9">
+                                        </polyline>
+                                    </svg>
+                                </div>
+                            </header>
+                            <div class="tab-content">
+                                <div class="pl-8 pr-8 pb-5 text-grey-darkest">
+                                    <form class="space-y-3 text-gray-700">
+
+                                         <label class=" font-semibold text-gray-600 py-2">Biographie</label>
+                                            <textarea v-model="tac.bio" id="bio" class="w-full px-3 py-3 text-gray-700 border rounded-lg focus:outline-none" rows="4" placeholder="Description"></textarea>
+
+                                            <label class=" font-semibold text-gray-600 py-2">Logo de l'entreprise</label>
+                                                <input type="file" class="w-full text-gray-700 px-3 py-2 border rounded">
+                                                <label class=" font-semibold text-gray-600 py-2">Images des locaux</label>
+                                                <input type="file" class="w-full text-gray-700 px-3 py-2 border rounded">
+
+                                                <!--Boutton enregistrer-->  
+                                                <div class="py-4 mb-1 text-center">
+                                                <button @click="getTiti" class="transition duration-500 bg-yellow-500 hover: 0 text-white font-bold py-2 px-8 rounded focus:outline-none focus:shadow-outline" type="button">
+                                                Enregistrer
+                                                </button>
+                                                </div>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                                        <div class="border-b tab">
+                        <div class="border-l-2 border-transparent relative">
+                            <input class="w-full absolute z-10 cursor-pointer opacity-0 h-5 top-6" type="checkbox" id="chck3">
+                            <header class="flex justify-between items-center p-5 pl-8 pr-8 cursor-pointer select-none tab-label" for="chck3">
+                                <span class="text-grey-darkest font-thin text-xl">
+                                    3 - Inviter mes 5 premiers clients
+                                </span>
+                                <div class="rounded-full border border-grey w-7 h-7 flex items-center justify-center test">
+                                    <!-- icon by feathericons.com -->
+                                    <svg aria-hidden="true" class="" data-reactid="266" fill="none" height="24" stroke="#606F7B" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                        <polyline points="6 9 12 15 18 9">
+                                        </polyline>
+                                    </svg>
+                                </div>
+                            </header>
+                            <div class="tab-content">
+                                <div class="pl-8 pr-8 pb-5 text-grey-darkest">
+                                    <form class="space-y-3 text-gray-700">
+                                         <div class="w-full px-3">
+                                            <label class=" text-gray-700 text-sm font-bold mb-2" for="grid-password">
+                                                Client 1
+                                            </label>
+                                            <input v-model="mail.un" class="appearance-none block w-full bg-white-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-yellow-500" id="email" type="email" placeholder="E-mail">
+                                            </div>
+
+
+                                                <div class="w-full px-3">
+                                            <label class="text-gray-700 text-sm font-bold mb-2" for="grid-password">
+                                                Client 2
+                                            </label>
+                                            <input  v-model="mail.deux" class="appearance-none block w-full bg-white-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-yellow-500" id="email" type="email" placeholder="E-mail">
+                                            </div>
+
+
+                                                <div class="w-full px-3">
+                                            <label class="text-gray-700 text-sm font-bold mb-2" for="grid-password">
+                                                Client 3
+                                            </label>
+                                            <input  v-model="mail.trois" class="appearance-none block w-full bg-white-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-yellow-500" id="email" type="email" placeholder="E-mail">
+                                            </div>
+
+
+                                                <div class="w-full px-3">
+                                            <label class=" text-gray-700 text-sm font-bold mb-2" for="grid-password">
+                                                Client 4
+                                            </label>
+                                            <input  v-model="mail.quatre" class="appearance-none block w-full bg-white-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-yellow-500" id="email" type="email" placeholder="E-mail">
+                                            </div>
+
+                                            
+                                                <div class="w-full px-3">
+                                            <label class="text-gray-700 text-sm font-bold mb-2" for="grid-password">
+                                                Client 5
+                                            </label>
+                                            <input  v-model="mail.cinq" class="appearance-none block w-full bg-white-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-yellow-500" id="email" type="email" placeholder="E-mail">
+                                            </div>
+
+
+
+                                                <!--Boutton enregistrer-->  
+                                                <div class="py-4 mb-1 text-center">
+                                                <button @click="getTacos" class="transition duration-500 bg-yellow-500 hover: 0 text-white font-bold py-2 px-8 rounded focus:outline-none focus:shadow-outline" type="button">
+                                                Enregistrer
+                                                </button>
+                                                </div>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+              
+       <!--Boutton enregistrer-->  
+              <div class="space-x-10 py-4 mb-1 text-center">
+            <button class="transition duration-500 bg-yellow-500 hover: 0 text-white font-bold py-2 px-8 rounded focus:outline-none focus:shadow-outline" type="submit">
+              Finir plus tard, me déconnecter
+              </button>
+            <button class="transition duration-500 bg-yellow-500 hover: 0 text-white font-bold py-2 px-8 rounded focus:outline-none focus:shadow-outline" type="submit">
+              C'est partie
+              </button>
+              </div>
+              
+
+
+
+
+</template>
+
+<script >
+export default {
+     data() {
+        
+        let plop = {"commerce": "","phone": "","departement": "","cp": "","adresse": "","site": "","facebook": "","instagram": "","linkedin": "",}
+        let tac = {"bio": "",}
+        this.getUser(plop)
+
+       return {  
+           plop,tac,
+          
+    }
+    },
+    
+
+methods: {
+    getDatas(){
+        console.log(this.plop,this.tac);
+    },    
+    getTiti(tac){
+    tac.bio = 'Domaine de Roucas : est une entreprise magnifique producteur de vin depuis 10 ans specialisé dans le vin AOP.';
+
+    },
+
+    getUser(plop){
+       plop.commerce = 'Domaine de Roucas';
+       plop.phone = '06.66.80.63.55';
+       plop.departement = 'Herault';
+       plop.cp = '34070';
+       plop.adresse = '500 avenue des aiguilles';
+       plop.site = 'https://wwww.mon-site.com';
+       plop.facebook = 'https://www.facebook.com/51';
+       plop.instagram = '@LemonBlanc';
+       plop.linkedin = 'Jean-Luc';
+       plop.bio = 'Domaine de Roucas : est une entreprise magnifique producteur de vin depuis 10 ans specialisé dans le vin AOP.';
+
+    }
+
+    
+    /**getUser(user){
+        user.commerce = 'Domaine de Roucas';
+        user.phone = '06.66.80.63.55';
+        user.departement = 'Herault';
+        user.cp = '34070';
+        user.adresse = '500 avenue des aiguilles';
+        user.site = 'https://wwww.mon-site.com';
+        user.facebook = 'https://www.facebook.com/51';
+        user.instagram = '@LemonBlanc';
+        user.linkedin = 'Jean-Luc';
+        user.bio = 'Domaine de Roucas : est une entreprise magnifique producteur de vin depuis 10 ans specialisé dans le vin AOP.';
+
+    },*/
+ 
+
+}
+}
+
+
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+              .tab {
+            overflow: hidden;
+            }
+            .tab-content {
+            max-height: 0;
+            transition: all 0.5s;
+            }
+            input:checked + .tab-label .test {
+                background-color: #000;
+            }
+            input:checked + .tab-label .test svg {
+                transform: rotate(90deg);
+                stroke: #fff;
+            }
+            input:checked + .tab-label::after {
+            transform: rotate(90deg);
+            }
+            input:checked ~ .tab-content {
+            max-height: 100vh;
+            }         
+            
+</style>

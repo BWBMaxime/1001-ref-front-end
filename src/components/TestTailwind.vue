@@ -12,8 +12,8 @@
         </div>
         <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
           <div class="flex-shrink-0 flex items-center">
-            <img class="block lg:hidden h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg" alt="Workflow" />
-            <img class="hidden lg:block h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg" alt="Workflow" />
+            <img class="block lg:hidden h-8 w-auto" src="@/assets/logo.jpg" alt="Workflow" />
+            <img class="hidden lg:block h-8 w-auto" src="@/assets/logo.jpg" alt="Workflow" />
           </div>
           <div class="hidden sm:block sm:ml-6">
             <div class="flex space-x-4">
@@ -59,6 +59,7 @@
       </div>
     </DisclosurePanel>
   </Disclosure>
+
 </template>
 
 <script>
@@ -66,10 +67,10 @@ import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuIt
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/vue/outline'
 
 const navigation = [
-  { name: 'Dashboard', href: '#', current: true },
-  { name: 'Team', href: '#', current: false },
-  { name: 'Projects', href: '#', current: false },
-  { name: 'Calendar', href: '#', current: false },
+  { name: 'Accueil', href: '/', current: true },
+  { name: "C'est quoi?", href: '/#what', current: false },
+  { name: "C'est pour qui?", href: '/#who', current: false },
+  { name: 'Test', href: '/#what', current: false },
 ]
 
 export default {
