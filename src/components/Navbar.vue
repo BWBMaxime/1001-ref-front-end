@@ -31,16 +31,8 @@ export default {
       showMenu: false,
       links: [
         { path: "/", name: "Acceuil" },
-        { path: "/qui", name: "c'est pour qui?" },
-        { path: "/quoi", name: "c'est quoi?"},
-        { path: "/fca", name: "form contact"},
-        { path: "/fcp", name: "form prod"},
-        { path: "/log", name: "login"},
-        { path: "/sb", name: "search bar"},
-        { path: "/si", name: "sign in"},       
-        { path: "/pl", name: "liste produits"},       
-        { path: "/fp", name: "filtre prods"},
-             
+        { path: "/about", name: "Présentation" },
+        { path: "/contact", name: "Nous contacter" },
         ]
 
     }

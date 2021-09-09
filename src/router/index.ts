@@ -1,21 +1,6 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import Home from '../views/Home.vue'
-import Who from '@/components/Who.vue'
-import What from '@/components/What.vue'
-import FormContactAdmin from '@/components/FormContactAdmin.vue'
-import FormContactProducer from '@/components/FormContactProducer.vue'
-import Login from '@/components/Login.vue'
-import Navbar from '@/components/Navbar.vue'
-import SearchBar from '@/components/SearchBar.vue'
-import SignIn from '@/components/SignIn.vue'
-import TestTailwind from '@/components/TestTailwind.vue'
-import ProductsList from '@/components/ProductsList.vue'
-import FilterProducts from '@/components/FilterProducts.vue'
-import Test from '@/components/Test.vue'
-import Registration from '@/components/Registration.vue'
-import CreateProduct from '@/components/CreateProduct.vue'
-import FirstCoDistributor from '@/components/FirstCoDistributor.vue'
-import Profil from '@/components/Profil.vue'
+import Contact from '../views/Contact.vue'
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
@@ -23,84 +8,9 @@ const routes: Array<RouteRecordRaw> = [
     component: Home
   },
   {
-    path: '/qui',
-    name: "Who",
-    component: Who
-  },
-  {
-    path: '/quoi',
-    name: "What",
-    component: What
-  },
-  {
-    path: '/fca',
-    name: "fca",
-    component: FormContactAdmin
-  },
-  {
-    path: '/fcp',
-    name: "fcp",
-    component: FormContactProducer
-  },
-  {
-    path: '/log',
-    name: 'log',
-    component: Login
-  },
-  {
-    path: '/nav',
-    name: "nav",
-    component: Navbar
-  },
-  {
-    path: '/sb',
-    name: "sb",
-    component: SearchBar
-  },
-  {
-    path: '/si',
-    name: "si",
-    component: SignIn
-  },
-  {
-    path: '/tt',
-    name: "tt",
-    component: TestTailwind
-  },
-  {
-    path: '/pl',
-    name: "pl",
-    component: ProductsList
-  },
-  {
-    path: '/fp',
-    name: "fp",
-    component: FilterProducts
-  },
-  {
-    path: '/test',
-    name: "test",
-    component: Test
-  },
-    {
-    path: '/sign-in',
-    name: "sign-in",
-    component: Registration
-  },
-     {
-    path: '/fcd',
-    name: "fcd",
-    component: FirstCoDistributor
-  },
-  {
-    path: '/prof',
-    name: "prof",
-    component: Profil
-  },
-  {
-    path: '/cp',
-    name: "cp",
-    component: CreateProduct
+    path: '/contact',
+    name: 'contact',
+    component: Contact
   },
   {
     path: '/about',

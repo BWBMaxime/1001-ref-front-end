@@ -1,18 +1,16 @@
 <template>
-<What></What>
-<Who></Who>
+<FormContactAdmin></FormContactAdmin>
 </template>
 <script lang="ts">
   
 import { Options, Vue } from 'vue-class-component';
-import What from '../components/What.vue'
-import Who from '../components/Who.vue'
+import FormContactAdmin from '../components/FormContactAdmin.vue'
+
 
 @Options({
   components: {
    
-    What,
-    Who
+   FormContactAdmin
 
 
   },

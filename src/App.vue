@@ -1,13 +1,17 @@
 <template>
-  <Navbar></Navbar>
+<!--Si l'utilisateur n'as aucun role-->
+
+<Navbar></Navbar>
   <products-list-prod></products-list-prod>
   <router-view></router-view>
+
 </template>
 
 
 <script>
-import Navbar from '@/components/Navbar.vue'
-import ProductsListProd from '@/components/ProductsListProd.vue'
+import Navbar from './components/Navbar.vue'
+
+
 export default {
 
   components: { Navbar }
