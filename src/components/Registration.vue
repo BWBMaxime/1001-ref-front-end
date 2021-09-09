@@ -1,14 +1,23 @@
 <template>
 <!-- component -->
-<div class="min-h-screen bg-gray-50 flex items-center">
+<div class="py-6 min-h-screen bg-gray-50 flex items-center">
   <div class="container mx-auto max-w-md shadow-md hover:shadow-lg transition duration-300">
-
       <div class="p-9 bg-white rounded-xl">
-      <!-- Logo du site -->
-      <img v-bind:src="logo.img">
+      <h1 class="text-2xl font-semibold text-yellow-500 text-center">
+        Je crée mon compte
+      </h1>
       <h1 class="my-8 text-xl text-gray-700 text-center">
-          Je suis #### . Je crée mon compte
-        </h1>
+        Je suis
+        <div class="relative inline-flex">
+          <svg class="w-2 h-2 absolute top-0 right-0 m-4 pointer-events-none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 412 232"><path d="M206 171.144L42.678 7.822c-9.763-9.763-25.592-9.763-35.355 0-9.763 9.764-9.763 25.592 0 35.355l181 181c4.88 4.882 11.279 7.323 17.677 7.323s12.796-2.441 17.678-7.322l181-181c9.763-9.764 9.763-25.592 0-35.355-9.763-9.763-25.592-9.763-35.355 0L206 171.144z" fill="#648299" fill-rule="nonzero"/></svg>
+          <select v-model="user.role" class="w-full text-lg border border-gray-400 rounded-full text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none">
+            <option class="text-lg">Role...</option>
+            <option class="text-lg">Producteur</option>
+            <option class="text-lg">Distributeur - revendeur</option>
+            <option class="text-lg">Distributeur - restaurateur</option>
+          </select>
+        </div>
+      </h1>
         <!-- Infos Perso -->
       <div class="mb-6">
         <label class="mr-2 text-gray-700 font-bold inline-block mb-2" for="name">Informations personnelles</label>
@@ -46,14 +55,15 @@ export default {
   data() {
 
     let user = {
-        firstname:"",
-        lastname:"",
-        mail:"",
-        company:"",
-        siret:"",
-        phone:"",
-        password:""
-      }
+      role: "",
+      firstname:"",
+      lastname:"",
+      mail:"",
+      company:"",
+      siret:"",
+      phone:"",
+      password:""
+    }
 
     return {
       user,
