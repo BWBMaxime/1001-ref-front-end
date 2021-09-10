@@ -4,26 +4,26 @@
             <div class="mx-auto flex flex-wrap justify-center">
                 <!-- Image -->
                 <img alt="ecommerce" class="lg:w-80 w-full lg:h-80 h-64 object-cover object-center rounded"
-                src="https://dummyimage.com/400x400">
+                v-bind:src="user.companyPicture">
                 <!-- Description -->
-                <div class="lg:w-3/5 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0" v-for="produc in producer" :key="produc.name">
+                <div class="lg:w-3/5 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
                     <div class="flex">
-                        <h1 class="text-3xl title-font font-medium mb-1 uppercase text-yellow-500"> {{ produc.company }}</h1>
-                        <img class="ml-4 mt-1 rounded-full h-8 w-auto sm:h-8" v-bind:src="produc.logo">
+                        <h1 class="text-3xl title-font font-medium mb-1 uppercase text-yellow-500"> {{ user.company }}</h1>
+                        <img class="ml-4 mt-1 rounded-full h-8 w-auto sm:h-8" v-bind:src="user.companyLogo">
                     </div>
-                    <h2 class="mt-1 text-md title-font text-gray-500 tracking-widest">Responsable : {{ produc.name }}</h2>
+                    <h2 class="mt-1 text-md title-font text-gray-500 tracking-widest">Responsable : {{ user.name }} {{ user.firstname }}</h2>
                     <p class="mt-10 leading-relaxed">
-                        {{ produc.description }}
+                        {{ user.biography }}
                     </p>
-                    <div class="mt-6 flex items-center text-sm text-gray-500" v-for="adress in produc.adresses" :key="adress">
-                        <!-- Heroicon name: solid/location-marker -->
+                    <div class="mt-6 flex items-center text-sm text-gray-500">
+                        <!-- Heroicon -->
                         <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                             <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
                         </svg>
-                        {{ adress.city }}, {{ adress.country }}
+                        {{ address.city }}, {{ address.country }}
                     </div>
                     <div class="flex mt-6 items-center pb-5 border-t-2 border-gray-100 mb-5">
-                        <!-- Buttons -->
+                        <!-- Button validate -->
                         <button class="mt-8 mr-1 flex ml-auto py-2 px-6 border rounded-md bg-yellow-500 text-white font-semibold hover:bg-yellow-400">
                             Contacter
                         </button>
@@ -43,26 +43,25 @@
 <script>
 export default {
     data() {
+
+        let user = {
+            company: "",
+            name: "",
+            firstname: "",
+            companyLogo: "https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg",
+            companyPicture: "https://cdn.pixabay.com/photo/2015/05/15/14/22/conference-room-768441_960_720.jpg",
+            biography: "Fam locavore kickstarter distillery. Mixtape chillwave tumeric sriracha taximy chia microdosing tilde DIY. XOXO fam indxgo juiceramps cornhole raw denim forage brooklyn. Everyday carry +1 seitan poutine tumeric. Gastropub blue bottle austin listicle pour-over, neutra jean shorts keytar banjo tattooed umami cardigan."
+        }
+        let address = {
+            city: "Montpellier",
+            country: "France"
+        }
         return {
-            producer: [
-                {
-                    "company": "Entreprise Markton",
-                    "name": "Jean-Luc Dupont",
-                    "logo": "https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg",
-                    "img": "https://cdn.pixabay.com/photo/2015/05/15/14/22/conference-room-768441_960_720.jpg",
-                    "description": "Fam locavore kickstarter distillery. Mixtape chillwave tumeric sriracha taximy chia microdosing tilde DIY. XOXO fam indxgo juiceramps cornhole raw denim forage brooklyn. Everyday carry +1 seitan poutine tumeric. Gastropub blue bottle austin listicle pour-over, neutra jean shorts keytar banjo tattooed umami cardigan.",
-                    "adresses": [
-                        {
-                            "city": "Montpellier",
-                            "country": "France"
-                        }
-                    ]
-                }
-            ]
+            user,
+            address
         }
     }
 }
-
 </script>
 
 <style>

@@ -92,8 +92,8 @@ const routes: Array<RouteRecordRaw> = [
     component: FirstCoDistributor
   },
   {
-    path: '/prof',
-    name: "prof",
+    path: '/profil',
+    name: "profil",
     component: Profil
   },
   {
