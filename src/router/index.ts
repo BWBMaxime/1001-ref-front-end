@@ -15,6 +15,7 @@ import Test from '@/components/Test.vue'
 import Registration from '@/components/Registration.vue'
 import FirstCoDistributor from '@/components/FirstCoDistributor.vue'
 import Profil from '@/components/Profil.vue'
+import CreateProduct from '@/components/CreateProduct.vue'
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
@@ -95,6 +96,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/prof',
     name: "prof",
     component: Profil
+  },
+  {
+    path: '/cp',
+    name: "cp",
+    component: CreateProduct
   },
   {
     path: '/about',

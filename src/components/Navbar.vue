@@ -40,6 +40,7 @@ export default {
         { path: "/si", name: "sign in"},       
         { path: "/pl", name: "liste produits"},       
         { path: "/fp", name: "filtre prods"},
+        { path: "/fcd", name: "First Co"}
              
         ]
 
