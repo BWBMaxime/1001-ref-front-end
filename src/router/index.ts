@@ -14,7 +14,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     //Utilisateur Non Connecter
     path: '/',
-    name: 'Home',
+    name: 'home',
     component: Home
   },
   {
@@ -24,7 +24,7 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: '/about',
-    name: 'About',
+    name: 'about',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
@@ -32,54 +32,50 @@ const routes: Array<RouteRecordRaw> = [
   },
   //-----------------------------------------------------------------------------
   //                              User Producer
-  
-   { path: '/producer/:id', component: Dashboard,
-   children: [
     {
       // `First-connection-producer` va être rendu à l'intérieur du `<router-view>` de `User`
       // quand `/utilisateur/:id/profil` concorde
-      path: 'first-connection',
-      name: 'FirstCoProducer',
+      path: '/producer/first-connection',
+      name: 'firstCoProducer',
       component: FirstCoProducer
     },
     {
-      path: 'register',
-      name: 'RegisterProducer',
+      path: '/producer/register',
+      name: 'registerProducer',
       component: RegisterProducer
     },
     {
-      path: 'dashboard',
-      name: 'Dashboard',
+      path: '/producer/dashboard',
+      name: 'dashboard',
       component: Dashboard
     },
     {
-      path: 'setting',
-      name: 'Setting',
+      path: '/producer/setting',
+      name: 'setting',
       component: Setting
     },
     {
-      path: 'create-product',
-      name: 'CreateProduct',
+      path: '/producer/create-product',
+      name: 'createProduct',
       component: CreateProduct
     },
     
     {
-      path: 'messaging',
-      name: 'Messaging',
+      path: '/producer/messaging',
+      name: 'messaging',
       component: Messaging
     },
     {
-      path: 'product-list',
-      name: 'ProductListProd',
+      path: '/producer/product-list',
+      name: 'productListProd',
       component: ProductListProd
     },
     {
-      path: 'preview',
-      name: 'Preview',
+      path: '/producer/preview',
+      name: 'preview',
       component: PreviewProd
     },
-  ]
-}
+
   // -----------------------------------------------
 
  

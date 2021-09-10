@@ -35,14 +35,14 @@ export default {
         { path: "/about", name: "Présentation" },
         { path: "/contact", name: "Nous contacter" },
         // User Producer
-        { path: "/register", name: "Inscription producteur" },
-        { path: "/first-connection", name: "Première connexion producteur" },
-        { path: "/dashboard", name: "Dashboard" },
-        { path: "/setting", name: "Paramètres" },
-        { path: "/create-product", name: "Créer un produit" },
-        { path: "/messaging", name: "Messagerie" },
-        { path: "/product-list", name: "Liste des produits" },
-        { path: "/preview", name: "Preview" },
+        { path: "/producer/register", name: "Inscription producteur" },
+        { path: "/producer/first-connection", name: "Première connexion producteur" },
+        { path: "/producer/dashboard", name: "Dashboard" },
+        { path: "/producer/setting", name: "Paramètres" },
+        { path: "/producer/create-product", name: "Créer un produit" },
+        { path: "/producer/messaging", name: "Messagerie" },
+        { path: "/producer/product-list", name: "Liste des produits" },
+        { path: "/producer/preview", name: "Preview" },
         // 
         // 
         // 
