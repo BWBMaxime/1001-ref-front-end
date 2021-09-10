@@ -30,9 +30,48 @@ export default {
     return {
       showMenu: false,
       links: [
+        //Utilisateur non connecter
         { path: "/", name: "Acceuil" },
         { path: "/about", name: "Présentation" },
         { path: "/contact", name: "Nous contacter" },
+        /** 
+         * User Producer
+         * 
+         * 
+         * 
+         * 
+         * 
+         * 
+         * 
+         * 
+         * 
+         * 
+         * 
+         * 
+         * 
+         * 
+         * ------------------------------------
+         * User Distributeur
+         * 
+         * 
+         * 
+         * 
+         * 
+         * 
+         * 
+         * 
+         * 
+         * 
+         * ------------------------------------
+         * User Admin
+         * 
+         * 
+         * 
+         * 
+         * 
+         * 
+         * 
+        */
         ]
 
     }
