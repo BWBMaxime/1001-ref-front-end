@@ -1,13 +1,15 @@
 import axios from 'axios';
 
-
-
 const UserController = {
-    saveUser(user) {axios.post('http://127.0.0.1:8000/sign-in/', {user}, {withCredentials:false}).then(function(response){
-        console.log(response.data);
-    })
+    saveUser(user) {
+        //console.log(JSON.stringify(user));
+        axios.post('http://localhost:8000/register', JSON.stringify(user), {withCredentials:false})
+        .then(function(response){console.log(response.data);})
+        .catch(error => {
+            this.errorMessage = error.message;
+            console.error("There was an error!", error);
+        });
+    }
 }
-}
-
 
 export default UserController;
