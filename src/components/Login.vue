@@ -54,9 +54,9 @@
                         </div>
 
                         <div class="mb-4 text-center">
-                            <button class="transition duration-500 bg-yellow-500 hover: 0 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                            <a href="http://localhost:8080/producer/dashboard" class="transition duration-500 bg-yellow-500 hover: 0 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
                                 Login
-                            </button>
+                            </a>
                         </div>
                         <hr>
                         <div class="mt-8">

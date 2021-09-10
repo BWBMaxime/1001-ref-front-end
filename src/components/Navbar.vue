@@ -14,7 +14,7 @@
         <ul class="flex flex-col lg:flex-row list-none ml-auto">
           <li v-for="link in links" :key="link" class="nav-item">
             <router-link v-bind:to="link.path" class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-yellow-500 hover:opacity-75" >
-              {{link.name}}
+              | {{link.name}} 
             </router-link>
           </li>         
         </ul>
@@ -34,44 +34,24 @@ export default {
         { path: "/", name: "Acceuil" },
         { path: "/about", name: "Présentation" },
         { path: "/contact", name: "Nous contacter" },
-        /** 
-         * User Producer
-         * 
-         * 
-         * 
-         * 
-         * 
-         * 
-         * 
-         * 
-         * 
-         * 
-         * 
-         * 
-         * 
-         * 
-         * ------------------------------------
-         * User Distributeur
-         * 
-         * 
-         * 
-         * 
-         * 
-         * 
-         * 
-         * 
-         * 
-         * 
-         * ------------------------------------
-         * User Admin
-         * 
-         * 
-         * 
-         * 
-         * 
-         * 
-         * 
-        */
+        // User Producer
+        { path: "/register", name: "Inscription producteur" },
+        { path: "/first-connection", name: "Première connexion producteur" },
+        { path: "/dashboard", name: "Dashboard" },
+        { path: "/setting", name: "Paramètres" },
+        { path: "/create-product", name: "Créer un produit" },
+        { path: "/messaging", name: "Messagerie" },
+        { path: "/product-list", name: "Liste des produits" },
+        { path: "/preview", name: "Preview" },
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        //        
         ]
 
     }

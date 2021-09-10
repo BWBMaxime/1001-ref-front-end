@@ -158,9 +158,9 @@
         </section>     
     <!--Boutton enregistrer-->  
     <div class="py-4 mb-1 text-center mt-12">
-        <button class="transition duration-500 bg-yellow-500 hover: 0 text-white font-bold py-2 px-8 rounded focus:outline-none focus:shadow-outline" type="submit">
+        <a href="http://localhost:8080/product-list-producer" class="transition duration-500 bg-yellow-500 hover: 0 text-white font-bold py-2 px-8 rounded focus:outline-none focus:shadow-outline" type="submit">
         Enregistrer le produit
-        </button>
+        </a>
     </div>
 </main>
 

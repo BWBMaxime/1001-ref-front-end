@@ -1,10 +1,9 @@
 <template>
-<!--Si l'utilisateur n'as aucun role-->
-
+<div>
 <Navbar></Navbar>
-  <products-list-prod></products-list-prod>
-  <router-view></router-view>
+<router-view></router-view>
 
+</div>
 </template>
 
 

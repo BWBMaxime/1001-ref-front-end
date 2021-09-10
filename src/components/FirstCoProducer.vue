@@ -25,14 +25,14 @@
               <!--Type de commerce-->
               <div class="w-full flex flex-col mb-3">
               <label for="commerce" class="hidden">Type de commerce</label>
-              <input v-model="plop.commerce" type="commerce" name="commerce" id="commerce" placeholder="Type de commerce" class="w-100 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-indigo-500 focus:outline-none">
+              <input v-model="plop.commerce" type="commerce" name="commerce" id="commerce" placeholder="Type de commerce" class="w-100 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-yellow-500 focus:outline-none">
               </div>
 
 
               <!--Telephone-->
               <div class="flex flex-col mt-2">
               <label for="phone" class="hidden">Telephone</label>
-              <input v-model="plop.phone" type="phone" name="phone" id="phone" placeholder="Numéro de télèphone" class="w-100 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-indigo-500 focus:outline-none">
+              <input v-model="plop.phone" type="phone" name="phone" id="phone" placeholder="Numéro de télèphone" class="w-100 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-yellow-500 focus:outline-none">
               </div>
 
             <div class="flex flex-col md:flex-row pb-4 mb-4">
@@ -68,7 +68,7 @@
                       <label class=" font-semibold text-gray-600 py-2">Site Web</label>
                       <div class="flex flex-wrap items-stretch w-full mb-4 relative">
                         <div class="flex">
-                          <span class="flex leading-normal bg-grey-lighter border-1 rounded-r-none border border-r-0 border-blue-300 px-3 whitespace-no-wrap text-grey-dark w-12 h-10 bg-blue-300 justify-center items-center  text-xl rounded-lg text-white">
+                          <span class="flex leading-normal bg-grey-lighter border-1 rounded-r-none border border-r-0 border-yellow-500 px-3 whitespace-no-wrap text-grey-dark w-12 h-10 bg-yellow-500 justify-center items-center  text-xl rounded-lg text-white">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                             </svg>
@@ -77,24 +77,11 @@
                         <input v-model="plop.site" id="site" type="text" class="flex-shrink flex-grow flex-auto leading-normal w-px border border-l-0 h-10 border-grey-light rounded-lg rounded-l-none px-3 relative focus:border-blue focus:shadow" placeholder="https://">
                           </div>
               </div>
-
-              <!--Section Facebook-->
               <div class="mb-3 space-y-2 w-full text-xs">
                       <label class=" font-semibold text-gray-600 py-2">Facebook</label>
                       <div class="flex flex-wrap items-stretch w-full mb-4 relative">
                         <div class="flex">
-                        <span class="flex leading-normal bg-grey-lighter border-1 rounded-r-none border border-r-0 border-blue-300 px-3 whitespace-no-wrap text-grey-dark w-12 h-10 bg-blue-300 justify-center items-center  text-xl rounded-lg text-white">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                            </svg>
-                         </span>
-                        </div>
-                          </div>
-              <div class="mb-3 space-y-2 w-full text-xs">
-                      <label class=" font-semibold text-gray-600 py-2">Instagram</label>
-                      <div class="flex flex-wrap items-stretch w-full mb-4 relative">
-                        <div class="flex">
-                          <span class="flex leading-normal bg-grey-lighter border-1 rounded-r-none border border-r-0 border-blue-300 px-3 whitespace-no-wrap text-grey-dark w-12 h-10 bg-blue-300 justify-center items-center  text-xl rounded-lg text-white">
+                          <span class="flex leading-normal bg-grey-lighter border-1 rounded-r-none border border-r-0 border-yellow-500 px-3 whitespace-no-wrap text-grey-dark w-12 h-10 bg-yellow-500 justify-center items-center  text-xl rounded-lg text-white">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                             </svg>
@@ -109,7 +96,7 @@
                       <label class=" font-semibold text-gray-600 py-2">Linkedin</label>
                       <div class="flex flex-wrap items-stretch w-full mb-4 relative">
                         <div class="flex">
-                        <span class="flex leading-normal bg-grey-lighter border-1 rounded-r-none border border-r-0 border-blue-300 px-3 whitespace-no-wrap text-grey-dark w-12 h-10 bg-blue-300 justify-center items-center  text-xl rounded-lg text-white">
+                        <span class="flex leading-normal bg-grey-lighter border-1 rounded-r-none border border-r-0 border-yellow-500 px-3 whitespace-no-wrap text-grey-dark w-12 h-10 bg-yellow-500 justify-center items-center  text-xl rounded-lg text-white">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg>
@@ -195,7 +182,7 @@
                                             <label class=" text-gray-700 text-sm font-bold mb-2" for="grid-password">
                                                 Client 1
                                             </label>
-                                            <input v-model="mail.un" class="appearance-none block w-full bg-white-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-yellow-500" id="email" type="email" placeholder="E-mail">
+                                            <input  class="appearance-none block w-full bg-white-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-yellow-500" id="email" type="email" placeholder="E-mail">
                                             </div>
 
 
@@ -203,7 +190,7 @@
                                             <label class="text-gray-700 text-sm font-bold mb-2" for="grid-password">
                                                 Client 2
                                             </label>
-                                            <input  v-model="mail.deux" class="appearance-none block w-full bg-white-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-yellow-500" id="email" type="email" placeholder="E-mail">
+                                            <input   class="appearance-none block w-full bg-white-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-yellow-500" id="email" type="email" placeholder="E-mail">
                                             </div>
 
 
@@ -211,7 +198,7 @@
                                             <label class="text-gray-700 text-sm font-bold mb-2" for="grid-password">
                                                 Client 3
                                             </label>
-                                            <input  v-model="mail.trois" class="appearance-none block w-full bg-white-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-yellow-500" id="email" type="email" placeholder="E-mail">
+                                            <input   class="appearance-none block w-full bg-white-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-yellow-500" id="email" type="email" placeholder="E-mail">
                                             </div>
 
 
@@ -219,7 +206,7 @@
                                             <label class=" text-gray-700 text-sm font-bold mb-2" for="grid-password">
                                                 Client 4
                                             </label>
-                                            <input  v-model="mail.quatre" class="appearance-none block w-full bg-white-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-yellow-500" id="email" type="email" placeholder="E-mail">
+                                            <input  class="appearance-none block w-full bg-white-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-yellow-500" id="email" type="email" placeholder="E-mail">
                                             </div>
 
                                             
@@ -227,7 +214,7 @@
                                             <label class="text-gray-700 text-sm font-bold mb-2" for="grid-password">
                                                 Client 5
                                             </label>
-                                            <input  v-model="mail.cinq" class="appearance-none block w-full bg-white-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-yellow-500" id="email" type="email" placeholder="E-mail">
+                                            <input   class="appearance-none block w-full bg-white-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-yellow-500" id="email" type="email" placeholder="E-mail">
                                             </div>
 
 
@@ -246,7 +233,7 @@
                     </div>
                 </div>
             </section>
-        </main>
+       
               
        <!--Boutton enregistrer-->  
               <div class="space-x-10 py-4 mb-1 text-center">
@@ -258,7 +245,7 @@
               </button>
               </div>
               
-
+ </main>
 
 
 
