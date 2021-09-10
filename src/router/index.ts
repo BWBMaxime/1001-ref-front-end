@@ -58,8 +58,8 @@ const routes: Array<RouteRecordRaw> = [
     component: SearchBar
   },
   {
-    path: '/si',
-    name: "si",
+    path: '/sign-in',
+    name: "sign-in",
     component: SignIn
   },
   {
@@ -83,8 +83,8 @@ const routes: Array<RouteRecordRaw> = [
     component: Test
   },
     {
-    path: '/sign-in',
-    name: "sign-in",
+    path: '/register',
+    name: "register",
     component: Registration
   },
      {

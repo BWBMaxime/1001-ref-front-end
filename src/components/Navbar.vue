@@ -37,10 +37,10 @@ export default {
         { path: "/fcp", name: "form prod"},
         { path: "/log", name: "login"},
         { path: "/sb", name: "search bar"},
-        { path: "/si", name: "sign in"},       
+        { path: "/sign-in", name: "sign in"},       
         { path: "/pl", name: "liste produits"},       
         { path: "/fp", name: "filtre prods"},
-             
+        { path: "/register", name: "Inscription"},
         ]
 
     }
