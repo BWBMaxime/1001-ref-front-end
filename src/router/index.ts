@@ -10,6 +10,7 @@ import CreateProduct from '../views/CreateProduct.vue'
 import Messaging from '../views/Messaging.vue'
 import ProductListProd from '../views/ProductListProd.vue'
 import PreviewProd from '../views/PreviewProd.vue'
+import Profils from '../views/Profils.vue'
 const routes: Array<RouteRecordRaw> = [
   {
     //Utilisateur Non Connecter
@@ -74,6 +75,11 @@ const routes: Array<RouteRecordRaw> = [
       path: '/producer/preview',
       name: 'preview',
       component: PreviewProd
+    },
+    {
+      path: '/profil',
+      name: 'profil',
+      component: Profils
     },
 
   // -----------------------------------------------

@@ -85,29 +85,29 @@ CheckAndSendUser(){
           let element = this.user[key];
           if (key === 'firstname' && element === "") {
             this.check = false
-          document.getElementById('firstname').classList.add('border-red-500' ,'border')
+            //document.getElementById('firstname').classList.add('border-red-500' ,'border')
           }
           if (key === 'name' && element === "") {
             this.check = false
-            document.getElementById('name').classList.add('border-red-500' ,'border')
+            // document.getElementById('name').classList.add('border-red-500' ,'border')
           }if (key === 'mail' && element === "") {
             this.check = false
-           document.getElementById('mail').classList.add('border-red-500' ,'border')
+          //  document.getElementById('mail').classList.add('border-red-500' ,'border')
           }if (key === 'company' && element === "") {
             this.check = false
-            document.getElementById('company').classList.add('border-red-500' ,'border')
+            // document.getElementById('company').classList.add('border-red-500' ,'border')
           }if (key === 'siret' && element === "") {
             this.check = false
-           document.getElementById('siret').classList.add('border-red-500' ,'border')
+            // document.getElementById('siret').classList.add('border-red-500' ,'border')
           }if (key === 'phone' && element === "") {
             this.check = false
-            document.getElementById('phone').classList.add('border-red-500' ,'border')
+            // document.getElementById('phone').classList.add('border-red-500' ,'border')
           }if (key === 'password' && element === "") {
             this.check = false
-            document.getElementById('password').classList.add('border-red-500' ,'border')
+            // document.getElementById('password').classList.add('border-red-500' ,'border')
           }if (key === 'confirm' && element === "") {
             this.check = false
-            document.getElementById('confirm').classList.add('border-red-500' ,'border')
+            // document.getElementById('confirm').classList.add('border-red-500' ,'border')
           }
           if (this.check === true) {
             
