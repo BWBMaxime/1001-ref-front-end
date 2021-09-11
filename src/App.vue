@@ -1,12 +1,15 @@
 <template>
-  <registration></registration>
+  <div>
+    <Navbar></Navbar>
+    <router-view></router-view>  
+  </div>
 </template>
 
 
 <script>
-import Registration from './components/Registration.vue'
+import Navbar from './components/Navbar.vue'
 export default {
-  components: { Registration }
+  components: { Navbar }
 
 }
 </script>

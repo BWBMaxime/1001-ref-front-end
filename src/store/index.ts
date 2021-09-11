@@ -5,6 +5,12 @@ import DeclinaisonsModel from '@/models/DeclinaisonsModel'
 
 export default createStore({
   state: {
+    // Id et role de l'utilisateur connecté
+    currentUser: {
+      id: null,
+      role: ""
+    },
+
     // product list
     products: [
       {
@@ -78,6 +84,14 @@ export default createStore({
   },
  
   mutations: {
+    /**
+     * When credentials login are ok change id of current user
+     */
+    setCurrentUser(state, id){
+      state.currentUser.id = id
+      console.log("state " + state.currentUser.id)
+    },
+    
     /**
      * get products.tags in state and feed state.tags array following tagsModel
      * @param state 
