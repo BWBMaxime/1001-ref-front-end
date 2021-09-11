@@ -1,6 +1,6 @@
 
 <template>
-<div class="float-left flex bg-gray dark:bg-gray-800 rounded-lg shadow h-full mt-10 ml-24">    
+<div class=" float-left flex bg-gray dark:bg-gray-800 rounded-lg shadow h-full mt-10 ml-48">    
     <ul class="w-84 justify-start flex flex-col divide divide-y">
         <div class="text-xl flex flex-1 items-center p-4">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">

@@ -1,18 +1,17 @@
 <template>
-<div>
-<FirstCoProducer></FirstCoProducer>
-</div>
+<FormContactAdmin></FormContactAdmin>
 </template>
 <script lang="ts">
   
 import { Options, Vue } from 'vue-class-component';
-import FirstCoProducer from '../components/FirstCoProducer.vue'
+import FormContactAdmin from '../components/FormContactAdmin.vue'
 
 
 @Options({
   components: {
    
-      FirstCoProducer
+   FormContactAdmin
+
 
   },
 })

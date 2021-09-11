@@ -3,7 +3,7 @@
 <div class="mx-auto container flex items-center" id="nav">
     
         <div class="w-full pt-2 p-4">
-        <p class="text-center text-2xl">Bienvenue sur la plateforme 1001 Réfèrences</p>
+        <p class="text-center h1-style">Bienvenue sur la plateforme 1001 Réfèrences</p>
             <div class="mx-auto md:p-6 md:w-1/2">
         
 
@@ -11,7 +11,7 @@
                    
                         <div class="mb-8">
                             <label for="username" class="block text-gray-700 text-sm font-bold mb-2">
-                                <span class="text-red-500">&nbsp;*</span>
+                                <span class="text-yellow-500">&nbsp;*</span>
                                 Identifiant
                             </label>
                             <div class="mt-1 relative rounded-md shadow-sm">
@@ -24,7 +24,7 @@
 
                         <div class="mb-8">
                             <label for="password" class="block text-gray-700 text-sm font-bold mb-2">
-                                <span class="text-red-500">&nbsp;*</span>
+                                <span class="text-yellow-500">&nbsp;*</span>
                                 Mot de passe
                             </label>
                             <div class="mt-1 relative rounded-md shadow-sm">
@@ -62,7 +62,7 @@
                         <div class="mt-8">
                             <p class="text-sm">
                                 Pas de compte ?
-                                <a class="font-bold text-sm text-yellow-600 hover:text-yellow-600" href="#register">
+                                <a class="font-bold text-sm text-yellow-500 hover:text-yellow-500" href="#register">
                                     Créer un compte
                                 </a>
                             </p>
@@ -97,6 +97,10 @@ export default  {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
-
+.h1-style {
+    color: #f2ba52;
+   font-size: 50px;
+   font-weight: bold;
+}
 </style>
 
