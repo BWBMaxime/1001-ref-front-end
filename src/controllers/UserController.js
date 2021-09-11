@@ -4,11 +4,15 @@ import store from "../store/index.ts";
 const UserController = {
 
     saveUser(user) {
-        axios.post('http://127.0.0.1:8000/sign-in/', {user}, {withCredentials:false})
-        .then(function(response){
-        console.log(response.data);
-        })
-    },
+        //console.log(JSON.stringify(user));
+        axios.post('http://localhost:8000/register', JSON.stringify(user), {withCredentials:false})
+        .then(function(response){console.log(response.data);})
+        .catch(error => {
+            this.errorMessage = error.message;
+            console.error("There was an error!", error);
+        });
+    }
+,
 
       // permets de vérifier les logs envoyés par l'utilisateur
       checkLogs(credentials) {
