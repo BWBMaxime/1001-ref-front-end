@@ -16,7 +16,6 @@ import Registration from '@/components/Registration.vue'
 import CreateProduct from '@/components/CreateProduct.vue'
 import FirstCoDistributor from '@/components/FirstCoDistributor.vue'
 import Profil from '@/components/Profil.vue'
-import CreateProduct from '@/components/CreateProduct.vue'
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
