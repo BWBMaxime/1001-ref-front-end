@@ -24,7 +24,7 @@
                     </div>
                     <div class="flex mt-6 items-center pb-5 border-t-2 border-gray-100 mb-5">
                         <!-- Button validate -->
-                        <button class="mt-8 mr-1 flex ml-auto py-2 px-6 border rounded-md bg-yellow-500 text-white font-semibold hover:bg-yellow-400">
+                        <button @click="get" class="mt-8 mr-1 flex ml-auto py-2 px-6 border rounded-md bg-yellow-500 text-white font-semibold hover:bg-yellow-400">
                             Contacter
                         </button>
                         <!-- Favorite -->
@@ -41,6 +41,8 @@
 </template>
 
 <script>
+import ProfilController from  "../controllers/ProfilController";
+
 export default {
     data() {
 
@@ -59,6 +61,12 @@ export default {
         return {
             user,
             address
+        }
+    },
+    methods:{
+        get() {
+            console.log(ProfilController.getProfil(this.user));
+            ProfilController.getProfil(this.user);
         }
     }
 }
