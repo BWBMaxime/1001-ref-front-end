@@ -14,7 +14,7 @@
         <ul class="flex flex-col lg:flex-row list-none ml-auto">
           <li v-for="link in links" :key="link" class="nav-item">
             <router-link v-bind:to="link.path" class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-yellow-500 hover:opacity-75" >
-              | {{link.name}} 
+              {{link.name}}
             </router-link>
           </li>         
         </ul>
@@ -29,7 +29,7 @@ export default {
   data() {
     return {
       showMenu: false,
-      links: [
+      links:[
         //Utilisateur non connecter
         { path: "/", name: "Acceuil" },
         { path: "/about", name: "Présentation" },
@@ -44,14 +44,6 @@ export default {
         { path: "/producer/product-list", name: "Liste des produits" },
         { path: "/producer/preview", name: "Preview" },
         // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        //        
         ]
 
     }
