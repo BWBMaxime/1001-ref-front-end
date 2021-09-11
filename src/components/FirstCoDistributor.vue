@@ -66,7 +66,7 @@
                       <label class=" font-semibold text-gray-600 py-2">Site Web</label>
                       <div class="flex flex-wrap items-stretch w-full mb-4 relative">
                         <div class="flex">
-                          <span class="flex items-center leading-normal bg-grey-lighter border-1 rounded-r-none border border-r-0 border-blue-300 px-3 whitespace-no-wrap text-grey-dark w-12 h-10 bg-blue-300 justify-center  text-xl rounded-lg text-white">
+                          <span class="flex items-center leading-normal bg-grey-lighter border-1 rounded-r-none border border-r-0 border-yellow-500 px-3 whitespace-no-wrap text-grey-dark w-12 h-10 bg-yellow-500 justify-center  text-xl rounded-lg text-white">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                             </svg>
@@ -81,7 +81,7 @@
                       <label class=" font-semibold text-gray-600 py-2">Facebook</label>
                       <div class="flex flex-wrap items-stretch w-full mb-4 relative">
                          <div class="flex">
-                        <span class="flex leading-normal bg-grey-lighter border-1 rounded-r-none border border-r-0 border-blue-300 px-3 whitespace-no-wrap text-grey-dark w-12 h-10 bg-blue-300 justify-center items-center  text-xl rounded-lg text-white">
+                        <span class="flex leading-normal bg-grey-lighter border-1 rounded-r-none border border-r-0 border-yellow-500 px-3 whitespace-no-wrap text-grey-dark w-12 h-10 bg-yellow-500 justify-center items-center  text-xl rounded-lg text-white">
                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                            </svg>
@@ -96,7 +96,7 @@
                       <label class=" font-semibold text-gray-600 py-2">Linkedin</label>
                       <div class="flex flex-wrap items-stretch w-full mb-4 relative">
                         <div class="flex">
-                          <span class="flex leading-normal bg-grey-lighter border-1 rounded-r-none border border-r-0 border-blue-300 px-3 whitespace-no-wrap text-grey-dark w-12 h-10 bg-blue-300 justify-center items-center  text-xl rounded-lg text-white">
+                          <span class="flex leading-normal bg-grey-lighter border-1 rounded-r-none border border-r-0 border-yellow-500 px-3 whitespace-no-wrap text-grey-dark w-12 h-10 bg-yellow-500 justify-center items-center  text-xl rounded-lg text-white">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                             </svg>
@@ -176,11 +176,8 @@ import UserController from  "../controllers/UserController";
 
 export default {
      data() {
-        
-        let user = this.getDatas(); 
-
-        if(user == null){
-            user = 
+         
+            let user = 
             {
             id:1,
             companyType: "",
@@ -200,7 +197,8 @@ export default {
             companyLogo:"",
             companyPicture:""
             }
-        }
+
+        user.id = this.getUserId();
 
         return {  
            user,
@@ -210,8 +208,8 @@ export default {
 
 methods: {
 
-    getDatas(){
-        this.user = this.$store.state.user;
+    getUserId(){
+        return this.$store.state.currentUser.id;
     },
 
     updateAndContinue(){
