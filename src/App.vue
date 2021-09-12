@@ -1,12 +1,13 @@
 <template>
-  <registration></registration>
+  <products-list-prod></products-list-prod>
 </template>
 
 
 <script>
-import Registration from './components/Registration.vue'
+import ProductsListProd from './components/ProductsListProd.vue'
+
 export default {
-  components: { Registration }
+  components: { ProductsListProd }
 
 }
 </script>

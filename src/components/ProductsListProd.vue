@@ -10,7 +10,7 @@
                     </button>
                 </div>
                 <table class="w-full border-separate place-self-center">
-                    <h2 class="mb-5 text-xl text-yellow-500 font-semibold uppercase flex justify-center mx-auto">Vos produits (4)</h2>
+                    <h2 class="mb-5 text-xl text-yellow-500 font-semibold uppercase flex justify-center mx-auto">Vos produits (#)</h2>
                     <thead class="opacity-80 bg-yellow-500 flex text-white w-full">
                         <tr class="flex w-full text-center">
                             <th class="px-4 py-3 w-96">Produit</th>
@@ -24,7 +24,7 @@
                     <!-- Table -->
                     <tbody class="bg-white items-center">
                         <div v-for="product in products" v-bind:key="product">
-                        <tr class="text-gray-700 h-auto" v-for="declinaison in product.declinaisons" v-bind:key="declinaison">
+                        <tr class="text-gray-700 h-auto" v-for="variation in product.variations" v-bind:key="variation">
                             <!-- Product Name -->
                             <td class=" mx-4 my-3 border">
                                 <div class="w-96 flex items-center text-sm">
@@ -38,7 +38,7 @@
                                 </div>
                             </td>
                             <!-- Price -->
-                            <td class="mx-4 my-3 w-36 text-sm border text-center">{{ declinaison.price }} €</td>
+                            <td class="mx-4 my-3 w-36 text-sm border text-center">{{ variation.dealerPrice }} €</td>
                             <!-- New -->
                             <td v-if="product.new == true" class="mx-4 my-3 w-48 text-sm border text-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -81,70 +81,36 @@
 </template>
 
 <script>
+
+import ProductController from "../controllers/ProductController";
+
 export default {
     data() {
-        return {
-            products: [
-                {
-                    "id": "1",
-                    "name": "La goudale",
-                    "img": "https://cdn.pixabay.com/photo/2017/01/21/21/15/beer-1998293_960_720.jpg",
-                    "new": false,
-                    "promo": false,
-                    "display": false,
-                    "declinaisons": [
-                        {
-                            "quantity": "carton de 6 bouteilles",
-                            "price": "22,90"
-                        }
-                    ]
 
-                },
-                {
-                    "id": "2",
-                    "name": "La Bière de Noël",
-                    "img": "https://cdn.pixabay.com/photo/2017/01/21/21/15/beer-1998293_960_720.jpg",
-                    "new": false,
-                    "promo": true,
-                    "display": true,
-                    "declinaisons": [
-                        {
-                            "quantity": "carton de 6 bouteilles",
-                            "price": "24,90"
-                        }
-                    ]
-                },
-                {
-                    "id": "2",
-                    "name": "La Bière de Noël",
-                    "img": "https://cdn.pixabay.com/photo/2017/01/21/21/15/beer-1998293_960_720.jpg",
-                    "new": true,
-                    "promo": true,
-                    "display": true,
-                    "declinaisons": [
-                        {
-                            "quantity": "carton de 6 bouteilles",
-                            "price": "24,90"
-                        }
-                    ]
-                },
-                {
-                    "id": "2",
-                    "name": "La Bière de Noël",
-                    "img": "https://cdn.pixabay.com/photo/2017/01/21/21/15/beer-1998293_960_720.jpg",
-                    "new": true,
-                    "promo": true,
-                    "display": true,
-                    "declinaisons": [
-                        {
-                            "quantity": "carton de 6 bouteilles",
-                            "price": "24,90"
-                        }
-                    ]
-                }
-            ]
+        let products = 
+        {
+            id: 0,
+            name: "goudale",
+            photo:"img",
+            new: false,
+            active: false,
+            variations: 
+            [{
+                capacity:"", 
+                dealerPrice:"56",
+                restaurateurPrice:"",
+                sale:false
+            }]
         }
+        return products;
+        
     },
+
+    methods:{
+        getAllProducts(){
+            ProductController.getProducts(this.product);
+        }
+    }
 }
 
 
