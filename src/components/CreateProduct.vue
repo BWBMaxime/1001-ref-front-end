@@ -79,11 +79,11 @@
                                     <p>Contenance</p>
                                     <p></p>
                                 </span>
-                                <div id ="one" class="flex w-full justify-around items-center mb-6" v-for="(declinaison,index) in product.declinaisons" :key="index">
-                                    <input v-model="product.declinaisons[index].contenant" type="text" placeholder="Contenant" class="w-1/4 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-yellow-500 focus:outline-none">
-                                    <input  v-model="product.declinaisons[index].conditionnement"  type="text" placeholder="Conditionnement" class="w-1/4 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-yellow-500 focus:outline-none">
-                                    <input  v-model="product.declinaisons[index].contenance"  type="text" placeholder="Contenance" class="w-1/4 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-yellow-500 focus:outline-none">
-                                    <button v-if="product.declinaisons.length > 1" @click="deleteDeclinaison(index)" class=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg></button>
+                                <div id ="one" class="flex w-full justify-around items-center mb-6" v-for="(declinaison,index) in product.variations" :key="index">
+                                    <input v-model="product.variations[index].contenant" type="text" placeholder="Contenant" class="w-1/4 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-yellow-500 focus:outline-none">
+                                    <input  v-model="product.variations[index].conditionnement"  type="text" placeholder="Conditionnement" class="w-1/4 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-yellow-500 focus:outline-none">
+                                    <input  v-model="product.variations[index].contenance"  type="text" placeholder="Contenance" class="w-1/4 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-yellow-500 focus:outline-none">
+                                    <button v-if="product.variations.length > 1" @click="deleteDeclinaison(index)" class=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg></button>
                                     <div v-else></div>
                                 </div>
                                 <span class="flex w-full justify-around mb-8">
@@ -114,11 +114,11 @@
                                     <p>Prix Restaurateur</p>
                                     <p></p>
                                 </span>
-                                <div id="two" class="flex w-full justify-around items-center mb-6" v-for="(declinaison,index) in product.declinaisons" :key="index">
-                                    <p  class="w-40">{{product.declinaisons[index].conditionnement}} - {{product.declinaisons[index].contenance}}</p> 
-                                    <input  v-model="product.declinaisons[index].prixRevendeur"  type="number" min="0" placeholder="Prix revendeur" class="w-1/4 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-yellow-500 focus:outline-none">
-                                    <input  v-model="product.declinaisons[index].prixRestaurateur"  type="number" min="0" placeholder="Prix restaurateur" class="w-1/4 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-yellow-500 focus:outline-none">
-                                    <button v-if="product.declinaisons.length > 1" @click="deleteDeclinaison(index)" class=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg></button>
+                                <div id="two" class="flex w-full justify-around items-center mb-6" v-for="(declinaison,index) in product.variations" :key="index">
+                                    <p  class="w-40">{{product.variations[index].conditionnement}} - {{product.variations[index].contenance}}</p> 
+                                    <input  v-model="product.variations[index].prixRevendeur"  type="number" min="0" placeholder="Prix revendeur" class="w-1/4 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-yellow-500 focus:outline-none">
+                                    <input  v-model="product.variations[index].prixRestaurateur"  type="number" min="0" placeholder="Prix restaurateur" class="w-1/4 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-yellow-500 focus:outline-none">
+                                    <button v-if="product.variations.length > 1" @click="deleteDeclinaison(index)" class=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg></button>
                                     <div v-else></div>
                                 </div>
                             </div>
@@ -144,9 +144,9 @@
                                     <p>Déclinaison</p>
                                     <p>Choisir une promotion</p>
                                 </span>
-                                <div class="flex w-full justify-around items-center mb-6" v-for="(declinaison,index) in product.declinaisons" :key="index">
-                                    <p  class="w-40">{{product.declinaisons[index].conditionnement}} - {{product.declinaisons[index].contenance}}</p>
-                                    <select v-model="product.declinaisons[index].promotion" name="category" id="category-select" class="w-100 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-yellow-500 focus:outline-none">
+                                <div class="flex w-full justify-around items-center mb-6" v-for="(declinaison,index) in product.variations" :key="index">
+                                    <p  class="w-40">{{product.variations[index].conditionnement}} - {{product.variations[index].contenance}}</p>
+                                    <select v-model="product.variations[index].promotion" name="category" id="category-select" class="w-100 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-yellow-500 focus:outline-none">
                                         <option value="" selected>Aucune</option>
                                         <option v-for="(promotion, index) in promotions" :key="index" :value="promotion.id">{{promotion.name}}</option>
                                     </select>
@@ -166,6 +166,8 @@
 </template>
 
 <script>
+
+import ProductController from "../controllers/ProductController";
 
 export default{
 
@@ -193,7 +195,7 @@ export default{
 
         let subcategories = this.createSubcategories(categories);
 
-        let declinaisons = [];
+        let variations = [];
 
          let promotions = 
         [
@@ -215,7 +217,7 @@ export default{
             description:'',
             tags:[],
             picture: "",
-            declinaisons:
+            variations:
             [{
                 contenant:"",
                 conditionnement:"",
@@ -223,13 +225,13 @@ export default{
                 prixRevendeur:"",
                 prixRestaurateur:""
             }],
-            idUser:0
+            userId:1
         }
 
         return {
             subcategories,
             tags,
-            declinaisons,
+            variations,
             product,
             promotions,
             selectedFile: null,
@@ -240,7 +242,7 @@ export default{
 
     methods: {
         
-
+        //Creates subcategories from the category arry to fill the selection
         createSubcategories(categories){
 
         let subcategories = [];
@@ -257,10 +259,13 @@ export default{
                   return subcategories;
               },
 
-        createProduct(){
-            return true;
+
+        //Sends the filled form to persist the entity in the DB
+        createProduct(product){
+            ProductController.saveProduct(product);
         },
 
+        //Toggles a tag on and off in the view and adds/removes it from the product accordingly
         tagToggle(index){
 
             this.tags[index] = !this.tags[index];
@@ -271,8 +276,9 @@ export default{
             //console.log(this.product);
         },
 
+        //Creates a new product variation for the user to fill
         createDeclinaison(){
-            this.product.declinaisons.push(
+            this.product.variations.push(
             {
                 contenant:"",
                 conditionnement:"",
@@ -283,8 +289,9 @@ export default{
             );
         },
 
+        //Deletes declinaison at given index from the list
         deleteDeclinaison(index){
-            this.product.declinaisons.splice(index,1);
+            this.product.variations.splice(index,1);
         },
         
         onFileChanged (event) {
@@ -325,8 +332,7 @@ export default{
                             document.getElementById('information').classList.remove('border-red-300', 'border-gray-500')
                        
                        //Si la key = a la chaine de caractère
-                   }if (key === 'declinaisons'){
-                       console.log('caca');
+                   }if (key === 'variations'){
                       // je boucle dans le tableau declinaison
                      for (let i = 0; i < element.length; i++) {
                          //Je boucle a l'interieux de chaque objet
@@ -358,7 +364,7 @@ export default{
                 }
             }
             if (this.check === true && this.checkC === true) {
-                console.log(this.product)
+                this.createProduct(this.product);
             }
         }
     }
