@@ -1,5 +1,5 @@
 <template>
-      <div class="w-6/12 float-right flex flex-col flex-auto h-full p-6 mr-24 mt-4">
+      <div class="w-7/12 float-right flex flex-col flex-auto h-full p-6 mr-48 mt-4">
         <div class="flex flex-col flex-auto flex-shrink-0 rounded-lg bg-gray-100 h-full p-4">
           <div class="flex flex-col h-full overflow-x-auto mb-4">
             <div class="flex flex-col h-full">
