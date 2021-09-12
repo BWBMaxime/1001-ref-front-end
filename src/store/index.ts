@@ -1,7 +1,5 @@
 import { createStore } from 'vuex';
-import TagsModel from '@/models/TagsModel'
 import ProductsModel from '@/models/ProductsModel'
-import DeclinaisonsModel from '@/models/DeclinaisonsModel'
 
 export default createStore({
   state: {
@@ -10,14 +8,12 @@ export default createStore({
       id: null,
       role: ""
     },
-
-    // product list
     products: [
       {
         "name": "La goudale",
         "img": "https://via.placeholder.com/100",
         "description": "Rien de tel qu'une bonne bière après une bonne journée de travail ... ",
-        "tags": ["Bière","Blonde","Bonne", "fraiche","#soleil", "#vacance"],
+        "tags": ["Bière","Blonde","Bonne", "fraiche","#soleil", "#vacance", "aaa"],
         "declinaisons": [
                {
                 "quantity": "cartons 6 bouteilles",
@@ -33,7 +29,7 @@ export default createStore({
         "name": "Bière blanche rdm",
         "img": "https://via.placeholder.com/100",
         "description": "Un apéritif de dernière minute? Prennez donc un instant fraîcheur avec son goût citronné ... ",
-        "tags": ["Bière","Blanche"],
+        "tags": ["Bière","Blanche", "bbb"],
         "declinaisons": [
             {
                 "quantity": "cartons 6 bouteilles",
@@ -78,9 +74,22 @@ export default createStore({
         ]
     }
     ],
-    //tags array initialiser
-  tags: Array<TagsModel>(),
-  filteredProducts: Array<ProductsModel>()
+    tags: [
+    {
+      name: 'aaa',
+      selected: true
+    },
+    {
+      name: 'bbb',
+      selected: false
+    },
+    {
+      name: 'ccc',
+      selected: false
+    }
+    ],
+    // Liste des poduits affichée dans productlistDistrib 
+    filteredProducts: Array<ProductsModel>()
   },
  
   mutations: {
@@ -92,56 +101,6 @@ export default createStore({
       console.log("state " + state.currentUser.id)
     },
     
-    /**
-     * get products.tags in state and feed state.tags array following tagsModel
-     * @param state 
-     */
-    displayTags(state) {
-      const temp: Array<TagsModel> =[]
-      state.products.forEach((product) => 
-        product.tags.forEach(dtag => {
-            const tag = new TagsModel()
-            tag.name = dtag
-            tag.selected = true
-            temp.push(tag)
-        }))
-      const key = 'name'
-      state.tags = [...new Map(temp.map(item => 
-        [item[key],item])).values()]
-    },
-    /**
-     * filter products with askedTags
-     * don't work for the moment ... but not so far
-     * @param state 
-     */
-    getAsked(state){
-      const askedTags: Array<TagsModel> = state.tags.filter(tag => tag.selected == true)
-      const temp: Array<ProductsModel> = []
-      askedTags.forEach(askedTag => {
-       state.products.forEach(product => {
-         if(product.tags.includes(askedTag.name)){
-           const fprod = new ProductsModel()
-           fprod.name = product.name
-           fprod.img = product.img
-           fprod.description = product.description
-           product.declinaisons.forEach(declinaison => {
-             const pdecli = new DeclinaisonsModel()
-             pdecli.quantity = declinaison.quantity
-             pdecli.prix = declinaison.prix
-             fprod.declinaisons.push(pdecli)
-           })
-           fprod.tags = product.tags
-           temp.push(fprod)
-         }
-       })
-      })
-      
-      const key = 'name'
-      state.filteredProducts = [...new Map(temp.map(item => 
-        [item[key],item])).values()]
-
-      console.log(state.filteredProducts)
-    }
   },
   getters: {
     getState(state) {

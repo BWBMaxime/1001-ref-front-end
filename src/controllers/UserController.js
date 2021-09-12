@@ -14,11 +14,13 @@ const UserController = {
     }
 ,
 
-      // permets de vérifier les logs envoyés par l'utilisateur
+      /**
+       * vérifie si l'utilisateur demandé existe dans la bdd et renvois son id dans le store
+       * @param {*} credentials représente les credentials envoyés par l'utilisateur
+       */
       checkLogs(credentials) {
         let logs = {"mail": credentials.mail, "password": credentials.password}
         axios.post('http://localhost:8000/getCred', logs, {withCredentials:false})
-        // si on trouve un utilisateur correspondant, on envoies son id dans le current user du store
         .then(function(response) {
             store.commit('setCurrentUser', response.data)
         })
