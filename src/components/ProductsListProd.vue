@@ -5,9 +5,9 @@
             <div class="w-full 2xl:overflow-hidden overflow-x-auto">
                 <div class="flex mt-6 mr-6 items-center pb-5 border-gray-100">
                     <!-- Button -->
-                    <button class="flex ml-auto border-0 py-2 px-6 rounded-md bg-yellow-500 text-white text-sm font-semibold hover:bg-yellow-400">
+                    <a href="http://localhost:8080/create-product" class="flex ml-auto border-0 py-2 px-6 rounded-md bg-yellow-500 text-white text-sm font-semibold hover:bg-yellow-400">
                         Ajouter un produit
-                    </button>
+                    </a>
                 </div>
                 <table class="w-full border-separate place-self-center">
                     <h2 class="mb-5 text-xl text-yellow-500 font-semibold uppercase flex justify-center mx-auto">Vos produits (#)</h2>

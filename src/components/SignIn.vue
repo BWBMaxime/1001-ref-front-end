@@ -1,5 +1,5 @@
 <template>
-  <div class="py-5 mt-36 flex items-center mb-20 bg-gray-100 h-5/6">
+  <div class="py-5  flex items-center  bg-gray-100 h-5/6">
     <!-- Card -->
     <div v-for="card in cards" :key="card.role"
       class="

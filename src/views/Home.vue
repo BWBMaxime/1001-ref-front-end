@@ -1,18 +1,21 @@
 <template>
-  <div class="home bg-white-600 w-full h-screen">
-    <h1>bonjour !!!! </h1>
-    <h2>test</h2>
 
-  </div>
+<Login></Login>
+<SignIn></SignIn>
 </template>
 
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
 
+import  SignIn  from '../components/SignIn.vue';
+import  Login  from '../components/Login.vue';
 
 @Options({
   components: {
-    
+   
+    Login,
+    SignIn,
+
 
   },
 })

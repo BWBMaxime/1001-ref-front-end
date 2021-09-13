@@ -29,18 +29,21 @@ export default {
   data() {
     return {
       showMenu: false,
-      links: [
+      links:[
+        //Utilisateur non connecter
         { path: "/", name: "Acceuil" },
-        { path: "/qui", name: "c'est pour qui?" },
-        { path: "/quoi", name: "c'est quoi?"},
-        { path: "/fca", name: "form contact"},
-        { path: "/fcp", name: "form prod"},
-        { path: "/log", name: "login"},
-        { path: "/sb", name: "search bar"},
-        { path: "/sign-in", name: "sign in"},       
-        { path: "/pl", name: "liste produits"},       
-        { path: "/fp", name: "filtre prods"},
-        { path: "/register", name: "Inscription"},
+        { path: "/about", name: "Présentation" },
+        { path: "/contact", name: "Nous contacter" },
+        // User Producer
+        { path: "/producer/register", name: "Inscription producteur" },
+        { path: "/producer/first-connection", name: "Première connexion producteur" },
+        { path: "/producer/dashboard", name: "Dashboard" },
+        { path: "/producer/setting", name: "Paramètres" },
+        { path: "/producer/create-product", name: "Créer un produit" },
+        { path: "/producer/messaging", name: "Messagerie" },
+        { path: "/producer/product-list", name: "Liste des produits" },
+        { path: "/producer/preview", name: "Preview" },
+        // 
         ]
 
     }

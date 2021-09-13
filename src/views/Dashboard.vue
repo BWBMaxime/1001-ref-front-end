@@ -1,18 +1,18 @@
 <template>
 <div>
-<FirstCoProducer></FirstCoProducer>
+<Stats></Stats>
 </div>
 </template>
 <script lang="ts">
   
 import { Options, Vue } from 'vue-class-component';
-import FirstCoProducer from '../components/FirstCoProducer.vue'
+import Stats from '../components/Stats.vue'
 
 
 @Options({
   components: {
    
-      FirstCoProducer
+      Stats
 
   },
 })
