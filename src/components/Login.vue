@@ -88,7 +88,7 @@ export default  {
     },
     methods: {
         checkLogs(credentials){    
-            UserController.checkLogs(this.credentials);
+            UserController.checkLogs(this.credentials, this.router);
         }
     }
 }
