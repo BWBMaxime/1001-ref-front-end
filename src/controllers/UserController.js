@@ -25,9 +25,10 @@ const UserController = {
         .then(function(response) {
             store.commit('setCurrentUser', response.data.userId)
             store.commit('setCurrentRole', response.data.userRole)
-            if(store.state.currentUser.role == "producteur") {
+            if(store.state.currentUser.role === "producteur") {
                 router.push("/producer/dashboard")
-            }else if(store.state.currentUser.role == "distributeur"){
+            }else{
+                console.log("aaaaa")
                 router.push("/test")
             }
             
