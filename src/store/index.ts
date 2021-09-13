@@ -94,12 +94,16 @@ export default createStore({
  
   mutations: {
     /**
-     * When credentials login are ok change id of current user
+     * Au login actualise le store avec l'id et le role de l'utilisateur
      */
     setCurrentUser(state, id){
       state.currentUser.id = id
-      console.log("state " + state.currentUser.id)
+      console.log("user connecté: " + state.currentUser.id)
     },
+    setCurrentRole(state,role){
+      state.currentUser.role = role
+      console.log("role activé: " + state.currentUser.role)
+    }
     
   },
   getters: {
