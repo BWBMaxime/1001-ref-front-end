@@ -1,5 +1,6 @@
 import axios from 'axios';
 import store from "../store/index.ts";
+import router from "../router"
 
 const UserController = {
 
@@ -24,6 +25,12 @@ const UserController = {
         .then(function(response) {
             store.commit('setCurrentUser', response.data.userId)
             store.commit('setCurrentRole', response.data.userRole)
+            if(store.state.currentUser.role == "producteur") {
+                router.push("/producer/dashboard")
+            }else if(store.state.currentUser.role == "distributeur"){
+                router.push("/test")
+            }
+            
         })
         .catch(err => {
             console.log("err " + err)
