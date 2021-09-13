@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!-- if state.filteredProd > 0  -->
+    <!-- Si la liste des produits filtrés contient au moins un produit, on affiche cette liste -->
     <div v-if="$store.state.filteredProducts.length > 0">
       <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-5">
       <div class="rounded overflow-hidden shadow-lg" v-for="product in $store.state.filteredProducts" :key="product.name">
@@ -31,7 +31,7 @@
     </div>
     </div>
     </div>
-    <!-- else -->
+    <!-- Sinon on affiche tous les produits -->
     <div v-else>
       <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-5">
   <div class="rounded overflow-hidden shadow-lg" v-for="product in $store.state.products" :key="product.name">

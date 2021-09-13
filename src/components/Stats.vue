@@ -1,5 +1,5 @@
 <template>
-<div id="wrapper" class="max-w-xl px-4 py-4 mx-auto">
+<div id="wrapper" class=" px-4 py-4 mx-auto">
             <div class="sm:grid sm:h-32 sm:grid-flow-row sm:gap-4 sm:grid-cols-3">
                 <div id="jh-stats-positive" class="flex flex-col justify-center px-4 py-4 bg-white border border-gray-300 rounded" 
                 :class="{'text-green-500': percentage>=0, 'text-red-500':percentage<0}">
@@ -31,8 +31,8 @@
                 <div id="jh-stats-neutral" class="flex flex-col justify-center px-4 py-4 mt-4 bg-white border border-gray-300 rounded sm:mt-0">
                     <div>
                         <div>
-                            <p class="flex items-center justify-end text-gray-500 text-md">
-                                <span>Produit populaire</span>
+                            <p class="flex items-center text-center text-gray-500 text-md">
+                                <span class ="text-center">Produit populaire</span>
                                 
                             </p>
                         </div>
