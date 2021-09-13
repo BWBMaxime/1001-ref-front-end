@@ -3,7 +3,7 @@
 <div class="mx-auto container flex items-center" id="nav">
     
         <div class="w-full pt-2 p-4">
-        <p class="text-center h1-style">Bienvenue sur la plateforme 1001 Réfèrences</p>
+        <p class="text-center h1-style">Bienvenue sur la plateforme 1001 Références</p>
             <div class="mx-auto md:p-6 md:w-1/2">
         
 
@@ -31,7 +31,7 @@
                                 <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
                                     <svg class="h-5 w-5 text-gray-400" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
                                 </div>
-                                <input name="password" id="password" type="text" class="block pr-10 shadow appearance-none border-2 border-orange-100 rounded w-full py-2 px-4 text-gray-700 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-orange-500 transition duration-500 ease-in-out" v-model="credentials.password" placeholder="xxxxxxxxxxx" />
+                                <input name="password" id="password" type="password" class="block pr-10 shadow appearance-none border-2 border-orange-100 rounded w-full py-2 px-4 text-gray-700 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-orange-500 transition duration-500 ease-in-out" v-model="credentials.password" placeholder="xxxxxxxxxxx" />
                             </div>
                         </div>
 

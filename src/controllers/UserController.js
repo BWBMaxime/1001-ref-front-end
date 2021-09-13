@@ -15,14 +15,15 @@ const UserController = {
 ,
 
       /**
-       * vérifie si l'utilisateur demandé existe dans la bdd et renvois son id dans le store
+       * vérifie si l'utilisateur demandé existe dans la bdd et renvois son id et son role dans le store
        * @param {*} credentials représente les credentials envoyés par l'utilisateur
        */
       checkLogs(credentials) {
         let logs = {"mail": credentials.mail, "password": credentials.password}
         axios.post('http://localhost:8000/getCred', logs, {withCredentials:false})
         .then(function(response) {
-            store.commit('setCurrentUser', response.data)
+            store.commit('setCurrentUser', response.data.userId)
+            store.commit('setCurrentRole', response.data.userRole)
         })
         .catch(err => {
             console.log("err " + err)
