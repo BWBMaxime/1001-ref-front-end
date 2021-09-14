@@ -16,14 +16,18 @@
             <router-link v-bind:to="link.path" class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-yellow-500 hover:opacity-75" >
               {{link.name}}
             </router-link>
+          </li>
+          <li class="nav-item">
+            <button @click="logout" class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-yellow-500 hover:opacity-75">Logout</button>  
           </li>         
-        </ul>
+        </ul>        
       </div>
     </div>
   </nav>
 </template>
 <script>
-
+import store from "../store"
+import router from "../router"
 export default {
   name: "navbar",
   data() {
@@ -51,6 +55,10 @@ export default {
   methods: {
     toggleNavbar: function(){
       this.showMenu = !this.showMenu;
+    },
+    logout() {
+      store.commit("logout")
+      router.push("/")
     }
   }
 }

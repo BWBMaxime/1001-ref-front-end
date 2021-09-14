@@ -98,11 +98,16 @@ export default createStore({
      */
     setCurrentUser(state, id){
       state.currentUser.id = id
+      console.log(id)
       console.log("user connecté: " + state.currentUser.id)
     },
     setCurrentRole(state,role){
       state.currentUser.role = role
       console.log("role activé: " + state.currentUser.role)
+    },
+    logout(state) {
+      state.currentUser = { id: null, role: "" }
+      console.log(state.currentUser.id)
     }
     
   },
