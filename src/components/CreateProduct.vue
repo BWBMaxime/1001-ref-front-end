@@ -228,6 +228,9 @@ export default{
             userId:1
         }
 
+        product.userId = this.getUserId();
+
+
         return {
             subcategories,
             tags,
@@ -264,6 +267,10 @@ export default{
         createProduct(product){
             ProductController.saveProduct(product);
         },
+
+        getUserId(){
+        return this.$store.state.currentUser.id;
+    },
 
         //Toggles a tag on and off in the view and adds/removes it from the product accordingly
         tagToggle(index){
