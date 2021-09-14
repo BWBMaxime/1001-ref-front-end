@@ -5,7 +5,7 @@ const UserController = {
 
     saveUser(user) {
         //console.log(JSON.stringify(user));
-        axios.post('http://localhost:8000/register', JSON.stringify(user), {withCredentials:false})
+        axios.post('http://localhost:36601/register', JSON.stringify(user), {withCredentials:false})
         .then(function(response){console.log(response.data);})
         .catch(error => {
             this.errorMessage = error.message;
@@ -20,7 +20,7 @@ const UserController = {
        */
       checkLogs(credentials) {
         let logs = {"mail": credentials.mail, "password": credentials.password}
-        axios.post('http://localhost:8000/getCred', logs, {withCredentials:false})
+        axios.post('http://localhost:36601/getCred', logs, {withCredentials:false})
         .then(function(response) {
             store.commit('setCurrentUser', response.data.userId)
             store.commit('setCurrentRole', response.data.userRole)
@@ -35,8 +35,7 @@ const UserController = {
      * Updates a user with a form
      */
     updateUser(user) {
-        console.log(JSON.stringify(user));
-        axios.post('http://127.0.0.1:44869/user/update', JSON.stringify(user), {withCredentials:false})
+        axios.post('http://127.0.0.1:36601/user/update', JSON.stringify(user), {withCredentials:false})
         .then(function(response){
             console.log(response.data);
         })
@@ -45,9 +44,34 @@ const UserController = {
         })
     },
 
+    //Gets all of the info from an existing user
+    getUser(ID, user) {
+        axios.get('http://127.0.0.1:36601/user/get/' + ID, {withCredentials:false})
+        .then(function(response){
+        console.log(user + "  " + response.data);
+        hydrateUser(user, response.data);
+        })
+        .catch(error => {
+            console.log(error)
+        })
+        return user;
+    },
 
 }
 
+function hydrateUser(user, data){
 
+    console.log("user to hydrate : " + user);
+    console.log("data to hydrate : " + data);
+
+
+    for(let keys in data){
+        if(data[keys] != null) user[keys] = data[keys];
+    }
+
+    user.loaded = true;
+
+    console.log(user);
+}
 
 export default UserController;
