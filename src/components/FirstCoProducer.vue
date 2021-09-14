@@ -166,7 +166,6 @@
               </div>
 </main>
 <p v-else-if="!user.loaded">Loading...</p>
-<button @click="logStatus">Bouton</button>
 </template>
 
 <script >
@@ -208,7 +207,6 @@ export default {
 methods: {
 
     getUser(){
-        console.log('Should start getting user : ' + this.user);
         UserController.getUser(this.$store.state.currentUser.id,this.user);
     },
 
@@ -222,9 +220,6 @@ methods: {
         this.$store.commit('logout');
     },
 
-    logStatus() {
-    console.log(this.user);
-  }
 
     },
 
