@@ -11,16 +11,32 @@
         </button>
       </div>
       <div v-bind:class="{'hidden': !showMenu, 'flex': showMenu}" class="lg:flex lg:flex-grow items-center">
+        <!-- User non connecté -->
+        <div v-if="$store.state.currentUser.role === null">
         <ul class="flex flex-col lg:flex-row list-none ml-auto">
-          <li v-for="link in links" :key="link" class="nav-item">
+          <li v-for="link in linksNotCo" :key="link" class="nav-item">
             <router-link v-bind:to="link.path" class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-yellow-500 hover:opacity-75" >
               {{link.name}}
             </router-link>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" v-if="$store.state.currentUser.id != null">
             <button @click="logout" class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-yellow-500 hover:opacity-75">Logout</button>  
           </li>         
-        </ul>        
+        </ul>  
+        </div>
+        <!-- producteur -->
+   <div v-if="$store.state.currentUser.role === 'producteur'">
+        <ul class="flex flex-col lg:flex-row list-none ml-auto">
+          <li v-for="link in linksProducteur" :key="link" class="nav-item">
+            <router-link v-bind:to="link.path" class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-yellow-500 hover:opacity-75" >
+              {{link.name}}
+            </router-link>
+          </li>
+          <li class="nav-item" v-if="$store.state.currentUser.id != null">
+            <button @click="logout" class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-yellow-500 hover:opacity-75">Logout</button>  
+          </li>         
+        </ul>  
+        </div>
       </div>
     </div>
   </nav>
@@ -33,12 +49,14 @@ export default {
   data() {
     return {
       showMenu: false,
-      links:[
+      linksNotCo:[
         //Utilisateur non connecter
         { path: "/", name: "Acceuil" },
         { path: "/about", name: "Présentation" },
         { path: "/contact", name: "Nous contacter" },
-        // User Producer
+        ],
+        linksProducteur: [
+           // User Producer
         { path: "/producer/register", name: "Inscription producteur" },
         { path: "/producer/first-connection", name: "Première connexion producteur" },
         { path: "/producer/dashboard", name: "Dashboard" },
@@ -49,12 +67,18 @@ export default {
         { path: "/producer/preview", name: "Preview" },
         // 
         ]
-
     }
   },
   methods: {
     toggleNavbar: function(){
       this.showMenu = !this.showMenu;
+    },
+    setLink(){
+      if(store.state.currentUser.role == ""){
+        this.links = [
+          
+        ]
+      }
     },
     logout() {
       store.commit("logout")

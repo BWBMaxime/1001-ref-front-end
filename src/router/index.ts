@@ -12,6 +12,8 @@ import ProductListProd from '../views/ProductListProd.vue'
 import PreviewProd from '../views/PreviewProd.vue'
 import Profils from '../views/Profils.vue'
 import Test from '../components/Test.vue'
+import store from '../store/index'
+
 const routes: Array<RouteRecordRaw> = [
   {
     //Utilisateur Non Connecter
@@ -32,6 +34,8 @@ const routes: Array<RouteRecordRaw> = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
+ 
+ 
   //-----------------------------------------------------------------------------
   //                              User Producer
     {
@@ -44,43 +48,99 @@ const routes: Array<RouteRecordRaw> = [
     {
       path: '/producer/register',
       name: 'registerProducer',
-      component: RegisterProducer
+      component: RegisterProducer,
+      beforeEnter(to, from,next){
+        if(store.state.currentUser.role == "producteur"){
+          next()
+        }else{
+          next("/")
+        }
+      }
     },
     {
       path: '/producer/dashboard',
       name: 'dashboard',
-      component: Dashboard
+      component: Dashboard,
+      beforeEnter(to, from,next){
+        if(store.state.currentUser.role == "producteur"){
+          next()
+        }else{
+          next("/")
+        }
+      }
     },
     {
       path: '/producer/setting',
       name: 'setting',
-      component: Setting
+      component: Setting,
+      beforeEnter(to, from,next){
+        if(store.state.currentUser.role == "producteur"){
+          next()
+        }else{
+          next("/")
+        }
+      }
     },
     {
       path: '/producer/create-product',
       name: 'createProduct',
-      component: CreateProduct
+      component: CreateProduct,
+      beforeEnter(to, from,next){
+        if(store.state.currentUser.role == "producteur"){
+          next()
+        }else{
+          next("/")
+        }
+      }
     },
     
     {
       path: '/producer/messaging',
       name: 'messaging',
-      component: Messaging
+      component: Messaging,
+      beforeEnter(to, from,next){
+        if(store.state.currentUser.role == "producteur"){
+          next()
+        }else{
+          next("/")
+        }
+      }
     },
     {
       path: '/producer/product-list',
       name: 'productListProd',
-      component: ProductListProd
+      component: ProductListProd,
+      beforeEnter(to, from,next){
+        if(store.state.currentUser.role == "producteur"){
+          next()
+        }else{
+          next("/")
+        }
+      }
     },
     {
       path: '/producer/preview',
       name: 'preview',
-      component: PreviewProd
+      component: PreviewProd,
+      beforeEnter(to, from,next){
+        if(store.state.currentUser.role == "producteur"){
+          next()
+        }else{
+          next("/")
+        }
+      }
     },
     {
       path: '/profil',
       name: 'profil',
-      component: Profils
+      component: Profils,
+      beforeEnter(to, from,next){
+        if(store.state.currentUser.role == "producteur"){
+          next()
+        }else{
+          next("/")
+        }
+      }
     },
 
   // -----------------------------------------------
