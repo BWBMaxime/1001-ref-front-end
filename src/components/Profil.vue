@@ -20,11 +20,11 @@
                         <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                             <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
                         </svg>
-                        {{ address.city }}, {{ address.country }}
+                        {{ user.address.city }}, {{ user.address.country }}
                     </div>
                     <div class="flex mt-6 items-center pb-5 border-t-2 border-gray-100 mb-5">
                         <!-- Button validate -->
-                        <button @click="get" class="mt-8 mr-1 flex ml-auto py-2 px-6 border rounded-md bg-yellow-500 text-white font-semibold hover:bg-yellow-400">
+                        <button @click="contactProducer" class="mt-8 mr-1 flex ml-auto py-2 px-6 border rounded-md bg-yellow-500 text-white font-semibold hover:bg-yellow-400">
                             Contacter
                         </button>
                         <!-- Favorite -->
@@ -41,34 +41,51 @@
 </template>
 
 <script>
-import ProfilController from  "../controllers/ProfilController";
 
 export default {
     data() {
-
-        let user = {
-            company: "",
+         
+            let user = 
+            {
+            id:1,
             name: "",
             firstname: "",
+            companyType: "",
+            phone: "",
+            address: 
+            {
+                number: "",
+                road: "",
+                zipcode: "",
+                city: "Montpellier",
+                country: "France",
+            },
+            website: "",
+            facebook: "",
+            linkedin: "",
             companyLogo: "https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg",
             companyPicture: "https://cdn.pixabay.com/photo/2015/05/15/14/22/conference-room-768441_960_720.jpg",
             biography: "Fam locavore kickstarter distillery. Mixtape chillwave tumeric sriracha taximy chia microdosing tilde DIY. XOXO fam indxgo juiceramps cornhole raw denim forage brooklyn. Everyday carry +1 seitan poutine tumeric. Gastropub blue bottle austin listicle pour-over, neutra jean shorts keytar banjo tattooed umami cardigan."
-        }
-        let address = {
-            city: "Montpellier",
-            country: "France"
-        }
-        return {
-            user,
-            address
+            }
+
+        user.id = this.getUserId();
+
+        return {  
+           user,
         }
     },
-    methods:{
-        get() {
-            console.log(ProfilController.getProfil(this.user));
-            ProfilController.getProfil(this.user);
-        }
+    
+
+    methods: {
+
+        getUserId(){
+            return this.$store.state.currentUser.id;
+        },
+        contactProducer(){
+            this.$router.push('../contact');
+        },
     }
+    
 }
 </script>
 

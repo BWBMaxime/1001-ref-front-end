@@ -1,4 +1,3 @@
-
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import Home from '../views/Home.vue'
 import Contact from '../views/Contact.vue'
@@ -20,79 +19,6 @@ const routes: Array<RouteRecordRaw> = [
     component: Home
   },
   {
-    path: '/qui',
-    name: "Who",
-    component: Who
-  },
-  {
-    path: '/quoi',
-    name: "What",
-    component: What
-  },
-  {
-    path: '/fca',
-    name: "fca",
-    component: FormContactAdmin
-  },
-  {
-    path: '/fcp',
-    name: "fcp",
-    component: FormContactProducer
-  },
-  {
-    path: '/log',
-    name: 'log',
-    component: Login
-  },
-  {
-    path: '/nav',
-    name: "nav",
-    component: Navbar
-  },
-  {
-    path: '/sb',
-    name: "sb",
-    component: SearchBar
-  },
-  {
-    path: '/si',
-    name: "si",
-    component: SignIn
-  },
-  {
-    path: '/tt',
-    name: "tt",
-    component: TestTailwind
-  },
-  {
-    path: '/pl',
-    name: "pl",
-    component: ProductsList
-  },
-  {
-    path: '/fp',
-    name: "fp",
-    component: FilterProducts
-  },
-  {
-    path: '/test',
-    name: "test",
-    component: Test
-  },
-    {
-    path: '/sign-in',
-    name: "sign-in",
-    component: Registration
-  },
-     {
-    path: '/fcd',
-    name: "fcd",
-    component: FirstCoDistributor
-  },
-  {
-    path: '/profil',
-    name: "profil",
-    component: Profil
     path: '/contact',
     name: 'contact',
     component: Contact
@@ -151,7 +77,7 @@ const routes: Array<RouteRecordRaw> = [
       component: PreviewProd
     },
     {
-      path: '/profil',
+      path: '/profil/{id}',
       name: 'profil',
       component: Profils
     },

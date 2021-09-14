@@ -11,8 +11,7 @@ const UserController = {
             this.errorMessage = error.message;
             console.error("There was an error!", error);
         });
-    }
-,
+    },
 
       /**
        * vérifie si l'utilisateur demandé existe dans la bdd et renvois son id et son role dans le store
@@ -32,7 +31,7 @@ const UserController = {
 
 
     /**
-     * Updates a user with a form
+     * Mettre à jour un utilisateur via un formulaire
      */
     updateUser(user) {
         console.log(JSON.stringify(user));
@@ -43,11 +42,27 @@ const UserController = {
         .catch(error => {
             console.log(error)
         })
-    },
+    },    
 
+    /**
+     * Récupérer un utilisateur via son id dans l'url
+     */
+     getProfilById(user) {
+         console.log("ok");
+        axios.get('http://localhost:8000/profil/{id}', JSON.parse(user), {withCredentials:false})
+        .then(function(response){
+            console.log(response.data);
+        })
+        .catch(error => {
+            this.errorMessage = error.message;
+            console.error("There was an error!", error);
+        })
+        .then(function () {
+            // always executed
+        });
+    },    
 
 }
-
 
 
 export default UserController;
