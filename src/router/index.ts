@@ -145,9 +145,9 @@ const routes: Array<RouteRecordRaw> = [
 
   // -----------------------------------------------
     {
-      path: '/test',
-      name: 'test',
-      component: Test
+      path: '/distributer/liste',
+      name: 'Liste des produits',
+      component: ProductListProd
     }
  
  
