@@ -1,8 +1,6 @@
 import axios from 'axios';
-import store from "../store/index.ts";
 
 const ProductController = {
-
     saveProduct(product) {
         axios.post('http://127.0.0.1:8000/product/create', JSON.stringify(product), {withCredentials:false})
         .then(function(response){
@@ -13,8 +11,10 @@ const ProductController = {
         })
     },
 
-    getCurrentUserProducts(userId){
-        axios.get('http://localhost:8000/getProducts', JSON.stringify(userId), {withCredentials:false})
+    
+    getCurrentUserProducts(id){
+        console.log(JSON.stringify(id));
+        axios.get('http://localhost:8000/getProducts/' + id, JSON.stringify(id), {withCredentials:false})
         .then(function(response){
             console.log(response.data);
             console.log(response.status);
@@ -31,7 +31,5 @@ const ProductController = {
     }
 
 }
-
-
 
 export default ProductController;
