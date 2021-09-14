@@ -47,6 +47,7 @@ export default {
         { path: "/producer/messaging", name: "Messagerie" },
         { path: "/producer/product-list", name: "Liste des produits" },
         { path: "/producer/preview", name: "Preview" },
+        { path: "/profil", name: "Profil" },
         // 
         ]
 

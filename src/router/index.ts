@@ -77,7 +77,7 @@ const routes: Array<RouteRecordRaw> = [
       component: PreviewProd
     },
     {
-      path: '/profil/{id}',
+      path: '/profil',
       name: 'profil',
       component: Profils
     },

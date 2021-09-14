@@ -1,5 +1,5 @@
 <template>
-    <section class="text-gray-600 ">
+    <section class="text-gray-600" v-if="user.loaded">
         <div class="pt-16">
             <div class="mx-auto flex flex-wrap justify-center">
                 <!-- Image -->
@@ -38,53 +38,62 @@
             </div>
         </div>
     </section>
+    <p v-else-if="!user.loaded">Loading...</p>
 </template>
 
 <script>
+
+import UserController from  "../controllers/UserController";
 
 export default {
     data() {
          
             let user = 
             {
-            id:1,
-            name: "",
-            firstname: "",
-            companyType: "",
-            phone: "",
-            address: 
-            {
-                number: "",
-                road: "",
-                zipcode: "",
-                city: "Montpellier",
-                country: "France",
-            },
-            website: "",
-            facebook: "",
-            linkedin: "",
-            companyLogo: "https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg",
-            companyPicture: "https://cdn.pixabay.com/photo/2015/05/15/14/22/conference-room-768441_960_720.jpg",
-            biography: "Fam locavore kickstarter distillery. Mixtape chillwave tumeric sriracha taximy chia microdosing tilde DIY. XOXO fam indxgo juiceramps cornhole raw denim forage brooklyn. Everyday carry +1 seitan poutine tumeric. Gastropub blue bottle austin listicle pour-over, neutra jean shorts keytar banjo tattooed umami cardigan."
+                id:1,
+                name: "",
+                firstname: "",
+                companyType: "",
+                phone: "",
+                address: 
+                {
+                    number: "",
+                    road: "",
+                    zipcode: "",
+                    city: "Montpellier",
+                    country: "France",
+                },
+                website: "",
+                facebook: "",
+                linkedin: "",
+                companyLogo: "https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg",
+                companyPicture: "https://cdn.pixabay.com/photo/2015/05/15/14/22/conference-room-768441_960_720.jpg",
+                biography: "Fam locavore kickstarter distillery. Mixtape chillwave tumeric sriracha taximy chia microdosing tilde DIY. XOXO fam indxgo juiceramps cornhole raw denim forage brooklyn. Everyday carry +1 seitan poutine tumeric. Gastropub blue bottle austin listicle pour-over, neutra jean shorts keytar banjo tattooed umami cardigan.",
+                loaded:false
             }
 
-        user.id = this.getUserId();
 
         return {  
-           user,
+           user
         }
     },
     
 
     methods: {
 
-        getUserId(){
-            return this.$store.state.currentUser.id;
+        getUser(){
+            console.log('Should start getting user : ' + this.user);
+            UserController.getUser(this.$store.state.currentUser.id,this.user);
         },
         contactProducer(){
             this.$router.push('../contact');
         },
-    }
+    },
+    
+    beforeMount() {
+        console.log("user : " +this.user);
+        this.getUser();
+    },
     
 }
 </script>
