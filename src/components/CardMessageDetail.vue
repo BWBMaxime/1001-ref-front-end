@@ -97,40 +97,46 @@
 </template>
 
 <script>
+
+import MessageController from  "../controllers/MessageController";
+
 export default {
   data(){
-    let userId = 2;
-    return {
-      messages:[
-        {
-          senderId: 50,
-          "sender": "Jean-Michel Primeur",
-          "icon": '<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" /></svg>',
-          "target": "",
-          "body": "bla bla"
-        },
-        {
-          senderId: 2,
-          "sender": "Alain Marron",
-          "icon": '<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" /></svg>',
-          "target": "",
-          "body": "bonjour je suis Alain"
-        }
-      ],
-      userId ,
-      message: {
+
+    let userID
+    let targetID
+    let messages = []
+    let message = {
         senderId: "",
         icon: "",
         target: "",
         body: ""
-      }
+    }
+
+    return {
+      messages,
+      message,
+      userID,
+      targetID
     }
   },
   methods: {
+
     sendMessage(){
       console.log(this.message);
+      this.MessageController.sendMessage(this.message);
+    },
+
+    getMessages(){
+      this.MessageController.getMessages(this.userID, this.targetID, this.messages);
     }
   },
+
+    beforeMount() {
+      this.userID = this.$store.state.currentUser.id;
+      this.targetID = this.$store.state.currentMessageTarget.id;
+      this.getMessages();
+    },
 
 }
 </script>
