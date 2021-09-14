@@ -143,12 +143,43 @@ const routes: Array<RouteRecordRaw> = [
       }
     },
 
-  // -----------------------------------------------
+  // ----------------------------- distributeur
     {
       path: '/distributer/liste',
-      name: 'Liste des produits',
-      component: ProductListProd
-    }
+      name: 'Chercher un produit',
+      component: Test,
+      beforeEnter(to,from,next){
+        if(store.state.currentUser.role == "Distributeur - revendeur"){
+          next()
+        }else{
+          next("/")
+        }
+      }
+    },
+    {
+      path: '/distributer/profil',
+      name: 'Mon profil',
+      component: Profils,
+      beforeEnter(to,from,next){
+        if(store.state.currentUser.role == "Distributeur - revendeur"){
+          next()
+        }else{
+          next("/")
+        }
+      }
+    },
+    {
+      path: '/distributer/messaging',
+      name: 'messaging',
+      component: Messaging,
+      beforeEnter(to, from,next){
+        if(store.state.currentUser.role == "Distributeur - revendeur"){
+          next()
+        }else{
+          next("/")
+        }
+      }
+    },
  
  
 

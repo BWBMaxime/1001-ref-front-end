@@ -29,7 +29,7 @@ const UserController = {
                 router.push("/producer/dashboard")
             }else{
                 console.log("aaaaa")
-                router.push("/test")
+                router.push("/distributer/liste")
             }
             
         })
