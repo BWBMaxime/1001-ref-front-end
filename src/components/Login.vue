@@ -15,17 +15,7 @@
               Identifiant
             </label>
             <div class="mt-1 relative rounded-md shadow-sm">
-              <div
-                class="
-                  absolute
-                  inset-y-0
-                  right-0
-                  pr-3
-                  flex
-                  items-center
-                  pointer-events-none
-                "
-              >
+              <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
                 <svg
                   class="h-5 w-5 text-gray-400"
                   fill="none"
@@ -42,26 +32,9 @@
               </div>
               <input
                 id="username"
-                class="
-                  block
-                  pr-10
-                  shadow
-                  appearance-none
-                  border-2 border-orange-100
-                  rounded
-                  w-full
-                  py-2
-                  px-4
-                  text-gray-700
-                  mb-3
-                  leading-tight
-                  focus:outline-none
-                  focus:bg-white
-                  focus:border-orange-500
-                  transition
-                  duration-500
-                  ease-in-out
-                "
+                class="block pr-10 shadow appearance-none border-2 border-orange-100 rounded
+                  w-full py-2 px-4 text-gray-700 mb-3 leading-tight focus:outline-none
+                focus:bg-white focus:border-orange-500 transition duration-500 ease-in-out"
                 v-model="credentials.mail"
                 placeholder="Dupont@example.com"
               />
@@ -77,17 +50,7 @@
               Mot de passe
             </label>
             <div class="mt-1 relative rounded-md shadow-sm">
-              <div
-                class="
-                  absolute
-                  inset-y-0
-                  right-0
-                  pr-3
-                  flex
-                  items-center
-                  pointer-events-none
-                "
-              >
+              <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
                 <svg
                   class="h-5 w-5 text-gray-400"
                   fill="none"
@@ -106,26 +69,9 @@
                 name="password"
                 id="password"
                 type="password"
-                class="
-                  block
-                  pr-10
-                  shadow
-                  appearance-none
-                  border-2 border-orange-100
-                  rounded
-                  w-full
-                  py-2
-                  px-4
-                  text-gray-700
-                  mb-3
-                  leading-tight
-                  focus:outline-none
-                  focus:bg-white
-                  focus:border-orange-500
-                  transition
-                  duration-500
-                  ease-in-out
-                "
+                class="block pr-10 shadow appearance-none border-2 border-orange-100
+                  rounded w-full py-2 px-4 text-gray-700 mb-3 leading-tight focus:outline-none 
+                  focus:bg-white focus:border-orange-500 transition duration-500 ease-in-out"
                 v-model="credentials.password"
                 placeholder="xxxxxxxxxxx"
               />
@@ -157,30 +103,15 @@
           </div>
 
           <div class="mb-4 text-center">
-            <button
-              class="
-                text-yellow-500
-                border border-solid border-yellow-500
-                hover:bg-yellow-500
-                hover:text-white
-                active:bg-yellow-600
-                font-bold
-                uppercase
-                px-8
-                py-3
-                rounded
-                outline-none
-                focus:outline-none
-                mr-1
-                mb-1
-                ease-linear
-                transition-all
-                duration-150
-              "
+            <button v-if="spinner == false"
+              class="text-yellow-500 border border-solid border-yellow-500 hover:bg-yellow-500
+                hover:text-white active:bg-yellow-600 font-bold uppercase px-8 py-3 rounded
+                outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
               @click="checkLogs"
             >
               Login
             </button>
+          <Spinner v-else />
           </div>
           <hr />
           <div class="mt-8">
@@ -202,19 +133,26 @@
 
 <script>
 import UserController from "../controllers/UserController";
-import store from "../store/index.ts";
+import Spinner from "./Spinner.vue"
+
 export default {
   name: "login",
+  components: {
+    Spinner
+  },
   data() {
     return {
       credentials: {
         mail: "",
         password: "",
       },
+      Spinner,
+      spinner: false
     };
   },
   methods: {
-    checkLogs(credentials) {
+    checkLogs() {
+      this.spinner = true;
       UserController.checkLogs(this.credentials, this.router);
     },
   },
@@ -228,5 +166,9 @@ export default {
   font-size: 50px;
   font-weight: bold;
 }
+.spinner {
+  margin-right: 80px;
+}
+
 </style>
 

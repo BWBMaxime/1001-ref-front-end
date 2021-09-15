@@ -28,7 +28,6 @@ const UserController = {
             if(store.state.currentUser.role === "producteur") {
                 router.push("/producer/dashboard")
             }else{
-                console.log("aaaaa")
                 router.push("/distributer/liste")
             }
             
