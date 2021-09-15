@@ -3,6 +3,7 @@ import store from "../store/index.ts";
 
 const ProductController = {
 
+    // Sauvegarde un nouveau produit crée par le producteur
     saveProduct(product) {
         axios.post('http://127.0.0.1:8000/product/create', JSON.stringify(product), {withCredentials:false})
         .then(function(response){
@@ -11,10 +12,36 @@ const ProductController = {
         .catch(error => {
             console.log(error)
         })
-    }
+    },
+
+    // Récupère toutes les informations des produits d'un utilisateur par son id
+    getProductsByUserId(ID, products) {
+        axios.get('http://localhost:8000/getProducts/' + ID, {withCredentials:false})
+        .then(function(response){
+        console.log(products + "  " + response.data);
+        hydrateProduct(products, response.data);
+        })
+        .catch(error => {
+            console.log(error)
+        })
+        console.log(products)
+        return products;
+    },
 
 }
 
+function hydrateProduct(product, data){
 
+    console.log("product to hydrate : " + product);
+    console.log("data to hydrate : " + data);
+
+    for(let keys in data){
+        if(data[keys] != null) product[keys] = data[keys];
+    }
+
+    product.loaded = true;
+
+    console.log(product);
+}
 
 export default ProductController;

@@ -51,18 +51,20 @@ const UserController = {
         })
     },    
 
-    //Gets all of the info from an existing user
+    // Récupère toutes les informations d'un utilisateur via son id
     getUser(ID, user) {
         axios.get('http://localhost:8000/profil/' + ID, {withCredentials:false})
         .then(function(response){
-        console.log(user + "  " + response.data);
+        //console.log(user + "  " + response.data);
         hydrateUser(user, response.data);
         })
         .catch(error => {
             console.log(error)
         })
+        console.log(user)
         return user;
     },
+
 
 }
 

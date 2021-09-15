@@ -60,15 +60,15 @@ export default {
                     number: "",
                     road: "",
                     zipcode: "",
-                    city: "Montpellier",
-                    country: "France",
+                    city: "",
+                    country: "",
                 },
                 website: "",
                 facebook: "",
                 linkedin: "",
-                companyLogo: "https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg",
-                companyPicture: "https://cdn.pixabay.com/photo/2015/05/15/14/22/conference-room-768441_960_720.jpg",
-                biography: "Fam locavore kickstarter distillery. Mixtape chillwave tumeric sriracha taximy chia microdosing tilde DIY. XOXO fam indxgo juiceramps cornhole raw denim forage brooklyn. Everyday carry +1 seitan poutine tumeric. Gastropub blue bottle austin listicle pour-over, neutra jean shorts keytar banjo tattooed umami cardigan.",
+                companyLogo: "",
+                companyPicture: "",
+                biography: "",
                 loaded:false
             }
 
@@ -82,7 +82,8 @@ export default {
     methods: {
 
         getUser(){
-            console.log('Should start getting user : ' + this.user);
+            console.log('Should start getting user : ' + this.$store.state.currentUser.id);
+            console.log('this user : ' + this.user);
             UserController.getUser(this.$store.state.currentUser.id,this.user);
         },
         contactProducer(){
@@ -91,7 +92,8 @@ export default {
     },
     
     beforeMount() {
-        console.log("user : " +this.user);
+        console.log("user : ");
+        console.log(this.user);
         this.getUser();
     },
     
