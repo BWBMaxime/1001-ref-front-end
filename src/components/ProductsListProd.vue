@@ -9,7 +9,7 @@
                         Ajouter un produit
                     </a>
                 </div>
-                <table class="w-full border-separate place-self-center">
+                <table id="table" class="w-full border-separate place-self-center">
                     <h2 class="mb-5 text-xl text-yellow-500 font-semibold uppercase flex justify-center mx-auto">Vos produits (#)</h2>
                     <thead class="opacity-80 bg-yellow-500 flex text-white w-full">
                         <tr class="flex w-full text-center justify-between">
@@ -60,16 +60,18 @@
 
                                 <!-- Edit/Delete -->
                                 <td class="py-6 w-48 text-sm border text-center flex justify-evenly">
-                                    <span class="font-semibold leading-tight rounded-sm">
+                                    <button type="button" class="font-semibold leading-tight rounded-sm">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                                         </svg>
-                                    </span>
-                                    <span class="font-semibold leading-tight rounded-sm">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                        </svg>
-                                    </span>
+                                    </button>
+                                    <button @click="deleteProduct();">
+                                        <span class="font-semibold leading-tight rounded-sm">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                            </svg>
+                                        </span>
+                                    </button>
                                 </td>
                             </tr>
                         </div>
@@ -130,9 +132,10 @@ export default {
         /**
          * deletes product at given index from the list
          */
-        // deleteProduct(index){
-        //     this.product.splice(index, 1);
-        // }
+        deleteProduct(){
+            
+        },
+
     },
 
     beforeMount() {
