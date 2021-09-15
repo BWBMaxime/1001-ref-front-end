@@ -11,12 +11,12 @@
             rounded
             border border-gray-200
           "
-          v-bind:src="product.img"
+          v-bind:src="product.photo"
         />
         <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
           <h1 class="h1-style">{{product.name}}</h1>
           <h2 class="text-xl title-font text-gray-700 tracking-widest">
-            Producteur : {{product.producteur}}
+            Producteur : {{product.owner.firstname + " " + product.owner.name}}
           </h2>
           <div
             class="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5"
@@ -27,7 +27,7 @@
           <div
             class="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5"
           >
-            <div v-for="catégorie in product.catégories" v-bind:key="catégorie"
+            <div v-for="tag in product.tags" v-bind:key="tag"
               class="
                 ml-4
                 text-1xl
@@ -44,18 +44,19 @@
                 border-yellow-600 border
               "
             >
-              {{catégorie}}
+              {{tag.name}}
             </div>
             
           </div>
           <div class="flex">
-            <div v-if="product.promotion !== '' ">
-                <span  class="mx-auto title-font font-medium text-center text-1xl text-yellow-600">PROMOTION : {{product.promotion}}</span>
+            <div v-if="product.sale ==! null ">
+                <span  class="mx-auto title-font font-medium text-center text-1xl text-yellow-600">PROMOTION : {{product.sale.name}}</span>
             </div>
             <div v-else>  
 
             </div>
-            <button
+           <button
+            @click="getProfileProducer"
               class="
                 flew
                 mx-auto
@@ -69,7 +70,7 @@
               "
             >
               Voir le producteur
-            </button>
+            </button> 
           </div>
         </div>
       </div>
@@ -94,14 +95,17 @@
             text-center
             justify-between
             w-full
+            border-separate border-gray-200
           "
          
         >
-          <tr v-for="declinaison in product.declinaisons" v-bind:key="declinaison" class="bg-yellow-50 flex w-full border-b border-gray-600">
-            <td class="font-bold w-1/4">{{declinaison.contenant}}</td>
-            <td class="font-bold w-1/4">{{declinaison.conditionnement}}</td>
-            <td class="font-bold w-1/4">{{declinaison.contenance}}</td>
-            <td class="font-bold w-1/4">{{declinaison.prix}}</td>
+          <tr v-for="variation in product.variations" v-bind:key="variation" class=" flex w-full border border-gray-200">
+            <td class="border border-gray-200 w-1/4">{{variation.capacity}}</td>
+            <td class="border border-gray-200 w-1/4">{{variation.conditioning}}</td>
+            <td class="border border-gray-200 w-1/4">{{variation.container}}</td>
+            <td v-if="$store.state.currentUser.role == 'Distributeur - revendeur'" class="border border-gray-200 w-1/4">{{variation.dealerPrice}}</td>
+            <td v-else-if="$store.state.currentUser.role == 'Distributeur - restaurateur'" class="border border-gray-200 w-1/4">{{variation.restaurateurPrice}}</td>
+
           </tr>
         </tbody>
       </table>
@@ -110,56 +114,74 @@
 </template>
 
 <script>
+
+import ProductController from  "../controllers/ProductController";
+import UserController from  "../controllers/UserController";
+
 export default {
 
+  
+
   data() {
-    return {
-      product: 
+    
+     let product =
         {
-          "name": "Bière Blonde",
-          "img": "https://www.maisonlauze.com/539-pdt_771/brasserie-de-lozere-la-48-biere-blonde-5-.jpg",
-          "producteur":"Jeam-Marc Leduc",
-          "promotion" : "PROMO DU JOUR : 15 achetés 2 offerts !!!!!!!!!!!!!!!!!!",
-          "description":
-            "La Pale Ale, plus communément appelé bière Blonde en France, est un style de bière qui fermente entre 18° et 25° à partir de levure à Ale (levure à fermentation haute). ... Moyennement houblonnée, la Pale Ale est dotée d'une amertume légère et son degré d'alcooloscille entre 4% et 6%..",
-          "catégories": [
-            "Bière",
-            "Blonde",
-            "Bonne",
-            "fraiche",
-            "#soleil",
-            "#vacances",
-          ],
-          "declinaisons": [
-            {
-              "contenant": "carton",
-              "conditionnement": "bouteille en verre",
-              "contenance":"50",
-              "prix": "40"
-            },
-            {
-              "contenant": "fut",
-              "conditionnement": "fut métal",
-              "contenance":"25",
-              "prix": "20"
-            },
-            {
-              "contenant": "fut",
-              "conditionnement": "fut métal",
-              "contenance":"25",
-              "prix": "20"
-            },
-            {
-              "contenant": "fut",
-              "conditionnement": "fut métal",
-              "contenance":"25",
-              "prix": "20"
-            },
-          ],
-        },
-      
-    };
+          id:"",
+          name: "",
+          category: "",
+          description:"",
+          photo:"",
+          active:Boolean,
+          new:Boolean,
+          tags: {
+            id:"",
+            name:""
+          },
+          variations: {
+            id:"",
+            product:"",
+            dealerPrice:"",
+            restaurateurPrice:"",
+            capacity:"",
+            conditioning:"",
+            container:"",
+            sale:"",
+          },
+          owner:{
+            name:"",
+            firstname:""
+          },
+          
+          loaded:false
+        }
+      return {
+        product
+      }
+   
   },
+  methods: {
+     getProduct(){
+       console.log("Should start getting product : ")
+       console.log(this.product);
+       ProductController.getProduct(this.$route.params.id, this.product);
+    },
+    getProfileProducer(){
+      ProductController.getProduct(this.id,this.product);
+        this.$router.push({path:'/distributer/producerprofil/'+ this.product.owner.id });
+    },
+    // getUser(){
+    //     //console.log('Should start getting user : ' + this.user);
+    //     UserController.getUser(this.$store.state.currentUser.role,this.user);
+    // },
+
+
+  },
+   beforeMount() {
+        console.log("before mount");
+        console.log(this.product);
+        this.getProduct();
+    },
+
 };
 </script>
 

@@ -18,7 +18,6 @@ const UserController = {
         });
     },
 
-
       /**
        * vérifie si l'utilisateur demandé existe dans la bdd et renvois son id et son role dans le store
        * @param {*} credentials représente les credentials envoyés par l'utilisateur
@@ -43,7 +42,7 @@ const UserController = {
 
 
     /**
-     * Updates a user with a form
+     * Mettre à jour un utilisateur via un formulaire
      */
     updateUser(user) {
         axios.post('http://localhost:8000/user/update', JSON.stringify(user), {withCredentials:false})
@@ -53,23 +52,22 @@ const UserController = {
         .catch(error => {
             console.log(error)
         })
-    },
+    },    
 
-
-    /**
-     * Gets all of the info from an existing user
-     */
+    // Récupère toutes les informations d'un utilisateur via son id
     getUser(ID, user) {
-        axios.get('http://localhost:8000/user/get/' + ID, {withCredentials:false})
+        axios.get('http://localhost:8000/profil/' + ID, {withCredentials:false})
         .then(function(response){
-        console.log(user + "  " + response.data);
+        //console.log(user + "  " + response.data);
         hydrateUser(user, response.data);
         })
         .catch(error => {
             console.log(error)
         })
+        console.log(user)
         return user;
     },
+
 
 }
 

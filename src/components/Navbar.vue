@@ -35,7 +35,7 @@
         </ul>  
         </div>
         <!-- distributeur -->
-     <div v-if="$store.state.currentUser.role === 'Distributeur - revendeur'">
+     <div v-if="$store.state.currentUser.role === 'Distributeur - revendeur' || $store.state.currentUser.role === 'Distributeur - restaurateur' ">
         <ul class="flex flex-col lg:flex-row list-none ml-auto">
           <li v-for="link in linksDistributeur" :key="link" class="nav-item">
             <router-link v-bind:to="link.path" class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-yellow-500 hover:opacity-75" >
@@ -73,13 +73,16 @@ export default {
         { path: "/producer/messaging", name: "Messagerie" },
         { path: "/producer/product-list", name: "Liste des produits" },
         { path: "/producer/preview", name: "Preview" },
+        { path: "/profil", name: "Profil" },
         // 
         ],
         linksDistributeur: [
            { path: "/distributer/liste", name: "Liste des produits" },
            { path: "/distributer/profil", name: "Mon profil" },
              { path: "/distributer/messaging", name: "Messagerie" },
+            { path: "/distributer/detailproduct/5", name: "test" },
         ]
+        
     }
   },
   methods: {

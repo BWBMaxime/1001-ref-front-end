@@ -1,4 +1,3 @@
-
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import Home from '../views/Home.vue'
 import Contact from '../views/Contact.vue'
@@ -12,6 +11,8 @@ import ProductListProd from '../views/ProductListProd.vue'
 import PreviewProd from '../views/PreviewProd.vue'
 import Profils from '../views/Profils.vue'
 import Test from '../components/Test.vue'
+import DetailProduct from '../components/DetailProduct.vue'
+import Registration from '../components/Registration.vue'
 import store from '../store/index'
 
 const routes: Array<RouteRecordRaw> = [
@@ -25,6 +26,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/contact',
     name: 'contact',
     component: Contact
+  },
+  {
+    path: '/signup',
+    name: 'signup',
+    component: Registration
   },
   {
     path: '/about',
@@ -149,7 +155,7 @@ const routes: Array<RouteRecordRaw> = [
       name: 'Chercher un produit',
       component: Test,
       beforeEnter(to,from,next){
-        if(store.state.currentUser.role == "Distributeur - revendeur"){
+        if(store.state.currentUser.role == "Distributeur - revendeur" || store.state.currentUser.role == "Distributeur - restaurateur"){
           next()
         }else{
           next("/")
@@ -161,7 +167,31 @@ const routes: Array<RouteRecordRaw> = [
       name: 'Mon profil',
       component: Profils,
       beforeEnter(to,from,next){
-        if(store.state.currentUser.role == "Distributeur - revendeur"){
+        if(store.state.currentUser.role == "Distributeur - revendeur" || store.state.currentUser.role == "Distributeur - restaurateur"){
+          next()
+        }else{
+          next("/")
+        }
+      }
+    },
+    {
+      path: '/distributer/producerprofil/:id',
+      name: 'Profil Producteur',
+      component: Profils,
+      beforeEnter(to,from,next){
+        if(store.state.currentUser.role == "Distributeur - revendeur" || store.state.currentUser.role == "Distributeur - restaurateur"){
+          next()
+        }else{
+          next("/")
+        }
+      }
+    },
+    {
+      path: '/distributer/detailproduct/:id',
+      name: 'Detail Product',
+      component: DetailProduct,
+      beforeEnter(to,from,next){
+        if(store.state.currentUser.role == "Distributeur - revendeur" || store.state.currentUser.role == "Distributeur - restaurateur"){
           next()
         }else{
           next("/")
@@ -173,7 +203,7 @@ const routes: Array<RouteRecordRaw> = [
       name: 'messaging',
       component: Messaging,
       beforeEnter(to, from,next){
-        if(store.state.currentUser.role == "Distributeur - revendeur"){
+        if(store.state.currentUser.role == "Distributeur - revendeur" || store.state.currentUser.role == "Distributeur - restaurateur"){
           next()
         }else{
           next("/")
