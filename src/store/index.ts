@@ -6,7 +6,7 @@ export default createStore({
     // Id et role de l'utilisateur connecté
     currentUser: {
       id: null,
-      role: ""
+      role: null
     },
     products: [
       {
@@ -106,7 +106,7 @@ export default createStore({
       console.log("role activé: " + state.currentUser.role)
     },
     logout(state) {
-      state.currentUser = { id: null, role: "" }
+      state.currentUser = { id: null, role: null }
       console.log(state.currentUser.id)
     }
     

@@ -166,7 +166,8 @@
               </div>
 </main>
 <p v-else-if="!user.loaded">Loading...</p>
-<button @click="logStatus">Bouton</button>
+
+
 </template>
 
 <script >
