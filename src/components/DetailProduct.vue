@@ -55,7 +55,7 @@
             <div v-else>  
 
             </div>
-            <button
+           <button
             @click="getProfileProducer"
               class="
                 flew
@@ -70,7 +70,7 @@
               "
             >
               Voir le producteur
-            </button>
+            </button> 
           </div>
         </div>
       </div>
@@ -100,10 +100,12 @@
          
         >
           <tr v-for="variation in product.variations" v-bind:key="variation" class=" flex w-full border border-gray-200">
-            <td class="border border-gray-200 font-bold w-1/4">{{variation.capacity}}</td>
-            <td class="border border-gray-200 font-bold w-1/4">{{variation.conditioning}}</td>
-            <td class="border border-gray-200 font-bold w-1/4">{{variation.container}}</td>
-            <td  class="border border-gray-200 font-bold w-1/4">{{variation.dealerPrice}}</td>
+            <td class="border border-gray-200 w-1/4">{{variation.capacity}}</td>
+            <td class="border border-gray-200 w-1/4">{{variation.conditioning}}</td>
+            <td class="border border-gray-200 w-1/4">{{variation.container}}</td>
+            <td v-if="$store.state.currentUser.role == 'Distributeur - revendeur'" class="border border-gray-200 w-1/4">{{variation.dealerPrice}}</td>
+            <td v-else-if="$store.state.currentUser.role == 'Distributeur - restaurateur'" class="border border-gray-200 w-1/4">{{variation.restaurateurPrice}}</td>
+
           </tr>
         </tbody>
       </table>
@@ -165,7 +167,7 @@ export default {
     },
     getProfileProducer(){
       ProductController.getProduct(this.id,this.product);
-        this.$router.push('/profil/'+ this.product.owner.id);
+        this.$router.push({path:'/distributer/producerprofil/'+ this.product.owner.id });
     },
     // getUser(){
     //     //console.log('Should start getting user : ' + this.user);

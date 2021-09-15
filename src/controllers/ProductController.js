@@ -5,7 +5,7 @@ import router from "../router"
 const ProductController = {
 
     saveProduct(product) {
-        axios.post('http://127.0.0.1:43489/product/create', JSON.stringify(product), {withCredentials:false})
+        axios.post('http://127.0.0.1:35011/product/create', JSON.stringify(product), {withCredentials:false})
         .then(function(response){
         console.log(response.data);
         })
@@ -16,7 +16,7 @@ const ProductController = {
     getProduct(ID, product) {
         console.log("Axios get : ");
         console.log(product);
-        axios.get('http://127.0.0.1:43489/product/' +ID, {withCredentials:false})
+        axios.get('http://127.0.0.1:35011/product/' +ID, {withCredentials:false})
         .then(function(response){
         console.log(product + "  " + response.data);
         hydrateProduct(product, response.data);
