@@ -166,7 +166,7 @@
               </div>
 </main>
 <p v-else-if="!user.loaded">Loading...</p>
-<button @click="logStatus">Bouton</button>
+
 </template>
 
 <script >
@@ -223,10 +223,10 @@ methods: {
     },
 
     logStatus() {
-    console.log(this.user);
-  }
+        console.log(this.user);
+    }
 
-    },
+},
 
     beforeMount() {
         this.getUser();
