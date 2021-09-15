@@ -2,11 +2,11 @@
       <div class="w-7/12 float-right flex flex-col flex-auto h-full p-6 mr-48 mt-4">
         <div class="flex flex-col flex-auto flex-shrink-0 rounded-lg bg-gray-100 h-full p-4">
           <div class="bg-scroll flex flex-col h-full overflow-x-auto mb-4">
-            <div class="flex flex-col-reverse h-full">
+            <div class="flex flex-col h-full">
               <div class="grid grid-cols-12 gap-y-2" v-for="message in messages" :key="message">
 
                 <!-- 1er message droite, si le message est envoyé par l'utilisateur courant -->
-                <div class="col-start-1 col-end-8 p-3 rounded-lg" v-if="message.senderId !== userId">
+                <div class="col-start-1 col-end-8 p-3 rounded-lg" v-if="message.target == userID && message.body!=''">
                   <div class="flex flex-row items-center">
                     <div class="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0">
                         <div v-html="message.icon"></div>
@@ -20,7 +20,7 @@
                 </div>   
 
                 <!-- réponse gauche, si le message est envoyé par le sujet de la conversation -->
-                <div class="col-start-6 col-end-13 p-3 rounded-lg" v-if="message.senderId == userId">
+                <div class="col-start-6 col-end-13 p-3 rounded-lg" v-if="message.sender == userID">
                   <div class="flex items-center justify-start flex-row-reverse">
                     <div class="flex items-center justify-center h-10 w-10 rounded-full bg-yellow-500 flex-shrink-0">
                       <div v-html="message.icon"></div>
@@ -103,40 +103,59 @@ import MessageController from  "../controllers/MessageController";
 export default {
   data(){
 
-    let userID
-    let targetID
-    let messages = []
+    let userID = 0
+    let messages = [{
+        senderID: "",
+        targetID: "",
+        body: ""
+    }];
+
+
     let message = {
-        senderId: "",
-        icon: "",
-        target: "",
+        senderID: "",
+        targetID: "",
         body: ""
     }
 
     return {
       messages,
       message,
-      userID,
-      targetID
+      userID
+
     }
   },
   methods: {
 
     sendMessage(){
-      console.log(this.message);
-      this.MessageController.sendMessage(this.message);
+      MessageController.sendMessage(this.message);
+      this.messages.push(this.message);
     },
 
     getMessages(){
-      this.MessageController.getMessages(this.userID, this.targetID, this.messages);
+      MessageController.getMessages(this.userID, this.message.targetID, this.messages);
     }
   },
 
     beforeMount() {
-      this.userID = this.$store.state.currentUser.id;
-      this.targetID = this.$store.state.currentMessageTarget.id;
-      this.getMessages();
+      this.userID =  this.$store.state.currentUser.id;
+      this.message.senderID = this.$store.state.currentUser.id;
+      if(this.$store.state.currentMessageTarget.id!= null){
+        this.getMessages();
+      }
     },
+
+    computed: {
+      conversationUser () {
+        return this.$store.state.currentMessageTarget.id;
+      }
+    },
+    watch:{
+    conversationUser(value) {
+      console.log(`My store value for 'conversationUser' changed to ${value}`);
+      this.message.targetID = this.$store.state.currentMessageTarget.id;
+      this.getMessages();
+    }
+    }
 
 }
 </script>
