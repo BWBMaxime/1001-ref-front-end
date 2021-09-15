@@ -166,7 +166,6 @@
               </div>
 </main>
 <p v-else-if="!user.loaded">Loading...</p>
-
 </template>
 
 <script >
@@ -208,7 +207,6 @@ export default {
 methods: {
 
     getUser(){
-        console.log('Should start getting user : ' + this.user);
         UserController.getUser(this.$store.state.currentUser.id,this.user);
     },
 

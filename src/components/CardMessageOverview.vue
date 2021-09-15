@@ -1,4 +1,3 @@
-
 <template>
 <div class=" float-left flex bg-gray dark:bg-gray-800 rounded-lg shadow h-full mt-10 ml-48">    
     <ul class="w-84 justify-start flex flex-col divide divide-y">
@@ -9,18 +8,18 @@
             <h1 class="ml-2">Boîte de réception</h1>
         </div>
         <li class="h-20 flex flex-row transition hover:bg-gray-100" v-for="message in messages" :key="message">
-            <button @click="openMessage()"
+            <button v-if="message.body != false" @click="openMessage(message.id)"
                 class="text-left select-none cursor-pointer flex flex-1 items-center p-4">
                 <div class="flex-1 pl-1 mr-16">
                     <div class="font-medium dark:text-white">
-                        De : {{ message.sender }}
+                        De : {{ message.firstname }} {{ message.name }} 
                     </div>
                     <div class="text-light text-gray-400">
                         Ets : {{ message.company }}
                     </div>
                 </div>
                 <div class="text-gray-600 dark:text-gray-200 text-xs">
-                    {{ message.date }}
+                    
                 </div>
             </button>
         </li>
@@ -31,31 +30,54 @@
 </template>
 
 <script>
+
+import MessageController from  "../controllers/MessageController";
+
 export default {
   data(){
+
+    let messages =[{
+        id:0,
+        body:"",
+        firstname:"",
+        name:"",
+        company:""
+    }];
+
     return {
-      messages: [
-        {
-            "senderId": 3,
-            "sender": "Jean-Michel Primeur",
-            "company": "Liddle",
-            "date": "09:18"
-        },
-        {
-            "senderId": 17,
-            "sender": "Mathilde Groseille",
-            "company": "Le comptoir de Mathilde",
-            "date": "11:15"
-        },
-        {
-            "senderId": 22,
-            "sender": "Sylvie Reblochon",
-            "company": "Les délices de Sylvie",
-            "date": "12:27"
-        }
-      ]
+      messages,
     }
-  }
+  },
+
+
+
+  methods: {
+      getMessagesHeader(){
+        console.log("Getting headers");
+        MessageController.getHeaders(this.$store.state.currentUser.id, this.messages);
+        console.log("Request sent");
+      },
+
+      openMessage(id){
+            this.$store.commit('setCurrentMessageTarget', id);
+      }
+  },
+
+  beforeMount(){
+    this.getMessagesHeader();
+  },
+
+    computed: {
+      headers () {
+        return this.messages;
+    }
+    },
+    watch:{
+        headers(value) {
+            console.log(value);
+            this.getMessagesHeader()
+        }
+    }
 }
 </script>
 
