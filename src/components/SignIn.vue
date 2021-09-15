@@ -23,7 +23,8 @@
       <hr class="w-2/3 mx-auto mb-5">
       <img v-bind:src="card.img" class="mx-auto w-max" alt="" />
       <div class="w-full flex justify-center mb-10">
-        <button v-bind:href="card.url"
+        <button 
+        @click="goRegister"
           class="
             text-yellow-500
             border border-solid border-yellow-500
@@ -54,6 +55,7 @@
 </template>
 
 <script lang="ts">
+import router from "../router"
 export default {
     data() {
         return { 
@@ -70,6 +72,12 @@ export default {
             }
             ]
         }
+        
+    },
+    methods: {
+      goRegister(){
+        router.push('/signup')
+      }
     },
 
 };
