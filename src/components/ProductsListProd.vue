@@ -132,9 +132,9 @@ export default {
         /**
          * deletes product at given index from the list
          */
-        deleteProduct(){
+        // deleteProduct(){
             
-        },
+        // },
 
     },
 
