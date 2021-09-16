@@ -8,8 +8,7 @@ const ProductController = {
         .then(function(response){
         console.log(response.data);
         })
-        .catch(error => {3
-            
+        .catch(error => {
             console.log(error)
         })
     },
