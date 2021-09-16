@@ -8,6 +8,11 @@ export default createStore({
       id: null,
       role: ""
     },
+
+    currentMessageTarget: {
+      id: null
+    },
+
     products: [
       {
         "name": "La goudale",
@@ -98,18 +103,33 @@ export default createStore({
      */
     setCurrentUser(state, id){
       state.currentUser.id = id
+      console.log(id)
       console.log("user connecté: " + state.currentUser.id)
     },
     setCurrentRole(state,role){
       state.currentUser.role = role
       console.log("role activé: " + state.currentUser.role)
+    },
+    logout(state) {
+      state.currentUser = { id: null, role: "" }
+      console.log(state.currentUser.id)
+    },
+    setCurrentMessageTarget(state,id){
+      state.currentMessageTarget.id = id;
+      console.log("Parle avec l'utilisateur : " + state.currentMessageTarget.id)
     }
     
   },
   getters: {
+
     getState(state) {
       return state
+    },
+
+    getCurrentMessageTarget(state) {
+      return state.currentMessageTarget.id;
     }
+
   },
   actions: {
   },

@@ -1,7 +1,7 @@
 <template>
-<div>
-<CardMessageDetail></CardMessageDetail>
+<div class="flex justify-center">
 <CardMessageOverview></CardMessageOverview>
+<CardMessageDetail class="self-end"></CardMessageDetail>
 </div>
 </template>
 <script lang="ts">

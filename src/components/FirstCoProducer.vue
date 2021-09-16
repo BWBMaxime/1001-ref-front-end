@@ -1,5 +1,6 @@
 <template>
-<main class="w-3/5 p-8 mx-auto">
+
+<main v-if="user.loaded" class="w-3/5 p-8 mx-auto">
     <p class="text-left md:text-center py4 text-4xl ">Bienvenue! C'est votre première connexion ! </p>
            <p class="text-left md:text-center py-4 text-2xl extrabold ">Veuillez valider les 2 sections avant d'accéder à votre tableau de bord </p>
              <section class="shadow row">
@@ -152,7 +153,7 @@
                 
                 </div>
             </section>
-        </main>
+
               
        <!--Boutton enregistrer-->  
               <div class="space-x-10 py-4 mb-1 text-center">
@@ -163,11 +164,8 @@
               Valider
             </button>
               </div>
-              
-
-
-
-
+</main>
+<p v-else-if="!user.loaded">Loading...</p>
 </template>
 
 <script >
@@ -195,21 +193,21 @@ export default {
             linkedin: "",
             biography:"",
             companyLogo:"",
-            companyPicture:""
+            companyPicture:"",
+            loaded:false
             }
 
-        user.id = this.getUserId();
 
-        return {  
-           user,
+        return { 
+            user
         }
     },
     
 
 methods: {
 
-    getUserId(){
-        return this.$store.state.currentUser.id;
+    getUser(){
+        UserController.getUser(this.$store.state.currentUser.id,this.user);
     },
 
     updateAndContinue(){
@@ -220,10 +218,20 @@ methods: {
     updateAndQuit(){
         UserController.updateUser(this.user);
         this.$store.commit('logout');
+    },
+
+    logStatus() {
+        console.log(this.user);
     }
 
+},
+
+    beforeMount() {
+        this.getUser();
+    },
+
 }
-}
+
 
 </script>
 
