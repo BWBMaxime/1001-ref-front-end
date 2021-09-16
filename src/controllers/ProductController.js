@@ -1,5 +1,6 @@
 import { hydrate } from '@vue/runtime-dom';
 import axios from 'axios';
+import router from "../router";
 
 
 const ProductController = {
@@ -8,12 +9,14 @@ const ProductController = {
         .then(function(response){
         console.log(response.data);
         })
+        .then(function(){
+            console.log("redirect")
+            router.push("/producer/product-list")
+        })
         .catch(error => {
             console.log(error)
         })
-    },
-
-    
+    },  
     getCurrentUserProducts(id, products){
         console.log(id);
         axios.get('http://localhost:8000/getProducts/' + id, {withCredentials:false})
