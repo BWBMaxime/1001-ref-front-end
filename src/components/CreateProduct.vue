@@ -158,7 +158,7 @@
             </section>     
         <!--Boutton enregistrer-->  
         <div class="py-4 mb-1 text-center mt-12">
-            <button @click="checkAndSendData" v-if="spinner == false" id="sendData" class="transition duration-500 bg-yellow-500 hover: 0 text-white font-bold py-2 px-8 rounded focus:outline-none focus:shadow-outline" type="submit"> 
+            <button @click="checkAndSendData" v-if="$store.state.loading == false" id="sendData" class="transition duration-500 bg-yellow-500 hover: 0 text-white font-bold py-2 px-8 rounded focus:outline-none focus:shadow-outline" type="submit"> 
             Enregistrer le produit
             </button>
              <Spinner v-else />
@@ -170,6 +170,7 @@
 
 import ProductController from "../controllers/ProductController";
 import Spinner from "./Spinner.vue";
+import store from "../store"
 export default{
      components: {
     Spinner
@@ -244,8 +245,7 @@ export default{
             selectedFile: null,
             check,
             checkC,
-            Spinner,
-            spinner: false
+            Spinner
         }
     },
 
@@ -271,7 +271,7 @@ export default{
 
         //Sends the filled form to persist the entity in the DB
         createProduct(product){
-            this.spinner = !this.spinner
+            store.commit('setLoading')
             ProductController.saveProduct(product);
         },
 

@@ -103,7 +103,7 @@
           </div>
 
           <div class="mb-4 text-center">
-            <button v-if="spinner == false"
+            <button v-if="$store.state.loading == false"
               class="text-yellow-500 border border-solid border-yellow-500 hover:bg-yellow-500
                 hover:text-white active:bg-yellow-600 font-bold uppercase px-8 py-3 rounded
                 outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
@@ -121,7 +121,8 @@
 
 <script>
 import UserController from "../controllers/UserController";
-import Spinner from "./Spinner.vue"
+import Spinner from "./Spinner.vue";
+import store from "../store"
 
 export default {
   name: "login",
@@ -134,13 +135,13 @@ export default {
         mail: "",
         password: "",
       },
-      Spinner,
-      spinner: false
+      Spinner
     };
   },
   methods: {
     checkLogs() {
-      this.spinner = true;
+      // this.spinner = true;
+      store.commit("setLoading")
       UserController.checkLogs(this.credentials, this.router);
     },
   },

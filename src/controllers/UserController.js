@@ -29,8 +29,10 @@ const UserController = {
             store.commit('setCurrentUser', response.data.userId)
             store.commit('setCurrentRole', response.data.userRole)
             if(store.state.currentUser.role === "producteur") {
+                store.commit('setLoading')
                 router.push("/producer/dashboard")
             }else{
+                store.commit('setLoading')
                 router.push("/distributer/liste")
             }
             
