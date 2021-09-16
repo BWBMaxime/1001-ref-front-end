@@ -113,18 +113,6 @@
             </button>
           <Spinner v-else />
           </div>
-          <hr />
-          <div class="mt-8">
-            <p class="text-sm">
-              Pas de compte ?
-              <a
-                class="font-bold text-sm text-yellow-500 hover:text-yellow-500"
-                href="#register"
-              >
-                Créer un compte
-              </a>
-            </p>
-          </div>
         </div>
       </div>
     </div>

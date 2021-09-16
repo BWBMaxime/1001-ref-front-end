@@ -78,7 +78,6 @@ export default {
         ],
         linksDistributeur: [
            { path: "/distributer/liste", name: "Liste des produits" },
-           { path: "/distributer/profil", name: "Mon profil" },
              { path: "/distributer/messaging", name: "Messagerie" },
             { path: "/distributer/detailproduct/5", name: "test" },
         ]
@@ -91,7 +90,7 @@ export default {
     },
     logout() {
       store.commit("logout")
-      router.push("/")
+      router.push("/")        
     }
   }
 }
