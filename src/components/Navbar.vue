@@ -12,7 +12,7 @@
       </div>
       <div v-bind:class="{'hidden': !showMenu, 'flex': showMenu}" class="lg:flex lg:flex-grow justify-end">
         <!-- User non connecté -->
-        <div v-if="$store.state.currentUser.role === null">
+        <div v-if="$store.state.currentUser.role === ''">
         <ul class="flex flex-col lg:flex-row list-none ml-auto">
           <li v-for="link in linksNotCo" :key="link" class="nav-item">
             <router-link v-bind:to="link.path" class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-yellow-500 hover:opacity-75" >
