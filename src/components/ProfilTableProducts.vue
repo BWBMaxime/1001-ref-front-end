@@ -105,7 +105,7 @@ export default {
         getAllProductsByUser(){
             console.log('Should start getting user : ' + this.$store.state.currentUser.id);
             console.log('this products : ' + this.products);
-            ProductController.getProductsByUserId(this.$store.state.currentUser.id,this.products);
+            ProductController.getCurrentUserProducts(this.$store.state.currentUser.id,this.products);
         },
         contactProducer(){
             this.$router.push('../contact');

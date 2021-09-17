@@ -1,5 +1,7 @@
 import { hydrate } from '@vue/runtime-dom';
 import axios from 'axios';
+import router from "../router";
+import store from "../store"
 
 
 const ProductController = {
@@ -10,25 +12,24 @@ const ProductController = {
     saveProduct(product) {
         axios.post('http://localhost:8000/product/create', JSON.stringify(product), {withCredentials:false})
         .then(function(response){
-        // console.log(response.data);
+        console.log(response.data);
+        store.commit('setLoadingOff')
+        router.push("/producer/product-list")
         })
         .catch(error => {
             console.log(error)
         })
-    },
-
-    /**
-     * get all products from current user
-     */
+    },  
     getCurrentUserProducts(id, products){
         // console.log(id);
         axios.get('http://localhost:8000/getProducts/' + id, {withCredentials:false})
         .then(function(response){
-            // console.log(response.data);
+            console.log(response.data);
+            store.commit('setLoadingOff')
             hydratePage(products, response.data);
         })
         .catch(error => {
-            
+            store.commit('setLoadingOff')
             console.log(error);
         });
     },

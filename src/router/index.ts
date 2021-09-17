@@ -162,18 +162,7 @@ const routes: Array<RouteRecordRaw> = [
         }
       }
     },
-    {
-      path: '/distributer/profil',
-      name: 'Mon profil',
-      component: Profils,
-      beforeEnter(to,from,next){
-        if(store.state.currentUser.role == "Distributeur - revendeur" || store.state.currentUser.role == "Distributeur - restaurateur"){
-          next()
-        }else{
-          next("/")
-        }
-      }
-    },
+   
     {
       path: '/distributer/producerprofil/:id',
       name: 'Profil Producteur',
