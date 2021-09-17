@@ -22,7 +22,7 @@
         </ul>  
         </div>
         <!-- producteur -->
-   <div v-if="$store.state.currentUser.role === 'producteur'">
+   <div v-if="$store.state.currentUser.role === 'Producteur'">
         <ul class="flex flex-col lg:flex-row list-none ml-auto">
           <li v-for="link in linksProducteur" :key="link" class="nav-item">
             <router-link v-bind:to="link.path" class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-yellow-500 hover:opacity-75" >

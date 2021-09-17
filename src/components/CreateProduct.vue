@@ -50,8 +50,8 @@
                                             {{index}}
                                             </button>
                                         </div>
-                                        <label class=" font-semibold text-gray-600 py-2 mt-12">Photo du produit</label>
-                                        <input id="picture" @change="onFileChanged" type="file" class="w-full text-gray-700 px-3 py-2 border rounded">
+                                        <label class=" font-semibold text-gray-600 py-2 mt-12">Photo du produit (Lien)</label>
+                                        <input id="picture" v-model="product.photo" type="text" class="w-full text-gray-700 px-3 py-2 border rounded">
                                     </form>
                                 </div>
                             </div>
@@ -221,7 +221,7 @@ export default{
             category:'',
             description:'',
             tags:[],
-            picture: "",
+            photo: "",
             variations:
             [{
                 contenant:"",

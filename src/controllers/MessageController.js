@@ -6,7 +6,6 @@ const MessageController = {
     sendMessage(message) {
         axios.post('http://localhost:8000/message/send', JSON.stringify(message), {withCredentials:false})
         .then(function(response){
-        console.log(response.data);
         message.body = "";
         })
         .catch(error => {

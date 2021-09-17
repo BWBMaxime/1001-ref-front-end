@@ -35,11 +35,9 @@ const ProductController = {
     },
 
     getProduct(ID, product) {
-        console.log("Axios get : ");
-        console.log(product);
+
         axios.get('http://localhost:8000/product/' +ID, {withCredentials:false})
         .then(function(response){
-        console.log(product + "  " + response.data);
         hydrateProduct(product, response.data);
         })
         .catch(error => {
@@ -81,23 +79,15 @@ function hydratePage(products, data){
 
     products.loaded = true;
 
-    console.log(products);
 }
 
 function hydrateProduct(product, data){
-
-    //console.log("user to hydrate : " + product);
-    console.log(data);
-
 
     for(let keys in data){
         if(data[keys] != null) product[keys] = data[keys];
     }
 
     product.loaded = true;
-
-    console.log(product);
-
     return product;
 }
 
