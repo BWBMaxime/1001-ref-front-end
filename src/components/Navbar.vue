@@ -71,7 +71,7 @@ export default {
         { path: "/producer/dashboard", name: "Dashboard" },
         { path: "/producer/setting", name: "Paramètres" },
         { path: "/producer/create-product", name: "Créer un produit" },
-        { path: "/producer/messaging", name: "Messagerie" },
+        { path: "/producer/messaging", name: "MessagerieProd" },
         { path: "/producer/product-list", name: "Liste des produits" },
         { path: "/producer/preview", name: "Preview" },
         { path: "/profil", name: "Profil" },
@@ -79,7 +79,7 @@ export default {
         ],
         linksDistributeur: [
            { path: "/distributer/liste", name: "Liste des produits" },
-             { path: "/distributer/messaging", name: "Messagerie" },
+             { path: "/distributer/messaging", name: "MessagerieDist" },
             { path: "/distributer/detailproduct/5", name: "test" },
         ]
         

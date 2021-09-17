@@ -4,7 +4,7 @@ import store from "../store/index.ts";
 const MessageController = {
 
     sendMessage(message) {
-        axios.post('http://127.0.0.1:46691/message/send', JSON.stringify(message), {withCredentials:false})
+        axios.post('http://localhost:8000/message/send', JSON.stringify(message), {withCredentials:false})
         .then(function(response){
         console.log(response.data);
         message.body = "";
@@ -16,7 +16,7 @@ const MessageController = {
 
     //Gets all of the info from an existing user
     getMessages(userID, targetID ,messages) {
-        axios.get('http://127.0.0.1:46691/message/get/' + userID + "/" + targetID, {withCredentials:false})
+        axios.get('http://localhost:8000/message/get/' + userID + "/" + targetID, {withCredentials:false})
         .then(function(response){
         hydrateMessages(messages, response.data);
         })
@@ -27,7 +27,7 @@ const MessageController = {
 
     getHeaders(userID, messages){
         console.log("Axios starting...")
-        axios.get('http://127.0.0.1:46691/message/header/' + userID, {withCredentials:false})
+        axios.get('http://localhost:8000/message/header/' + userID, {withCredentials:false})
         .then(function(response){
         hydrateMessages(messages, response.data);
         })

@@ -102,7 +102,7 @@ const routes: Array<RouteRecordRaw> = [
     
     {
       path: '/producer/messaging',
-      name: 'messaging',
+      name: 'messagingProd',
       component: Messaging,
       beforeEnter(to, from,next){
         if(store.state.currentUser.role == "producteur"){
@@ -189,7 +189,7 @@ const routes: Array<RouteRecordRaw> = [
     },
     {
       path: '/distributer/messaging',
-      name: 'messaging',
+      name: 'messagingDist',
       component: Messaging,
       beforeEnter(to, from,next){
         if(store.state.currentUser.role == "Distributeur - revendeur" || store.state.currentUser.role == "Distributeur - restaurateur"){
