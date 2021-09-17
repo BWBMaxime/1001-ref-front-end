@@ -17,6 +17,8 @@ const ProductController = {
         })
     },
 
+
+
     /**
      * get all products from current user
      */
@@ -33,12 +35,17 @@ const ProductController = {
         });
     },
 
+
+
+    /**
+     * get all datas from a product with its id
+     */
     getProduct(ID, product) {
         console.log("Axios get : ");
         console.log(product);
         axios.get('http://localhost:8000/product/' +ID, {withCredentials:false})
         .then(function(response){
-        console.log(product + "  " + response.data);
+        // console.log(product + "  " + response.data);
         hydrateProduct(product, response.data);
         })
         .catch(error => {
@@ -46,6 +53,7 @@ const ProductController = {
         })
         return product;
     },
+
 
 
     /**
@@ -61,10 +69,27 @@ const ProductController = {
         })
     },
 
+
+
+    /**
+     * updates a product
+     */
+    updateProduct(id, product){
+        axios.put('http://localhost:8000/product/update' + id, JSON.stringify(product), {withCredentials:false})
+        .then(function(response){
+            console.log(response.data);
+        })
+        .catch(error => {
+            console.log(error);
+        })
+    },
+
 }
 
+
+
 /**
- * fills the tab with the right datas 
+ * fills the product list tab of a producer with the right datas 
  * @param {*} products
  * @param {*} data
  */
@@ -83,6 +108,11 @@ function hydratePage(products, data){
     console.log(products);
 }
 
+
+
+/**
+ * 
+ */
 function hydrateProduct(product, data){
 
     //console.log("user to hydrate : " + product);

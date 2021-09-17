@@ -129,6 +129,8 @@ export default {
             
         // },
 
+
+
         /**
          * deletes product at given index from the list
          */
@@ -140,6 +142,7 @@ export default {
             this.products.splice(index, 1);
            
         },
+
 
     },
 

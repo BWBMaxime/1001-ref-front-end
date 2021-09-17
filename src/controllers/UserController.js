@@ -5,7 +5,7 @@ import router from "../router"
 const UserController = {
     
     /**
-     * crée un nouveau compte utilisateur
+     * creates a new user account through a form
      * @param {*} user
      */
     saveUser(user) {
@@ -18,11 +18,14 @@ const UserController = {
         });
     },
 
-      /**
-       * vérifie si l'utilisateur demandé existe dans la bdd et renvois son id et son role dans le store
-       * @param {*} credentials représente les credentials envoyés par l'utilisateur
-       */
-      checkLogs(credentials) {
+
+
+    /**
+     * checks if the user requested exist in the database, 
+     * if he does sends his id and role in the store
+     * @param {*} credentials represent the credentials sent by the user
+     */
+    checkLogs(credentials) {
         let logs = {"mail": credentials.mail, "password": credentials.password}
         axios.post('http://localhost:8000/getCred', logs, {withCredentials:false})
         .then(function(response) {
@@ -38,11 +41,13 @@ const UserController = {
         .catch(err => {
             console.log("err " + err)
         })
+
     },
 
 
+
     /**
-     * Mettre à jour un utilisateur via un formulaire
+     * Update a user through a form
      */
     updateUser(user) {
         axios.post('http://localhost:8000/user/update', JSON.stringify(user), {withCredentials:false})
@@ -54,7 +59,15 @@ const UserController = {
         })
     },    
 
-    // Récupère toutes les informations d'un utilisateur via son id
+
+
+    /**
+     * get all datas from a user by its id
+     *
+     * @param {*} ID
+     * @param {*} user
+     * @return {*} 
+     */
     getUser(ID, user) {
         axios.get('http://localhost:8000/profil/' + ID, {withCredentials:false})
         .then(function(response){
@@ -71,25 +84,25 @@ const UserController = {
 
 }
 
-    /**
-     *
-     *
-     * @param {*} user
-     * @param {*} data
-     */
-    function hydrateUser(user, data){
+/**
+ *
+ *
+ * @param {*} user
+ * @param {*} data
+ */
+function hydrateUser(user, data){
 
-        console.log("user to hydrate : " + user);
-        console.log("data to hydrate : " + data);
+    console.log("user to hydrate : " + user);
+    console.log("data to hydrate : " + data);
 
 
-        for(let keys in data){
-            if(data[keys] != null) user[keys] = data[keys];
-        }
-
-        user.loaded = true;
-
-        console.log(user);
+    for(let keys in data){
+        if(data[keys] != null) user[keys] = data[keys];
     }
+
+    user.loaded = true;
+
+    console.log(user);
+}
 
 export default UserController;

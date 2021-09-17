@@ -301,10 +301,13 @@ export default{
             this.product.variations.splice(index,1);
         },
         
+        // 
         onFileChanged (event) {
             this.product.picture = event.target.files[0]
             
         },
+
+        //
         checkAndSendData() {
             // Affectation de check a true
             this.check=true
@@ -373,7 +376,14 @@ export default{
             if (this.check === true && this.checkC === true) {
                 this.createProduct(this.product);
             }
-        }
+        },
+
+        /** 
+         * 
+        */
+        // updateAndValidate(){
+
+        // }
     }
 }
 

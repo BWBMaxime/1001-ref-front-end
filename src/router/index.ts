@@ -56,7 +56,7 @@ const routes: Array<RouteRecordRaw> = [
       name: 'registerProducer',
       component: RegisterProducer,
       beforeEnter(to, from,next){
-        if(store.state.currentUser.role == "producteur"){
+        if(store.state.currentUser.role == "Producteur"){
           next()
         }else{
           next("/")
@@ -68,7 +68,7 @@ const routes: Array<RouteRecordRaw> = [
       name: 'dashboard',
       component: Dashboard,
       beforeEnter(to, from,next){
-        if(store.state.currentUser.role == "producteur"){
+        if(store.state.currentUser.role == "Producteur"){
           next()
         }else{
           next("/")
@@ -80,7 +80,7 @@ const routes: Array<RouteRecordRaw> = [
       name: 'setting',
       component: Setting,
       beforeEnter(to, from,next){
-        if(store.state.currentUser.role == "producteur"){
+        if(store.state.currentUser.role == "Producteur"){
           next()
         }else{
           next("/")
@@ -92,7 +92,7 @@ const routes: Array<RouteRecordRaw> = [
       name: 'createProduct',
       component: CreateProduct,
       beforeEnter(to, from,next){
-        if(store.state.currentUser.role == "producteur"){
+        if(store.state.currentUser.role == "Producteur"){
           next()
         }else{
           next("/")
@@ -105,7 +105,7 @@ const routes: Array<RouteRecordRaw> = [
       name: 'messaging',
       component: Messaging,
       beforeEnter(to, from,next){
-        if(store.state.currentUser.role == "producteur"){
+        if(store.state.currentUser.role == "Producteur"){
           next()
         }else{
           next("/")
@@ -117,7 +117,7 @@ const routes: Array<RouteRecordRaw> = [
       name: 'productListProd',
       component: ProductListProd,
       beforeEnter(to, from,next){
-        if(store.state.currentUser.role == "producteur"){
+        if(store.state.currentUser.role == "Producteur"){
           next()
         }else{
           next("/")
@@ -129,7 +129,7 @@ const routes: Array<RouteRecordRaw> = [
       name: 'preview',
       component: PreviewProd,
       beforeEnter(to, from,next){
-        if(store.state.currentUser.role == "producteur"){
+        if(store.state.currentUser.role == "Producteur"){
           next()
         }else{
           next("/")
@@ -141,7 +141,7 @@ const routes: Array<RouteRecordRaw> = [
       name: 'profil',
       component: Profils,
       beforeEnter(to, from,next){
-        if(store.state.currentUser.role == "producteur"){
+        if(store.state.currentUser.role == "Producteur"){
           next()
         }else{
           next("/")
