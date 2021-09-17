@@ -79,7 +79,7 @@ export default {
         linksDistributeur: [
            { path: "/distributer/liste", name: "Liste des produits" },
              { path: "/distributer/messaging", name: "Messagerie" },
-            { path: "/distributer/detailproduct/5", name: "test" },
+            { path: "/distributer/detailproduct/15", name: "test" },
         ]
         
     }

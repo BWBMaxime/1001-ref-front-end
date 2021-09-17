@@ -9,7 +9,6 @@ const UserController = {
      * @param {*} user
      */
     saveUser(user) {
-        //console.log(JSON.stringify(user));
         axios.post('http://localhost:8000/register', JSON.stringify(user), {withCredentials:false})
         .then(function(response){console.log(response.data);})
         .catch(error => {
@@ -28,7 +27,7 @@ const UserController = {
         .then(function(response) {
             store.commit('setCurrentUser', response.data.userId)
             store.commit('setCurrentRole', response.data.userRole)
-            if(store.state.currentUser.role === "producteur") {
+            if(store.state.currentUser.role === "Producteur") {
                 router.push("/producer/dashboard")
             }else{
                 router.push("/distributer/liste")
@@ -47,7 +46,7 @@ const UserController = {
     updateUser(user) {
         axios.post('http://localhost:8000/user/update', JSON.stringify(user), {withCredentials:false})
         .then(function(response){
-            console.log(response.data);
+            //
         })
         .catch(error => {
             console.log(error)
@@ -58,38 +57,24 @@ const UserController = {
     getUser(ID, user) {
         axios.get('http://localhost:8000/profil/' + ID, {withCredentials:false})
         .then(function(response){
-        //console.log(user + "  " + response.data);
         hydrateUser(user, response.data);
         })
         .catch(error => {
             console.log(error)
         })
-        console.log(user)
         return user;
     },
-
-
 }
 
     /**
-     *
-     *
      * @param {*} user
      * @param {*} data
      */
     function hydrateUser(user, data){
 
-        console.log("user to hydrate : " + user);
-        console.log("data to hydrate : " + data);
-
-
-        for(let keys in data){
-            if(data[keys] != null) user[keys] = data[keys];
-        }
-
+        for(let keys in data){if(data[keys] != null) user[keys] = data[keys];}
         user.loaded = true;
 
-        console.log(user);
     }
 
 export default UserController;
