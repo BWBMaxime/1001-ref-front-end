@@ -168,7 +168,7 @@ export default {
     getProfileProducer(){
       
       ProductController.getProduct(this.id,this.product);
-        this.$router.replace({path:'/distributer/producerprofil/'+ this.product.owner.id });
+        this.$router.push({path:'/distributer/producerprofil/'+ this.product.owner.id });
     },
     // getUser(){
     //     //console.log('Should start getting user : ' + this.user);
