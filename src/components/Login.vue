@@ -140,11 +140,16 @@ export default {
   },
   methods: {
     checkLogs() {
-      // this.spinner = true;
-      store.commit("setLoading")
+      store.commit("setLoadingOn")
       UserController.checkLogs(this.credentials, this.router);
     },
   },
+  beforeCreate() {
+      store.commit("setLoadingOff")
+  },
+  unmounted(){
+    store.commit("setLoadingOff")
+  }
 };
 </script>
 

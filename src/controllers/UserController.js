@@ -11,8 +11,13 @@ const UserController = {
     saveUser(user) {
         //console.log(JSON.stringify(user));
         axios.post('http://localhost:8000/register', JSON.stringify(user), {withCredentials:false})
-        .then(function(response){console.log(response.data);})
+        .then(function(response){
+            console.log(response.data);
+            store.commit("setLoadingOff")
+            router.push('/')
+        })
         .catch(error => {
+            store.commit("setLoadingOff")
             this.errorMessage = error.message;
             console.error("There was an error!", error);
         });
@@ -29,10 +34,10 @@ const UserController = {
             store.commit('setCurrentUser', response.data.userId)
             store.commit('setCurrentRole', response.data.userRole)
             if(store.state.currentUser.role === "producteur") {
-                store.commit('setLoading')
+                store.commit('setLoadingOff')
                 router.push("/producer/dashboard")
             }else{
-                store.commit('setLoading')
+                store.commit('setLoadingOff')
                 router.push("/distributer/liste")
             }
             

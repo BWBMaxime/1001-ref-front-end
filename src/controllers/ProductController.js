@@ -9,7 +9,7 @@ const ProductController = {
         axios.post('http://localhost:8000/product/create', JSON.stringify(product), {withCredentials:false})
         .then(function(response){
         console.log(response.data);
-        store.commit('setLoading')
+        store.commit('setLoadingOff')
         router.push("/producer/product-list")
         })
         .catch(error => {
@@ -21,11 +21,11 @@ const ProductController = {
         axios.get('http://localhost:8000/getProducts/' + id, {withCredentials:false})
         .then(function(response){
             console.log(response.data);
-            store.commit('setLoading')
+            store.commit('setLoadingOff')
             hydratePage(products, response.data);
         })
         .catch(error => {
-            store.commit('setLoading')
+            store.commit('setLoadingOff')
             console.log(error);
         });
     },

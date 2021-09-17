@@ -122,7 +122,7 @@ export default {
     methods: {
 
         getAllProductsByUserId(){
-            store.commit('setLoading')
+            store.commit('setLoadingOn')
             console.log("products to hydrate : ");
             console.log(this.products);
             ProductController.getCurrentUserProducts(this.$store.state.currentUser.id, this.products);

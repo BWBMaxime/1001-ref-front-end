@@ -64,6 +64,7 @@ export default {
         { path: "/", name: "Acceuil" },
         { path: "/about", name: "Présentation" },
         { path: "/contact", name: "Nous contacter" },
+        { path: "/signup", name: "S'inscrire" },
         ],
         linksProducteur: [
            // User Producer

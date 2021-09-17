@@ -121,8 +121,18 @@ export default createStore({
       console.log("Parle avec l'utilisateur : " + state.currentMessageTarget.id)
     },
     // Permet démarer le spinner
-    setLoading(state){
-      state.loading = !state.loading 
+    setLoadingOn(state){
+      if(state.loading == false){
+        state.loading = !state.loading 
+        console.log("loading: " + state.loading)
+      }
+    },
+    // Permet de stop le spinner
+    setLoadingOff(state){
+      if(state.loading == true){
+        state.loading = !state.loading 
+        console.log("loading: " + state.loading)
+      }
     }
     
   },
