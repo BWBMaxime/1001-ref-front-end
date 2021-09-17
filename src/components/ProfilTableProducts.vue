@@ -27,15 +27,15 @@
                                         <img class="object-cover w-full h-full rounded-full" src="https://cdn.pixabay.com/photo/2017/01/21/21/15/beer-1998293_960_720.jpg" alt="" loading="lazy">
                                         <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
                                     </div>
-                                    <div>
+                                    <button @click="showProductDetails(product.id)">
                                         <p class="mt-3 text-base font-bold text-yellow-600 uppercase">{{ product.name }}</p>
-                                    </div>
+                                    </button>
                                 </div>
                             </td>
                             <td class="mx-4 my-3 w-32 text-sm border text-center">{{ product.category }}</td>
                             <!-- Variations -->
-                            <td class="mx-4 my-3 w-24 text-sm border text-center">{{ variation.restaurateurPrice }} €</td>
-                            <td class="mx-4 my-3 w-24 text-sm border text-center">{{ variation.dealerPrice }} €</td>
+                            <td v-if="$store.state.currentUser.role == 'Distributeur - restaurateur'" class="mx-4 my-3 w-24 text-sm border text-center">{{ variation.restaurateurPrice }} €</td>
+                            <td v-else-if="$store.state.currentUser.role == 'Distributeur - revendeur'" class="mx-4 my-3 w-24 text-sm border text-center">{{ variation.dealerPrice }} €</td>
                             <td class="mx-4 my-3 w-24 text-sm border text-center">{{ variation.capacity }}</td>
                             <td class="mx-4 my-3 w-40 text-sm border text-center">{{ variation.conditioning }}</td>
                             <td class="mx-4 my-3 w-32 text-sm border text-center">{{ variation.container }}</td>
@@ -103,13 +103,17 @@ export default {
     methods: {
 
         getAllProductsByUser(){
-            console.log('Should start getting user : ' + this.$store.state.currentUser.id);
-            console.log('this products : ' + this.products);
-            ProductController.getProductsByUserId(this.$store.state.currentUser.id,this.products);
+            let id =0;
+            if(this.$route.params.id) id = this.$route.params.id;
+            else id = this.$store.state.currentUser.id;
+            ProductController.getCurrentUserProducts(id,this.products);
         },
         contactProducer(){
             this.$router.push('../contact');
         },
+        showProductDetails(id){
+            this.$router.push('/distributer/detailproduct/'+id);
+        }
     },
     
     beforeMount() {

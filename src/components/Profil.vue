@@ -50,7 +50,7 @@ export default {
          
             let user = 
             {
-                id:1,
+                id:"",
                 name: "",
                 firstname: "",
                 companyType: "",
@@ -84,7 +84,11 @@ export default {
         getUser(){
             console.log('Should start getting user : ' + this.$store.state.currentUser.id);
             console.log('this user : ' + this.user);
-            UserController.getUser(this.$store.state.currentUser.id,this.user);
+                    
+        
+            UserController.getUser(this.$route.params.id,this.user);
+            this.user.loaded = true
+            console.log( this.user.loaded)
         },
         contactProducer(){
             this.$router.push('../contact');

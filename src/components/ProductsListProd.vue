@@ -3,11 +3,12 @@
         <div class="w-full mb-8 overflow-hidden rounded shadow-lg">
             <!-- Table of products -->
             <div class="w-full 2xl:overflow-hidden overflow-x-auto">
+                <Spinner v-if="$store.state.loading == true"/>
                 <div class="flex mt-6 mr-6 items-center pb-5 border-gray-100">
                     <!-- Button -->
-                    <a href="http://localhost:8080/create-product" class="flex ml-auto border-0 py-2 px-6 rounded-md bg-yellow-500 text-white text-sm font-semibold hover:bg-yellow-400">
+                    <button @click="goAddProduct" class="flex ml-auto border-0 py-2 px-6 rounded-md bg-yellow-500 text-white text-sm font-semibold hover:bg-yellow-400">
                         Ajouter un produit
-                    </a>
+                    </button>
                 </div>
                 <table id="table" class="w-full border-separate place-self-center">
                     <h2 class="mb-5 text-xl text-yellow-500 font-semibold uppercase flex justify-center mx-auto">Vos produits (#)</h2>
@@ -85,6 +86,9 @@
 <script>
 
 import ProductController from "../controllers/ProductController";
+import router from "../router"
+import Spinner from "./Spinner.vue"
+import store from "../store"
 
 export default {
     data() {
@@ -112,14 +116,19 @@ export default {
         return {products}
         
     },
-    
-
+    components: {
+        Spinner
+    },
     methods: {
 
         getAllProductsByUserId(){
-            // console.log("products to hydrate : ");
-            // console.log(this.products);
+            store.commit('setLoadingOn')
+            console.log("products to hydrate : ");
+            console.log(this.products);
             ProductController.getCurrentUserProducts(this.$store.state.currentUser.id, this.products);
+        },
+        goAddProduct(){
+            router.push('/producer/create-product')
         },
 
         /** 
@@ -142,7 +151,6 @@ export default {
             this.products.splice(index, 1);
            
         },
-
 
     },
 

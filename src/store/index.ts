@@ -9,6 +9,8 @@ export default createStore({
       role: ""
     },
 
+    loading: false,
+
     currentMessageTarget: {
       id: null
     },
@@ -117,6 +119,20 @@ export default createStore({
     setCurrentMessageTarget(state,id){
       state.currentMessageTarget.id = id;
       console.log("Parle avec l'utilisateur : " + state.currentMessageTarget.id)
+    },
+    // Permet démarer le spinner
+    setLoadingOn(state){
+      if(state.loading == false){
+        state.loading = !state.loading 
+        console.log("loading: " + state.loading)
+      }
+    },
+    // Permet de stop le spinner
+    setLoadingOff(state){
+      if(state.loading == true){
+        state.loading = !state.loading 
+        console.log("loading: " + state.loading)
+      }
     }
     
   },

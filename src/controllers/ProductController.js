@@ -1,5 +1,7 @@
 import { hydrate } from '@vue/runtime-dom';
 import axios from 'axios';
+import router from "../router";
+import store from "../store"
 
 
 const ProductController = {
@@ -10,27 +12,30 @@ const ProductController = {
     saveProduct(product) {
         axios.post('http://localhost:8000/product/create', JSON.stringify(product), {withCredentials:false})
         .then(function(response){
-        // console.log(response.data);
+        console.log(response.data);
+        store.commit('setLoadingOff')
+        router.push("/producer/product-list")
         })
         .catch(error => {
             console.log(error)
         })
-    },
+    },  
 
 
 
     /**
-     * get all products from current user
+     *
      */
     getCurrentUserProducts(id, products){
         // console.log(id);
         axios.get('http://localhost:8000/getProducts/' + id, {withCredentials:false})
         .then(function(response){
-            // console.log(response.data);
+            console.log(response.data);
+            store.commit('setLoadingOff')
             hydratePage(products, response.data);
         })
         .catch(error => {
-            
+            store.commit('setLoadingOff')
             console.log(error);
         });
     },
@@ -41,11 +46,9 @@ const ProductController = {
      * get all datas from a product with its id
      */
     getProduct(ID, product) {
-        console.log("Axios get : ");
-        console.log(product);
+
         axios.get('http://localhost:8000/product/' +ID, {withCredentials:false})
         .then(function(response){
-        // console.log(product + "  " + response.data);
         hydrateProduct(product, response.data);
         })
         .catch(error => {
@@ -90,14 +93,11 @@ const ProductController = {
 
 /**
  * fills the product list tab of a producer with the right datas 
- * @param {*} products
- * @param {*} data
  */
 function hydratePage(products, data){
 
     // console.log("product to hydrate : " + products);
     // console.log("data to hydrate : " + data);
-
 
     for(let keys in data){
         if(data[keys] != null) products[keys] = data[keys];
@@ -105,7 +105,6 @@ function hydratePage(products, data){
 
     products.loaded = true;
 
-    console.log(products);
 }
 
 
@@ -115,18 +114,11 @@ function hydratePage(products, data){
  */
 function hydrateProduct(product, data){
 
-    //console.log("user to hydrate : " + product);
-    console.log(data);
-
-
     for(let keys in data){
         if(data[keys] != null) product[keys] = data[keys];
     }
 
     product.loaded = true;
-
-    console.log(product);
-
     return product;
 }
 

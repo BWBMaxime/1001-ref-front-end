@@ -8,7 +8,7 @@
       </h1>        
       <div class="mb-6">
         <label class="mr-2 text-gray-700 font-bold inline-block mb-2" for="role">Qui suis-je ?</label>
-        <select v-model="user.role" class="w-full border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-yellow-400 rounded mb-2">
+        <select v-model="user.role" class="border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-yellow-400 rounded mb-2">
           <option class="text-lg">Producteur</option>
           <option class="text-lg">Distributeur - revendeur</option>
           <option class="text-lg">Distributeur - restaurateur</option>
@@ -42,7 +42,8 @@
 
       </div>
 
-      <button @click="CheckAndSendUser" class="w-full mt-6 text-white font-semibold bg-yellow-500 py-3 border rounded-md hover:bg-yellow-400 transition duration-300">Créer un compte</button>
+      <button v-if="$store.state.loading == false" @click="CheckAndSendUser" class="w-full mt-6 text-white font-semibold bg-yellow-500 py-3 border rounded-md hover:bg-yellow-400 transition duration-300">Créer un compte</button>
+      <Spinner v-else/>
     </div>
   </div>
 </div>
@@ -51,6 +52,9 @@
 <script>
 
 import UserController from  "../controllers/UserController";
+import store from "../store"
+import router from "../router"
+import Spinner from "./Spinner.vue"
 
 export default {
     data() {
@@ -72,13 +76,17 @@ export default {
         user,
         confirm,
         error,
-        check
+        check,
+        Spinner
         }
     },
-
+    components: {
+      Spinner
+    },
     methods:{
     
 CheckAndSendUser(){
+      store.commit('setLoadingOn')
       this.check=true
       for (const key in this.user) {
         if (Object.hasOwnProperty.call(this.user, key)) {
@@ -121,7 +129,10 @@ CheckAndSendUser(){
         
       }
       }
-}
+},
+       beforeCreate() {
+      store.commit("setLoadingOff")
+  },
     }}
      
 

@@ -102,7 +102,7 @@ const routes: Array<RouteRecordRaw> = [
     
     {
       path: '/producer/messaging',
-      name: 'messaging',
+      name: 'messagingProd',
       component: Messaging,
       beforeEnter(to, from,next){
         if(store.state.currentUser.role == "Producteur"){
@@ -162,18 +162,7 @@ const routes: Array<RouteRecordRaw> = [
         }
       }
     },
-    {
-      path: '/distributer/profil',
-      name: 'Mon profil',
-      component: Profils,
-      beforeEnter(to,from,next){
-        if(store.state.currentUser.role == "Distributeur - revendeur" || store.state.currentUser.role == "Distributeur - restaurateur"){
-          next()
-        }else{
-          next("/")
-        }
-      }
-    },
+   
     {
       path: '/distributer/producerprofil/:id',
       name: 'Profil Producteur',
@@ -200,7 +189,7 @@ const routes: Array<RouteRecordRaw> = [
     },
     {
       path: '/distributer/messaging',
-      name: 'messaging',
+      name: 'messagingDist',
       component: Messaging,
       beforeEnter(to, from,next){
         if(store.state.currentUser.role == "Distributeur - revendeur" || store.state.currentUser.role == "Distributeur - restaurateur"){

@@ -50,8 +50,8 @@
                                             {{index}}
                                             </button>
                                         </div>
-                                        <label class=" font-semibold text-gray-600 py-2 mt-12">Photo du produit</label>
-                                        <input id="picture" @change="onFileChanged" type="file" class="w-full text-gray-700 px-3 py-2 border rounded">
+                                        <label class=" font-semibold text-gray-600 py-2 mt-12">Photo du produit (Lien)</label>
+                                        <input id="picture" v-model="product.photo" type="text" class="w-full text-gray-700 px-3 py-2 border rounded">
                                     </form>
                                 </div>
                             </div>
@@ -158,9 +158,10 @@
             </section>     
         <!--Boutton enregistrer-->  
         <div class="py-4 mb-1 text-center mt-12">
-            <button @click="checkAndSendData" id="sendData" class="transition duration-500 bg-yellow-500 hover: 0 text-white font-bold py-2 px-8 rounded focus:outline-none focus:shadow-outline" type="submit"> 
+            <button @click="checkAndSendData" v-if="$store.state.loading == false" id="sendData" class="transition duration-500 bg-yellow-500 hover: 0 text-white font-bold py-2 px-8 rounded focus:outline-none focus:shadow-outline" type="submit"> 
             Enregistrer le produit
             </button>
+             <Spinner v-else />
         </div>
     </main>
 </template>
@@ -168,8 +169,12 @@
 <script>
 
 import ProductController from "../controllers/ProductController";
-
+import Spinner from "./Spinner.vue";
+import store from "../store"
 export default{
+     components: {
+    Spinner
+  },
 
     data() {
         let check=true
@@ -216,7 +221,7 @@ export default{
             category:'',
             description:'',
             tags:[],
-            picture: "",
+            photo: "",
             variations:
             [{
                 contenant:"",
@@ -239,7 +244,8 @@ export default{
             promotions,
             selectedFile: null,
             check,
-            checkC
+            checkC,
+            Spinner
         }
     },
 
@@ -309,6 +315,7 @@ export default{
 
         //
         checkAndSendData() {
+            store.commit('setLoadingOn')
             // Affectation de check a true
             this.check=true
             this.checkC=true

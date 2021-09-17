@@ -22,7 +22,7 @@
         </ul>  
         </div>
         <!-- producteur -->
-   <div v-if="$store.state.currentUser.role === 'producteur'">
+   <div v-if="$store.state.currentUser.role === 'Producteur'">
         <ul class="flex flex-col lg:flex-row list-none ml-auto">
           <li v-for="link in linksProducteur" :key="link" class="nav-item">
             <router-link v-bind:to="link.path" class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-yellow-500 hover:opacity-75" >
@@ -64,13 +64,14 @@ export default {
         { path: "/", name: "Acceuil" },
         { path: "/about", name: "Présentation" },
         { path: "/contact", name: "Nous contacter" },
+        { path: "/signup", name: "S'inscrire" },
         ],
         linksProducteur: [
            // User Producer
         { path: "/producer/dashboard", name: "Dashboard" },
         { path: "/producer/setting", name: "Paramètres" },
         { path: "/producer/create-product", name: "Créer un produit" },
-        { path: "/producer/messaging", name: "Messagerie" },
+        { path: "/producer/messaging", name: "MessagerieProd" },
         { path: "/producer/product-list", name: "Liste des produits" },
         { path: "/producer/preview", name: "Preview" },
         { path: "/profil", name: "Profil" },
@@ -78,8 +79,7 @@ export default {
         ],
         linksDistributeur: [
            { path: "/distributer/liste", name: "Liste des produits" },
-           { path: "/distributer/profil", name: "Mon profil" },
-             { path: "/distributer/messaging", name: "Messagerie" },
+             { path: "/distributer/messaging", name: "MessagerieDist" },
             { path: "/distributer/detailproduct/5", name: "test" },
         ]
         
@@ -91,7 +91,7 @@ export default {
     },
     logout() {
       store.commit("logout")
-      router.push("/")
+      router.push("/")        
     }
   }
 }
