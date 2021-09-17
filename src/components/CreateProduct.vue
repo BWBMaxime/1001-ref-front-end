@@ -271,7 +271,6 @@ export default{
 
         //Sends the filled form to persist the entity in the DB
         createProduct(product){
-            store.commit('setLoading')
             ProductController.saveProduct(product);
         },
 
@@ -313,6 +312,7 @@ export default{
             
         },
         checkAndSendData() {
+            store.commit('setLoadingOn')
             // Affectation de check a true
             this.check=true
             this.checkC=true
