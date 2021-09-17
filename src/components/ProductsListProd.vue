@@ -132,11 +132,6 @@ export default {
         /**
          * deletes product at given index from the list
          */
-<<<<<<< HEAD
-        // deleteProduct(){
-            
-        // },
-=======
         deleteVariation(variation, index){
             console.log("product to delete : ");
             console.log(variation);
@@ -145,7 +140,6 @@ export default {
             this.products.splice(index, 1);
            
         },
->>>>>>> product-list-prod-binding
 
     },
 

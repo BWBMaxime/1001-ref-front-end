@@ -8,7 +8,7 @@
       </h1>        
       <div class="mb-6">
         <label class="mr-2 text-gray-700 font-bold inline-block mb-2" for="role">Qui suis-je ?</label>
-        <select v-model="user.role" class="w-full border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-yellow-400 rounded mb-2">
+        <select v-model="user.role" class="border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-yellow-400 rounded mb-2">
           <option class="text-lg">Producteur</option>
           <option class="text-lg">Distributeur - revendeur</option>
           <option class="text-lg">Distributeur - restaurateur</option>
