@@ -15,72 +15,6 @@ export default createStore({
       id: null
     },
 
-    products: [
-      {
-        "name": "La goudale",
-        "img": "https://via.placeholder.com/100",
-        "description": "Rien de tel qu'une bonne bière après une bonne journée de travail ... ",
-        "tags": ["Bière","Blonde","Bonne", "fraiche","#soleil", "#vacance", "aaa"],
-        "declinaisons": [
-               {
-                "quantity": "cartons 6 bouteilles",
-                "prix": "40€"
-            },
-            {
-                "quantity": "caisse 24 bouteilles",
-                "prix": "70€"
-            }
-        ]
-    },
-    {
-        "name": "Bière blanche rdm",
-        "img": "https://via.placeholder.com/100",
-        "description": "Un apéritif de dernière minute? Prennez donc un instant fraîcheur avec son goût citronné ... ",
-        "tags": ["Bière","Blanche", "bbb"],
-        "declinaisons": [
-            {
-                "quantity": "cartons 6 bouteilles",
-                "prix": "40€"
-            },
-            {
-                "quantity": "caisse 24 bouteilles",
-                "prix": "70€"
-            }
-        ]
-    },
-    {
-        "name": "Le p'tit vin rouge",
-        "img": "https://via.placeholder.com/100",
-        "description": "Il saura merveilleusement accompagner vos meilleures viande grillées ou en sauces ... ",
-        "tags": ["Vin","Rouge"],
-        "declinaisons": [
-            {
-                "quantity": "cartons 6 bouteilles",
-                "prix": "40€"
-            },
-            {
-                "quantity": "caisse 24 bouteilles",
-                "prix": "70€"
-            } 
-        ]
-    }, 
-    {
-        "name": "Le p'tit vin blanc",
-        "img": "https://via.placeholder.com/100",
-        "description": "Il saura merveilleusement accompagner vos meilleurs poissons ... ",
-        "tags": ["Vin","Blanc"],
-        "declinaisons": [ 
-            {
-                "quantity": "cartons 6 bouteilles",
-                "prix": "30€"
-            }, 
-            {
-                "quantity": "caisse 24 bouteilles",
-                "prix": "1€"
-            } 
-        ]
-    }
-    ],
     tags: [
     {
       name: 'aaa',
@@ -94,9 +28,7 @@ export default createStore({
       name: 'ccc',
       selected: false
     }
-    ],
-    // Liste des poduits affichée dans productlistDistrib 
-    filteredProducts: Array<ProductsModel>()
+    ]
   },
  
   mutations: {

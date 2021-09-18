@@ -20,6 +20,20 @@ const ProductController = {
             console.log(error)
         })
     },  
+    getMiniProds(products){
+        axios.get('http://localhost:8000/api/products', {withCredentials: false})
+        .then(function(response) {
+            console.log(response.data)
+            hydratePage(products, response.data)
+            store.commit('setLoadingOff')
+        })
+        .catch(err => {
+            console.log(err)
+            store.commit('setLoadingOff')
+        })
+
+    }
+    ,
     getCurrentUserProducts(id, products){
         // console.log(id);
         axios.get('http://localhost:8000/getProducts/' + id, {withCredentials:false})

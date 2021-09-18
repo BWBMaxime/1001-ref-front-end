@@ -147,7 +147,7 @@ export default {
   beforeCreate() {
       store.commit("setLoadingOff")
   },
-  unmounted(){
+  beforeUnmount(){
     store.commit("setLoadingOff")
   }
 };
