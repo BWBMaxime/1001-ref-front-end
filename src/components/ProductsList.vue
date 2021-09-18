@@ -24,7 +24,7 @@
               <p class="text-xs flex flex-nowrap d-ruby">Mot clés: </p>
         <ul class="flex flex-wrap justify-end">
           <li v-for="tag in product.tags" :key="tag">
-             <span class="text-1xl inline-flex items-center font-bold leading-sm px-3 py-1 rounded-full bg-white text-yellow-600 border-yellow-600 border text-xs">{{ tag }}</span>
+             <span class="text-1xl inline-flex items-center font-bold leading-sm px-3 py-1 rounded-full bg-white text-yellow-600 border-yellow-600 border text-xs">{{ tag.name }}</span>
           </li>
         </ul>    
         </div>
