@@ -1,16 +1,19 @@
 <template>
-    <div>
-        <ProductsList />
-    </div>   
+  <div>
+    <FilterProducts />
+    <ProductsList />
+  </div>
 </template>
 
 
 <script>
+import FilterProducts from "./FilterProducts.vue";
+import ProductsList from "./ProductsList.vue";
 
-import ProductsList from './ProductsList.vue'
-    export default {
-      components: {
-          ProductsList
-      }
-    }
+export default {
+  components: {
+    FilterProducts,
+    ProductsList,
+  }
+};
 </script>

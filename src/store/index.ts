@@ -15,20 +15,8 @@ export default createStore({
       id: null
     },
 
-    tags: [
-    {
-      name: 'aaa',
-      selected: true
-    },
-    {
-      name: 'bbb',
-      selected: false
-    },
-    {
-      name: 'ccc',
-      selected: false
-    }
-    ]
+    products: []
+
   },
  
   mutations: {
@@ -65,6 +53,10 @@ export default createStore({
         state.loading = !state.loading 
         console.log("loading: " + state.loading)
       }
+    },
+    // Récupère la liste des produit 
+    setProducts(state, products){
+      state.products = products
     }
     
   },

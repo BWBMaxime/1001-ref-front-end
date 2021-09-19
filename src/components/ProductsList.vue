@@ -54,7 +54,8 @@ export default {
       components:{
         Spinner
       },
-      methods:{
+
+       methods:{
         getMinProds(){
           store.commit('setLoadingOn')
           ProductController.getMiniProds(this.products)

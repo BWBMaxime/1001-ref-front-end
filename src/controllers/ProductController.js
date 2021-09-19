@@ -25,6 +25,7 @@ const ProductController = {
         .then(function(response) {
             console.log(response.data)
             hydratePage(products, response.data)
+            store.commit("setProducts", response.data)
             store.commit('setLoadingOff')
         })
         .catch(err => {
