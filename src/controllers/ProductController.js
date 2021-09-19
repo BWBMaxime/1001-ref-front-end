@@ -53,9 +53,11 @@ const ProductController = {
 
         axios.get('http://localhost:8000/product/' +ID, {withCredentials:false})
         .then(function(response){
+             store.commit("setLoadingOff")
         hydrateProduct(product, response.data);
         })
         .catch(error => {
+            store.commit("setLoadingOff")
             console.log(error)
         })
         return product;

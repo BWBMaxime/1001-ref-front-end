@@ -8,7 +8,8 @@
                 <!-- Description -->
                 <div class="lg:w-3/5 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
                     <div class="flex">
-                        <h1 class="text-3xl title-font font-medium mb-1 uppercase text-yellow-500"> {{ user.company }}</h1>
+                        <Spinner v-if="$store.state.loading" />
+                        <h1 v-else class="text-3xl title-font font-medium mb-1 uppercase text-yellow-500"> {{ user.company }}</h1>
                         <img class="ml-4 mt-1 rounded-full h-8 w-auto sm:h-8" v-bind:src="user.companyLogo">
                     </div>
                     <h2 class="mt-1 text-md title-font text-gray-500 tracking-widest">Responsable : {{ user.name }} {{ user.firstname }}</h2>
@@ -44,6 +45,8 @@
 <script>
 
 import UserController from  "../controllers/UserController";
+import Spinner from "./Spinner.vue"
+import store from "../store"
 
 export default {
     data() {
@@ -77,7 +80,9 @@ export default {
            user
         }
     },
-    
+    components: {
+        Spinner
+    },  
 
     methods: {
 
@@ -85,7 +90,7 @@ export default {
             console.log('Should start getting user : ' + this.$store.state.currentUser.id);
             console.log('this user : ' + this.user);
                     
-        
+            store.commit('setLoadingOn')
             UserController.getUser(this.$route.params.id,this.user);
             this.user.loaded = true
             console.log( this.user.loaded)

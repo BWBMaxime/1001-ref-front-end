@@ -14,7 +14,8 @@
           v-bind:src="product.photo"
         />
         <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-          <h1 class="h1-style">{{product.name}}</h1>
+        <Spinner v-if="$store.state.loading" />
+          <h1 v-else class="h1-style">{{product.name}}</h1>
           <h2 class="text-xl title-font text-gray-700 tracking-widest">
             Producteur : {{product.owner.firstname + " " + product.owner.name}}
           </h2>
@@ -117,6 +118,8 @@
 
 import ProductController from  "../controllers/ProductController";
 import UserController from  "../controllers/UserController";
+import Spinner from "./Spinner.vue"
+import store from "../store"
 
 export default {
 
@@ -159,10 +162,14 @@ export default {
       }
    
   },
+  components: {
+    Spinner
+  },
   methods: {
      getProduct(){
        console.log("Should start getting product : ")
        console.log(this.product);
+       store.commit("setLoadingOn")
        ProductController.getProduct(this.$route.params.id, this.product);
     },
     getProfileProducer(){

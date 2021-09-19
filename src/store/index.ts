@@ -15,7 +15,8 @@ export default createStore({
       id: null
     },
 
-    products: []
+    products: [],
+    selectedTags: []
 
   },
  
@@ -57,6 +58,11 @@ export default createStore({
     // Récupère la liste des produit 
     setProducts(state, products){
       state.products = products
+    },
+    // Récupére la liste des tags associés
+    setSelectedTags(state, tags){
+      state.selectedTags = tags
+      console.log(state.selectedTags)
     }
     
   },

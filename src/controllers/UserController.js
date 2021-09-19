@@ -63,9 +63,11 @@ const UserController = {
     getUser(ID, user) {
         axios.get('http://localhost:8000/profil/' + ID, {withCredentials:false})
         .then(function(response){
+            store.commit('setLoadingOff')
         hydrateUser(user, response.data);
         })
         .catch(error => {
+            store.commit('setLoadingOff')
             console.log(error)
         })
         return user;

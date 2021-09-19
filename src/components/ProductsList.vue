@@ -7,7 +7,7 @@
   <div class="rounded overflow-hidden shadow-lg" v-for="product in products" :key="product.description">
       <img class="w-full" v-bind:src="product.photo" alt="">
       <div class="px-6 py-4">
-        <div class="font-bold text-yellow-500 text-xl mb-2">{{product.name}}</div>
+        <div @click="goPage(product.id)" class="font-bold text-yellow-500 text-xl mb-2 cursor-pointer">{{product.name}}</div>
         <p class="text-gray-700 text-base">
           {{product.description}}
         </p> 
@@ -37,8 +37,11 @@
 
 <script>
 import ProductController from "../controllers/ProductController"
+import TagsModel from '../models/TagsModel'
 import Spinner from "./Spinner.vue"
 import store from "../store"
+import router from "../router"
+
 export default {
     data(){
       let products= [{
@@ -49,6 +52,7 @@ export default {
         photo:"",
         tags:[]
       }]
+
       return {products}
     },
       components:{
@@ -59,7 +63,12 @@ export default {
         getMinProds(){
           store.commit('setLoadingOn')
           ProductController.getMiniProds(this.products)
+        },
+        goPage(id){
+          console.log(id)
+          router.push('/distributer/detailproduct/' + id)
         }
+   
       },
       beforeMount(){
         this.getMinProds()
