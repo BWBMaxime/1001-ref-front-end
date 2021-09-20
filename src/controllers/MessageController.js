@@ -5,7 +5,7 @@ import router from "../router"
 
 const MessageController = {
 
-    sendMessage(message) {
+    sendMessage(message, redirect) {
         axios.post('http://localhost:8000/message/send', JSON.stringify(message), {withCredentials:false})
         .then(function(response){
         message.body = "";

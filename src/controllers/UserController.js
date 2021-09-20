@@ -37,7 +37,7 @@ const UserController = {
             store.commit('setCurrentRole', response.data.userRole)
             store.commit('setCurrentBio', response.data.bio)
             if(store.state.currentUser.role === "Producteur") {
-                if(store.state.currentUser.bio.length == null){
+                if(store.state.currentUser.bio == null){
                     store.commit("setLoadingOff")
                     router.push("/producer/first-connection")
                 }else {
