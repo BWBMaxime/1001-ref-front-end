@@ -17,15 +17,6 @@
                                     placeholder="Tapez votre message.." required>
                                     </textarea>
                                 </div>
-                                <div class="relative w-full mb-3">
-                                    <label class="block uppercase text-gray-700 text-xs font-bold mb-2"
-                                    for="phone">Laissez votre numéros de téléphone (facultatif)
-                                    </label>
-                                    <input v-model="message.phone" type="tel" name="phone" id="phone" class="border-0 px-3 py-3 rounded text-sm shadow w-full
-                                    bg-gray-100 text-gray-800 outline-none focus:bg-gray-300" placeholder="00 11 22 33 44 "
-                                    style="transition: all 0.15s ease 0s;"
-                                    />
-                                </div>
                                 <div class="text-center mt-6">
                                     <button @click="sendMessage()"
                                     id="sendBtn"
@@ -43,28 +34,38 @@
 </template>
 
 <script>
+
+import MessageController from  "../controllers/MessageController";
+
 export default {
     data() {
+
+    let message = {
+        senderID: "",
+        targetID: "",
+        body: "",
+    }
+
         return {
-            message: 
-                {
-                    "id": 1,
-                    "sender": "You",
-                    "target": "Jean-Michel Lessieur",
-                    "body":"",
-                    "phone": ""
-                }
+            message,
         }
     },
 
     methods:{
 
         sendMessage(){
-            console.log(this.message);
+            MessageController.sendMessage(this.message, true);
         },
 
 
-    }
+    },
+
+     beforeMount() {
+      this.message.senderID = this.$store.state.currentUser.id;
+      this.message.targetID = this.$route.params.id;
+    },
+
+
 
 }
 </script>

@@ -13,6 +13,7 @@ import Profils from '../views/Profils.vue'
 import Test from '../components/Test.vue'
 import DetailProduct from '../components/DetailProduct.vue'
 import Registration from '../components/Registration.vue'
+import FormContactProducer from '../components/FormContactProducer.vue'
 import store from '../store/index'
 
 const routes: Array<RouteRecordRaw> = [
@@ -167,6 +168,18 @@ const routes: Array<RouteRecordRaw> = [
       path: '/distributer/producerprofil/:id',
       name: 'Profil Producteur',
       component: Profils,
+      beforeEnter(to,from,next){
+        if(store.state.currentUser.role == "Distributeur - revendeur" || store.state.currentUser.role == "Distributeur - restaurateur"){
+          next()
+        }else{
+          next("/")
+        }
+      }
+    },
+    {
+      path: '/distributer/contact/:id',
+      name: 'Contact Producteur',
+      component: FormContactProducer,
       beforeEnter(to,from,next){
         if(store.state.currentUser.role == "Distributeur - revendeur" || store.state.currentUser.role == "Distributeur - restaurateur"){
           next()

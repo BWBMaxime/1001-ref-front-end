@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const ProductController = {
     saveProduct(product) {
-        axios.post('http://localhost:8000/product/create', JSON.stringify(product), {withCredentials:false})
+        axios.post('http://localhost:34557/product/create', JSON.stringify(product), {withCredentials:false})
         .then(function(response){
             //
         })
@@ -16,7 +16,7 @@ const ProductController = {
 
     
     getCurrentUserProducts(id, products){
-        axios.get('http://localhost:8000/getProducts/' + id, {withCredentials:false})
+        axios.get('http://localhost:34557/getProducts/' + id, {withCredentials:false})
         .then(function(response){
             hydratePage(products, response.data);
         })
@@ -28,7 +28,7 @@ const ProductController = {
 
     getProduct(ID, product) {
 
-        axios.get('http://localhost:8000/product/' +ID, {withCredentials:false})
+        axios.get('http://localhost:34557/product/' +ID, {withCredentials:false})
         .then(function(response){
         hydrateProduct(product, response.data);
         })
