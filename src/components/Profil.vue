@@ -87,11 +87,12 @@ export default {
     methods: {
 
         getUser(){
-            console.log('Should start getting user : ' + this.$store.state.currentUser.id);
-            console.log('this user : ' + this.user);
-                    
             store.commit('setLoadingOn')
-            UserController.getUser(this.$route.params.id,this.user);
+            if(this.$route.params.id === undefined){
+                UserController.getUser(this.$store.state.currentUser.id, this.user);
+            }else {
+                UserController.getUser(this.$route.params.id,this.user);
+            }
             this.user.loaded = true
             console.log( this.user.loaded)
         },

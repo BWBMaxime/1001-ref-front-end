@@ -140,10 +140,10 @@
                                          <label class=" font-semibold text-gray-600 py-2">Biographie</label>
                                             <textarea v-model="user.biography" id="bio" type= "text" class="w-full px-3 py-3 text-gray-700 border rounded-lg focus:outline-none" rows="4" placeholder="Description"></textarea>
 
-                                            <label class=" font-semibold text-gray-600 py-2">Logo de l'entreprise</label>
-                                                <input type="file" class="w-full text-gray-700 px-3 py-2 border rounded">
-                                                <label class=" font-semibold text-gray-600 py-2">Images des locaux</label>
-                                                <input type="file" class="w-full text-gray-700 px-3 py-2 border rounded">
+                                            <label class="font-semibold text-gray-600 py-2">Lien de votre logo</label>
+                                                <input type="text" class="w-full text-gray-700 px-3 py-2 border rounded">
+                                                <label class="font-semibold text-gray-600 py-2">Lien vers une photo</label>
+                                                <input type="text" class="w-full text-gray-700 px-3 py-2 border rounded">
                                     </form>
 
                                 </div>

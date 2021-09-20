@@ -2,6 +2,7 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import Home from '../views/Home.vue'
 import Contact from '../views/Contact.vue'
 import FirstCoProducer from '../views/FirstCoProducer.vue'
+import firstCoDistributer from '../components/FirstCoDistributor.vue'
 import RegisterProducer from '../views/RegisterProducer.vue'
 import Dashboard from '../views/Dashboard.vue'
 import Setting from '../views/Setting.vue'
@@ -199,7 +200,13 @@ const routes: Array<RouteRecordRaw> = [
         }
       }
     },
- 
+    {
+      // `First-connection-producer` va être rendu à l'intérieur du `<router-view>` de `User`
+      // quand `/utilisateur/:id/profil` concorde
+      path: '/distributer/first-connection',
+      name: 'firstCoDistributer',
+      component: firstCoDistributer
+    },
  
 
 

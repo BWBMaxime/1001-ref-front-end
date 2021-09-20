@@ -6,7 +6,8 @@ export default createStore({
     // Id et role de l'utilisateur connecté
     currentUser: {
       id: null,
-      role: ""
+      role: "",
+      bio: null
     },
 
     loading: false,
@@ -33,8 +34,11 @@ export default createStore({
       state.currentUser.role = role
       console.log("role activé: " + state.currentUser.role)
     },
+    setCurrentBio(state, bio){
+      state.currentUser.bio = bio
+    },
     logout(state) {
-      state.currentUser = { id: null, role: "" }
+      state.currentUser = { id: null, role: "", bio: null }
       console.log(state.currentUser.id)
     },
     setCurrentMessageTarget(state,id){

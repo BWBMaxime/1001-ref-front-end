@@ -32,15 +32,30 @@ const UserController = {
         .then(function(response) {
             store.commit('setCurrentUser', response.data.userId)
             store.commit('setCurrentRole', response.data.userRole)
+            store.commit('setCurrentBio', response.data.bio)
             if(store.state.currentUser.role === "Producteur") {
-                router.push("/producer/dashboard")
+                if(store.state.currentUser.bio.length == null){
+                    store.commit("setLoadingOff")
+                    router.push("/producer/first-connection")
+                }else {
+                    store.commit("setLoadingOff")
+                    router.push("/producer/dashboard")
+                }
+                
             }else{
-                store.commit('setLoadingOff')
-                router.push("/distributer/liste")
+                if(store.state.currentUser.bio == null){
+                    store.commit('setLoadingOff')
+                    router.push("/distributer/first-connection")
+                }else {
+                    store.commit('setLoadingOff')
+                    router.push("/distributer/liste")
+                }
+                
             }
             
         })
         .catch(err => {
+            store.commit('setLoadingOff')
             console.log("err " + err)
         })
     },
