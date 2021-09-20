@@ -1,12 +1,16 @@
 import axios from 'axios';
 import store from "../store/index.ts";
+import router from "../router"
+
 
 const MessageController = {
 
-    sendMessage(message) {
-        axios.post('http://127.0.0.1:8000/message/send', JSON.stringify(message), {withCredentials:false})
+    sendMessage(message,redirect) {
+        console.log(message);
+        axios.post('http://127.0.0.1:34557/message/send', JSON.stringify(message), {withCredentials:false})
         .then(function(response){
         message.body = "";
+        if(redirect) router.push('/distributer/messaging');
         })
         .catch(error => {
             console.log(error)
@@ -15,7 +19,7 @@ const MessageController = {
 
     //Gets all of the info from an existing user
     getMessages(userID, targetID ,messages) {
-        axios.get('http://127.0.0.1:8000/message/get/' + userID + "/" + targetID, {withCredentials:false})
+        axios.get('http://127.0.0.1:34557/message/get/' + userID + "/" + targetID, {withCredentials:false})
         .then(function(response){
         hydrateMessages(messages, response.data);
         })
@@ -25,16 +29,15 @@ const MessageController = {
     },
 
     getHeaders(userID, messages){
-        axios.get('http://127.0.0.1:8000/message/header/' + userID, {withCredentials:false})
+        axios.get('http://127.0.0.1:34557/message/header/' + userID, {withCredentials:false})
         .then(function(response){
         hydrateMessages(messages, response.data);
+        console.log(messages);
         })
         .catch(error => {
             console.log(error)
         })
-
     }
-
 }
 
 function hydrateMessages(messages, data){

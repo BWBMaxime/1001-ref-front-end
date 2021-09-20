@@ -9,7 +9,7 @@ const UserController = {
      * @param {*} user
      */
     saveUser(user) {
-        axios.post('http://localhost:8000/register', JSON.stringify(user), {withCredentials:false})
+        axios.post('http://localhost:34557/register', JSON.stringify(user), {withCredentials:false})
         .then(function(response){console.log(response.data);})
         .catch(error => {
             this.errorMessage = error.message;
@@ -23,7 +23,7 @@ const UserController = {
        */
       checkLogs(credentials) {
         let logs = {"mail": credentials.mail, "password": credentials.password}
-        axios.post('http://localhost:8000/getCred', logs, {withCredentials:false})
+        axios.post('http://localhost:34557/getCred', logs, {withCredentials:false})
         .then(function(response) {
             store.commit('setCurrentUser', response.data.userId)
             store.commit('setCurrentRole', response.data.userRole)
@@ -44,7 +44,7 @@ const UserController = {
      * Mettre à jour un utilisateur via un formulaire
      */
     updateUser(user) {
-        axios.post('http://localhost:8000/user/update', JSON.stringify(user), {withCredentials:false})
+        axios.post('http://localhost:34557/user/update', JSON.stringify(user), {withCredentials:false})
         .then(function(response){
             //
         })
@@ -55,7 +55,7 @@ const UserController = {
 
     // Récupère toutes les informations d'un utilisateur via son id
     getUser(ID, user) {
-        axios.get('http://localhost:8000/profil/' + ID, {withCredentials:false})
+        axios.get('http://localhost:34557/profil/' + ID, {withCredentials:false})
         .then(function(response){
         hydrateUser(user, response.data);
         })
