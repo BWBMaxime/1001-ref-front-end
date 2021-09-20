@@ -1,5 +1,7 @@
 import axios from 'axios';
 import store from "../store/index.ts";
+import router from "../router"
+
 
 const MessageController = {
 
@@ -7,6 +9,7 @@ const MessageController = {
         axios.post('http://localhost:8000/message/send', JSON.stringify(message), {withCredentials:false})
         .then(function(response){
         message.body = "";
+        if(redirect) router.push('/distributer/messaging');
         })
         .catch(error => {
             console.log(error)
@@ -29,13 +32,12 @@ const MessageController = {
         axios.get('http://localhost:8000/message/header/' + userID, {withCredentials:false})
         .then(function(response){
         hydrateMessages(messages, response.data);
+        console.log(messages);
         })
         .catch(error => {
             console.log(error)
         })
-
     }
-
 }
 
 function hydrateMessages(messages, data){

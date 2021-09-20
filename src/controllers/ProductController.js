@@ -10,7 +10,7 @@ const ProductController = {
      * saves a new product in database 
      */
     saveProduct(product) {
-        axios.post('http://localhost:8000/product/create', JSON.stringify(product), {withCredentials:false})
+        axios.post('http://localhost:34557/product/create', JSON.stringify(product), {withCredentials:false})
         .then(function(response){
         console.log(response.data);
         store.commit('setLoadingOff')
@@ -62,7 +62,7 @@ const ProductController = {
      */
     getProduct(ID, product) {
 
-        axios.get('http://localhost:8000/product/' +ID, {withCredentials:false})
+        axios.get('http://localhost:34557/product/' +ID, {withCredentials:false})
         .then(function(response){
              store.commit("setLoadingOff")
         hydrateProduct(product, response.data);

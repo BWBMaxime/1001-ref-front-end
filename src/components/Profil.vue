@@ -97,7 +97,7 @@ export default {
             console.log( this.user.loaded)
         },
         contactProducer(){
-            this.$router.push('../contact');
+            this.$router.push('../contact/'+this.$route.params.id);
         },
     },
     
