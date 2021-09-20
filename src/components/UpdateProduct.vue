@@ -158,7 +158,7 @@
             </section>     
         <!--Boutton enregistrer-->  
         <div class="py-4 mb-1 text-center mt-12">
-            <button @click="updateAndValidate()" v-if="$store.state.loading == false" id="sendData" class="transition duration-500 bg-yellow-500 hover: 0 text-white font-bold py-2 px-8 rounded focus:outline-none focus:shadow-outline" type="submit"> 
+            <button @click="update()" v-if="$store.state.loading == false" id="sendData" class="transition duration-500 bg-yellow-500 hover: 0 text-white font-bold py-2 px-8 rounded focus:outline-none focus:shadow-outline" type="submit"> 
             Mettre à jour le produit
             </button>
              <Spinner v-else />
@@ -318,14 +318,14 @@ export default{
         },
         
         /**
-         * 
+         * uploads a file
          */ 
         onFileChanged (event) {
             this.product.picture = event.target.files[0]
         },
 
         /**
-         * 
+         * checks and sends data if all fields are filled
          */
         checkAndSendData() {
             store.commit('setLoadingOn')
@@ -408,9 +408,11 @@ export default{
         /**
          * updates a product
          */
-        updateAndValidate(){
+        update(){
             ProductController.updateProduct(this.$route.params.id ,this.product);
-        }
+            
+        },
+
 
       
     },

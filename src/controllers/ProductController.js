@@ -84,6 +84,7 @@ const ProductController = {
         axios.put('http://localhost:8000/product/update/' + id, JSON.stringify(product), {withCredentials:false})
         .then(function(response){
             console.log(response.data);
+            router.push('/producer/product-list');
         })
         .catch(error => {
             console.log(error);

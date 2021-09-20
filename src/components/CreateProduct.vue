@@ -318,14 +318,14 @@ export default{
         },
         
         /**
-         * 
+         * uploads a file
          */ 
         onFileChanged (event) {
             this.product.picture = event.target.files[0]
         },
 
         /**
-         * 
+         * checks and sends data if all fields are filled
          */
         checkAndSendData() {
             store.commit('setLoadingOn')
@@ -398,31 +398,10 @@ export default{
             }
         },
 
-        /**
-         * prefill the form with the datas of the product meant to be updated
-         */
-        // prefillForm(){
-    
-        // },
-
-        /**
-         * updates a product
-         */
-        // updateAndValidate(){
-        //     ProductController.updateProduct(this.product.id ,this.product)
-        // }
-
       
     },
 
-    /**
-     * prefill the form with the product datas in order to update it
-     */
-    // beforeMount(productId){
-    //     console.log(this.product);
-        
-    //     this.updateAndValidate(this.product.id);
-    // },
+  
 }
 
 </script>
