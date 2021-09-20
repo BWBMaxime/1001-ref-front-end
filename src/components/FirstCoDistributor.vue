@@ -206,23 +206,23 @@ export default {
     },
     
 
-methods: {
+    methods: {
 
-    getUserId(){
-        return this.$store.state.currentUser.id;
-    },
+        getUserId(){
+            return this.$store.state.currentUser.id;
+        },
 
-    updateAndContinue(){
-        UserController.updateUser(this.user);
-        this.$router.push('dashboard');
-    },
+        updateAndContinue(){
+            UserController.updateUser(this.user);
+            this.$router.push('dashboard');
+        },
 
-    updateAndQuit(){
-        UserController.updateUser(this.user);
-        this.$store.commit('logout');
+        updateAndQuit(){
+            UserController.updateUser(this.user);
+            this.$store.commit('logout');
+        }
+
     }
-
-}
 }
 
 </script>
