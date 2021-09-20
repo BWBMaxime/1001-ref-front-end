@@ -11,7 +11,7 @@
                     </button>
                 </div>
                 <table id="table" class="w-full border-separate place-self-center">
-                    <h2 class="mb-5 text-xl text-yellow-500 font-semibold uppercase flex justify-center mx-auto">Vos produits (#)</h2>
+                    <h2 class="mb-5 text-xl text-yellow-500 font-semibold uppercase flex justify-center mx-auto">Vos produits</h2>
                     <thead class="opacity-80 bg-yellow-500 flex text-white w-full">
                         <tr class="flex w-full text-center justify-between">
                             <th class="px-4 py-3 w-80">Produit</th>
@@ -61,7 +61,7 @@
 
                                 <!-- Edit/Delete -->
                                 <td class="py-6 w-48 text-sm border text-center flex justify-evenly">
-                                    <button type="button" class="font-semibold leading-tight rounded-sm">
+                                    <button @click="goAddProduct(product.id);" type="button" class="font-semibold leading-tight rounded-sm">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                                         </svg>
@@ -113,30 +113,32 @@ export default {
             id:1
         }]
         
-        return {products}
+        return {
+            products
+        }
         
     },
     components: {
         Spinner
     },
+
     methods: {
 
         getAllProductsByUserId(){
             store.commit('setLoadingOn')
-            console.log("products to hydrate : ");
-            console.log(this.products);
+            // console.log("products to hydrate : ");
+            // console.log(this.products);
             ProductController.getCurrentUserProducts(this.$store.state.currentUser.id, this.products);
         },
-        goAddProduct(){
-            router.push('/producer/create-product')
-        },
 
-        /** 
-        * toggle button that allows the current user to display his product or not
-        */
-        // productToggle(){
-            
-        // },
+
+
+        /**
+         * redirects to create a new product page
+         */
+        goAddProduct(id){
+            router.push('/producer/update-product/' + id)
+        },
 
 
 
@@ -144,9 +146,9 @@ export default {
          * deletes product at given index from the list
          */
         deleteVariation(variation, index){
-            console.log("product to delete : ");
-            console.log(variation);
-            console.log(this.products);
+            // console.log("product to delete : ");
+            // console.log(variation);
+            // console.log(this.products);
             ProductController.deleteVariationById(variation.id);
             this.products.splice(index, 1);
            

@@ -24,7 +24,7 @@ const ProductController = {
 
 
     /**
-     *
+     * gets all products from current user
      */
     getCurrentUserProducts(id, products){
         // console.log(id);
@@ -43,7 +43,7 @@ const ProductController = {
 
 
     /**
-     * get all datas from a product with its id
+     * gest all the datas from a product by its id
      */
     getProduct(ID, product) {
 
@@ -60,7 +60,7 @@ const ProductController = {
 
 
     /**
-     * delete a product variation from database by its id
+     * deletes a product variation from database by its id
      */
     deleteVariationById(id){
         axios.delete('http://localhost:8000/variation/delete/' + id, {withCredentials:false})
@@ -78,7 +78,10 @@ const ProductController = {
      * updates a product
      */
     updateProduct(id, product){
-        axios.put('http://localhost:8000/product/update' + id, JSON.stringify(product), {withCredentials:false})
+        product['owner'] = null;
+        console.log(id);
+        console.log(product);
+        axios.put('http://localhost:8000/product/update/' + id, JSON.stringify(product), {withCredentials:false})
         .then(function(response){
             console.log(response.data);
         })

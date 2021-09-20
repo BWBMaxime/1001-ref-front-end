@@ -14,10 +14,11 @@ import Test from '../components/Test.vue'
 import DetailProduct from '../components/DetailProduct.vue'
 import Registration from '../components/Registration.vue'
 import store from '../store/index'
+import UpdateProduct from '../views/UpdateProduct.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
-    //Utilisateur Non Connecter
+    //Utilisateur Non Connecté
     path: '/',
     name: 'home',
     component: Home
@@ -92,6 +93,19 @@ const routes: Array<RouteRecordRaw> = [
       name: 'createProduct',
       component: CreateProduct,
       beforeEnter(to, from,next){
+        if(store.state.currentUser.role == "Producteur"){
+          next()
+        }else{
+          next("/")
+        }
+      }
+    },
+
+    {
+      path: '/producer/update-product/:id',
+      name: 'updateProduct',
+      component: UpdateProduct,
+      beforeEnter(to, from, next){
         if(store.state.currentUser.role == "Producteur"){
           next()
         }else{

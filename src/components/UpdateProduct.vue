@@ -1,6 +1,6 @@
 <template>
     <main class="lg:w-3/5  sm:w-full p-8 mx-auto">
-        <p class="text-left md:text-center py4 h1-style mb-4">Création d'un nouveau produit</p>
+        <p class="text-left md:text-center py4 h1-style mb-4">Mise à jour d'un produit</p>
             <section class="shadow row">
                 <div class="tabs">
                     <div class="border-b tab">
@@ -80,9 +80,9 @@
                                     <p></p>
                                 </span>
                                 <div id ="one" class="flex w-full justify-around items-center mb-6" v-for="(declinaison,index) in product.variations" :key="index">
-                                    <input v-model="product.variations[index].contenant" type="text" placeholder="Contenant" class="w-1/4 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-yellow-500 focus:outline-none">
-                                    <input  v-model="product.variations[index].conditionnement"  type="text" placeholder="Conditionnement" class="w-1/4 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-yellow-500 focus:outline-none">
-                                    <input  v-model="product.variations[index].contenance"  type="text" placeholder="Contenance" class="w-1/4 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-yellow-500 focus:outline-none">
+                                    <input v-model="product.variations[index].container" type="text" placeholder="Contenant" class="w-1/4 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-yellow-500 focus:outline-none">
+                                    <input  v-model="product.variations[index].conditioning"  type="text" placeholder="Conditionnement" class="w-1/4 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-yellow-500 focus:outline-none">
+                                    <input  v-model="product.variations[index].capacity"  type="text" placeholder="Contenance" class="w-1/4 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-yellow-500 focus:outline-none">
                                     <button v-if="product.variations.length > 1" @click="deleteDeclinaison(index)" class=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg></button>
                                     <div v-else></div>
                                 </div>
@@ -97,7 +97,7 @@
                             <input class="w-full absolute z-10 cursor-pointer opacity-0 h-5 top-6" type="checkbox" id="chck3">
                             <header class="flex justify-between items-center p-5 pl-8 pr-8 cursor-pointer select-none tab-label" for="chck3">
                                 <span class="text-grey-darkest font-thin text-xl">
-                                    3 - Prix
+                                3 - Prix
                                 </span>
                                 <div class="rounded-full border border-grey w-7 h-7 flex items-center justify-center test">
                                     <!-- icon by feathericons.com -->
@@ -115,9 +115,9 @@
                                     <p></p>
                                 </span>
                                 <div id="two" class="flex w-full justify-around items-center mb-6" v-for="(declinaison,index) in product.variations" :key="index">
-                                    <p  class="w-40">{{product.variations[index].conditionnement}} - {{product.variations[index].contenance}}</p> 
-                                    <input  v-model="product.variations[index].prixRevendeur"  type="number" min="0" placeholder="Prix revendeur" class="w-1/4 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-yellow-500 focus:outline-none">
-                                    <input  v-model="product.variations[index].prixRestaurateur"  type="number" min="0" placeholder="Prix restaurateur" class="w-1/4 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-yellow-500 focus:outline-none">
+                                    <p  class="w-40">{{product.variations[index].conditioning}} - {{product.variations[index].capacity}}</p> 
+                                    <input  v-model="product.variations[index].dealerPrice"  type="number" min="0" placeholder="Prix revendeur" class="w-1/4 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-yellow-500 focus:outline-none">
+                                    <input  v-model="product.variations[index].restaurateurPrice"  type="number" min="0" placeholder="Prix restaurateur" class="w-1/4 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-yellow-500 focus:outline-none">
                                     <button v-if="product.variations.length > 1" @click="deleteDeclinaison(index)" class=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg></button>
                                     <div v-else></div>
                                 </div>
@@ -129,7 +129,7 @@
                             <input class="w-full absolute z-10 cursor-pointer opacity-0 h-5 top-6" type="checkbox" id="chck3">
                             <header class="flex justify-between items-center p-5 pl-8 pr-8 cursor-pointer select-none tab-label" for="chck3">
                                 <span class="text-grey-darkest font-thin text-xl">
-                                    4 - Promotions
+                                4 - Promotions
                                 </span>
                                 <div class="rounded-full border border-grey w-7 h-7 flex items-center justify-center test">
                                     <!-- icon by feathericons.com -->
@@ -145,7 +145,7 @@
                                     <p>Choisir une promotion</p>
                                 </span>
                                 <div class="flex w-full justify-around items-center mb-6" v-for="(declinaison,index) in product.variations" :key="index">
-                                    <p  class="w-40">{{product.variations[index].conditionnement}} - {{product.variations[index].contenance}}</p>
+                                    <p  class="w-40">{{product.variations[index].conditioning}} - {{product.variations[index].capacity}}</p>
                                     <select v-model="product.variations[index].promotion" name="category" id="category-select" class="w-100 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-yellow-500 focus:outline-none">
                                         <option value="" selected>Aucune</option>
                                         <option v-for="(promotion, index) in promotions" :key="index" :value="promotion.id">{{promotion.name}}</option>
@@ -158,8 +158,8 @@
             </section>     
         <!--Boutton enregistrer-->  
         <div class="py-4 mb-1 text-center mt-12">
-            <button @click="checkAndSendData" v-if="$store.state.loading == false" id="sendData" class="transition duration-500 bg-yellow-500 hover: 0 text-white font-bold py-2 px-8 rounded focus:outline-none focus:shadow-outline" type="submit"> 
-            Enregistrer le produit
+            <button @click="updateAndValidate()" v-if="$store.state.loading == false" id="sendData" class="transition duration-500 bg-yellow-500 hover: 0 text-white font-bold py-2 px-8 rounded focus:outline-none focus:shadow-outline" type="submit"> 
+            Mettre à jour le produit
             </button>
              <Spinner v-else />
         </div>
@@ -224,11 +224,11 @@ export default{
             photo: "",
             variations:
             [{
-                contenant:"",
-                conditionnement:"",
-                contenance:"",
-                prixRevendeur:"",
-                prixRestaurateur:""
+                container:"",
+                conditioning:"",
+                capacity:"",
+                dealerPrice:"",
+                restaurateurPrice:""
             }],
             userId:1
         }
@@ -401,16 +401,16 @@ export default{
         /**
          * prefill the form with the datas of the product meant to be updated
          */
-        // prefillForm(){
-    
-        // },
+        prefillForm(){
+            ProductController.getProduct(this.$route.params.id, this.product);
+        },
 
         /**
          * updates a product
          */
-        // updateAndValidate(){
-        //     ProductController.updateProduct(this.product.id ,this.product)
-        // }
+        updateAndValidate(){
+            ProductController.updateProduct(this.$route.params.id ,this.product);
+        }
 
       
     },
@@ -418,41 +418,10 @@ export default{
     /**
      * prefill the form with the product datas in order to update it
      */
-    // beforeMount(productId){
-    //     console.log(this.product);
-        
-    //     this.updateAndValidate(this.product.id);
-    // },
+    beforeMount(){
+        console.log(this.product);
+        this.prefillForm();
+    },
 }
 
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-.h1-style {
-    color: #f2ba52;
-   font-size: 50px;
-   font-weight: bold;
-}
-.tab {
-overflow: hidden;
-}
-.tab-content {
-max-height: 0;
-transition: all 0.5s;
-}
-input:checked + .tab-label .test {
-    background-color: #000;
-}
-input:checked + .tab-label .test svg {
-    transform: rotate(180deg);
-    stroke: #fff;
-}
-input:checked + .tab-label::after {
-transform: rotate(90deg);
-}
-input:checked ~ .tab-content {
-max-height: 100vh;
-}         
-
-</style>
