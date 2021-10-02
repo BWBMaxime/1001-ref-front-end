@@ -1,9 +1,9 @@
 <template>
-    <section class="container mx-auto px-24 font-mono flex items-center justify-center">
-        <div class="w-11/12 mb-8 overflow-hidden rounded-lg shadow-lg">
+    <section class="w-full mx-auto px-24 font-mono flex items-center justify-center">
+        <div class="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
             <!-- Table of products -->
             <div class="w-full 2xl:overflow-hidden overflow-x-auto">
-                <table class="w-11/12 border-separate place-self-center">
+                <table class="w-full border-separate place-self-center">
                     <h2 class="mb-5 p-2 text-xl text-ye llow-500 font-semibold uppercase">Produits du producteur :</h2>
                     <thead class="opacity-80 bg-yellow-500 flex text-white w-full">
                         <tr class="flex w-full text-center">
@@ -32,7 +32,11 @@
                                     </button>
                                 </div>
                             </td>
-                            <td class="mx-4 my-3 w-32 text-sm border text-center">{{ product.category }}</td>
+                            <td class="mx-4 my-3 w-36 text-sm border text-center">
+                                <div>
+                                    {{ product.category }}
+                                </div>
+                            </td>
                             <!-- Variations -->
                             <td v-if="$store.state.currentUser.role == 'Distributeur - restaurateur'" class="mx-4 my-3 w-24 text-sm border text-center">{{ variation.restaurateurPrice }} €</td>
                             <td v-else-if="$store.state.currentUser.role == 'Distributeur - revendeur'" class="mx-4 my-3 w-24 text-sm border text-center">{{ variation.dealerPrice }} €</td>

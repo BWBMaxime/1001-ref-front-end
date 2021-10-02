@@ -4,12 +4,7 @@
             <!-- Table of products -->
             <div class="w-full 2xl:overflow-hidden overflow-x-auto">
                 <Spinner v-if="$store.state.loading == true"/>
-                <div class="flex mt-6 mr-6 items-center pb-5 border-gray-100">
-                    <!-- Button -->
-                    <button @click="goAddProduct" class="flex ml-auto border-0 py-2 px-6 rounded-md bg-yellow-500 text-white text-sm font-semibold hover:bg-yellow-400">
-                        Ajouter un produit
-                    </button>
-                </div>
+               
                 <table id="table" class="w-full border-separate place-self-center">
                     <h2 class="mb-5 text-xl text-yellow-500 font-semibold uppercase flex justify-center mx-auto">Vos produits</h2>
                     <thead class="opacity-80 bg-yellow-500 flex text-white w-full">
